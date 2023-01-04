@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import DashBoard from "../pages/dashboard";
 import HomePage from "../pages/home";
-import Profile from "../pages/home/profile";
+import Profile from "../pages/profile";
 import  Login  from "../pages/login";
 import  Register  from "../pages/register";
 
