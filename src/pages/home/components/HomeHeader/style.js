@@ -1,29 +1,37 @@
 import styled from "styled-components";
 
 
+
 export const StyledHomeHeader = styled.div`
+    background-color: var(--primary200);
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
 
-    margin: 0 auto;
-    width: 300px;
-    height: 500px;
-    background-color: red;
-    div {
-        width: 90%;
-        height: 50px;
-        display: flex;
-        justify-content: space-between;
-        padding: 15px;
-    }
     img {
-        width: 50px;
-        height: 50px;
+        width: 100%;
     }
-    button {
-        margin: 0;
-        padding: 0;
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 0 20px 25px;
     }
+    h2 {
+        font-family: var(--font-family-2);
+        font-size: 20px;
+        font-weight: var(--font-weight-1);
+        line-height: 29px;
+        color: var(--primary100);
+    }
+    h3 {
+        font-family: var(--font-family-1);
+        font-size: 36px;
+        font-weight: var(--font-weight-3);
+        line-height: 54px;
+        color: var(--primary100);
+    }
+
+
 
 `
