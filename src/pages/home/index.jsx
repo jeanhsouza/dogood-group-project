@@ -4,15 +4,19 @@ import Header from "../../components/Header/Header";
 import HomeHeader from "./components/HomeHeader";
 import HomeList from "./components/HomeList";
 import { StyledHomePage } from "./style";
+import AsideMenu from "../../components/AsideMenu";
 
 const HomePage = () => {
-	return (<StyledHomePage>
-        <Header/>
-        <HomeHeader/>
-        <HomeList/>
-        <HomeContact/>
-        <Footer/>   
-    </StyledHomePage>);
+  return (
+    <StyledHomePage>
+      <AsideMenu />
+      <Header />
+      <HomeHeader />
+      <HomeList />
+      <HomeContact />
+      <Footer />
+    </StyledHomePage>
+  );
 };
 
 export default HomePage;
