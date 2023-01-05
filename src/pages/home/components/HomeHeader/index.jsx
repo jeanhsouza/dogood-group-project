@@ -1,6 +1,6 @@
-import React from 'react'
-import { StyledHomeHeader } from './style'
-import donateImage from './../../../../assets/donatenow.png'
+import React from "react"
+import { StyledHomeHeader } from "./style"
+import donateImage from "./../../../../assets/donatenow.png"
 
 
 const HomeHeader = () => {

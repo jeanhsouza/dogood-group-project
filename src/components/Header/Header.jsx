@@ -1,8 +1,9 @@
 import React, { useState } from "react"
-import logo from './../../assets/logo.png'
-import dropButton from './../../assets/dropdownmenu.png'
-import closeDropButton from './../../assets/closedropmenu.png'
+import logo from "./../../assets/logo.png"
+import dropButton from "./../../assets/dropdownmenu.png"
+import closeDropButton from "./../../assets/closedropmenu.png"
 import { StyledHeader } from "./style"
+import { Link } from "react-router-dom"
 const Header = () => {
     const [ isActive, setIsActive ] = useState(false)
 
@@ -26,12 +27,25 @@ const Header = () => {
         </div>
         {(isActive ? <nav>
             <ul>
-                <li>HOME</li>
-                <li>DONATIONS</li>
-                <li>PORTFOLIO</li>
-                <li>BLOG</li>
-                <li>LANDING</li>
+                <Link to="/home">
+                    <li>HOME</li>
+                </Link>
+                <Link to="/login">
+                    <li>LOGIN</li>
+                </Link>
+                <Link to="/register">
+                    <li>REGISTER</li>
+                </Link>
+                <Link to="/profile/:id">
+                    <li>PROFILE</li>
+                </Link>
+                <Link to="/dashboard">
+                    <li>DASHBOARD</li>
+                </Link>
             </ul>
+                
+
+
         </nav> : null)}
         
     </StyledHeader>

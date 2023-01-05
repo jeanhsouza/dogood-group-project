@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
-
 export const StyledHeader = styled.div`
+
+@media (min-width: 600px) {
+
+        display: none;
+	}
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,6 +16,7 @@ export const StyledHeader = styled.div`
     background-color: red;
     position: sticky;
     z-index: 5;
+
     div {
         background-color: var(--white100);
         width: 100%;
@@ -52,6 +58,7 @@ export const StyledHeader = styled.div`
         gap: 10px
     }
     li {
+        color: var(--gray100);
         cursor: pointer;
         font-family: var(--font-family-1);
         font-size: var(--font-size-1);
@@ -61,5 +68,4 @@ export const StyledHeader = styled.div`
             text-decoration: underline;
         }
     }
-
 `
