@@ -11,33 +11,36 @@ export const StyledPosts = styled.ul`
 
     display: flex;
     margin: 80px auto;
-    width: 760px;
+    width: 280px;
     flex-wrap: wrap; 
 
     h3{
-       position: relative;
-       margin-left: 50px;
-       margin-right: 30%;
-       color: var(--secundary100);
-       font-size: 36px;
-       font-weight: 400;
-       line-height: 54px;
+        color: var(--secundary100);
+
+        font-size:1.9rem;
+        font-weight: 400;
+        line-height: 54px;
     }
 
     li{
-        margin: 24px 50px 50px;
-        height: max-content;
+        margin-top: 20px;
+        margin-bottom: 5px;
     }
-
+   
+    
     @media (min-width:900px){
-        max-width: 400px;
+        width: 760px;
 
-        h3{
-            font-size:1.9rem;
+        h3{ 
+            position: relative;
+            margin-left: 50px;
+            margin-right: 30%;
+            font-size: 36px;
         }
 
         li{
-            margin-bottom: 10px;
+            margin: 24px 50px 50px;
+            height: max-content;
         }
     }
 `

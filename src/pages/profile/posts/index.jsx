@@ -4,24 +4,25 @@ import { api } from "../../../services/api";
 import PostCard from "./postCard";
 
 const PostsList = () =>{
+    const [postList, setPosts] = useState([]);
 
     useEffect(()=>{
         async function loadPosts(){
             const {data} = await api.get("/posts/?_expand=user");
             const actualId = 3;
             const actualList = data.filter(post => post.userId == actualId);
-    
+            console.log(actualList);
+            setPosts(actualList);
+           
         }
         loadPosts();  
     }, []);
-
-    console.log(actualPosts);
 
     return( 
         <>
             <StyledPosts>
                 <h3>Minhas Postagens</h3> 
-                    {actualList.map(({title, description})=>{
+                    {postList.map(({title, description})=>{
                         return <PostCard title={title} description={description}/>
                     })}
             </StyledPosts>
