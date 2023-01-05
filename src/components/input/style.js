@@ -79,7 +79,7 @@ export const StyledInput = styled.input`
   border-bottom: 2px solid black;
   outline: 0;
   font-size: 1.3rem;
-  padding: 7px 0;
+  padding: 0px 0;
   background: transparent;
   transition: border-color 0.2s;
 
@@ -91,7 +91,7 @@ export const StyledInput = styled.input`
 export const Wrapper = styled.div`
   position: relative;
   padding: 15px 0 0;
-  margin-top: 10px;
+  margin-top: 0px;
   width: 99%;
 `;
 
