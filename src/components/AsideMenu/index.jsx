@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import Logo from "../../assets/img/left-logo-dark.png";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { ImInstagram } from "react-icons/im";
+// import { FaFacebookF } from "react-icons/fa";
+// import { FaTwitter } from "react-icons/fa";
+// import { ImInstagram } from "react-icons/im";
 import { AsideDiv, AsideFooter, ButtonDiv } from "./style";
 
 const AsideMenu = () => {
+
 	return (
 		<AsideDiv>
 			<div className="headerAside">
