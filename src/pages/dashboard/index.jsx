@@ -1,8 +1,9 @@
+import PostsList from "../../components/Posts";
 import { StyledDashboard} from "./style";
 
 const DashBoard = () => {
 	return (<StyledDashboard>
-        <h1>DashBoard</h1>
+        <PostsList titleList={"Minhas Postagens"}/>
     </StyledDashboard>);
 };
 

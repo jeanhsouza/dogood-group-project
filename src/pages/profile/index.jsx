@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import PostsList from "./posts";
 import ProfileHeader from "./profile/ProfileHeader";
 import { StyledProfile } from "./style";
 
@@ -10,7 +9,6 @@ const Profile = () => {
 		<StyledProfile>
             {id}
             <ProfileHeader/>
-			<PostsList />
 		</StyledProfile>
 	);
 };

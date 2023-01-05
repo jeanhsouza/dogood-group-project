@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { StyledPosts } from "./style";
-import { api } from "../../../services/api";
+import { api } from "../../services/api";
 import PostCard from "./postCard";
 
-const PostsList = () =>{
+const PostsList = ({titleList}) =>{
     const [postList, setPosts] = useState([]);
 
-    useEffect(()=>{
-        async function loadPosts(){
+    useEffect(()=> {
+        async function loadPosts() {
             const {data} = await api.get("/posts/?_expand=user");
             const actualId = 3;
             const actualList = data.filter(post => post.userId == actualId);
@@ -19,7 +19,7 @@ const PostsList = () =>{
     return( 
         <>
             <StyledPosts>
-                <h3>Minhas Postagens</h3> 
+                <h3>{titleList}</h3> 
                     {postList.map(({title, description, id})=>{
                         return <PostCard title={title} description={description} idPost={id} key={id}/>
                     })}
