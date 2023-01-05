@@ -8,49 +8,49 @@ const HomeList = () => {
 	const { users } = React.useContext(AuthContext);
 
 
-	const user = [
-		{
-			id: 10,
-			name: "Nome da ong",
-			description: "lorem ipsum dolor sit amet, lorem ipsum",
-			img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-			raised: 30000,
-			goal: 50000,
-		},
+	// const user = [
+	// 	{
+	// 		id: 10,
+	// 		name: "Nome da ong",
+	// 		description: "lorem ipsum dolor sit amet, lorem ipsum",
+	// 		img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
+	// 		raised: 30000,
+	// 		goal: 50000,
+	// 	},
 
-		{
-			id: 20,
-			name: "Nome da ong",
-			description: "lorem ipsum dolor sit amet, lorem ipsum",
-			img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-			raised: 60000,
-			goal: 50000,
-		},
-		{
-			id: 30,
-			name: "Nome da ong",
-			description: "lorem ipsum dolor sit amet, lorem ipsum",
-			img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-			raised: 60000,
-			goal: 50000,
-		},
+	// 	{
+	// 		id: 20,
+	// 		name: "Nome da ong",
+	// 		description: "lorem ipsum dolor sit amet, lorem ipsum",
+	// 		img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
+	// 		raised: 60000,
+	// 		goal: 50000,
+	// 	},
+	// 	{
+	// 		id: 30,
+	// 		name: "Nome da ong",
+	// 		description: "lorem ipsum dolor sit amet, lorem ipsum",
+	// 		img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
+	// 		raised: 60000,
+	// 		goal: 50000,
+	// 	},
 
-		{
-			id: 40,
-			name: "Nome da ong",
-			description: "lorem ipsum dolor sit amet, lorem ipsum",
-			img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-			raised: 10000,
-			goal: 150000,
-		},
-	];
+	// 	{
+	// 		id: 40,
+	// 		name: "Nome da ong",
+	// 		description: "lorem ipsum dolor sit amet, lorem ipsum",
+	// 		img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
+	// 		raised: 10000,
+	// 		goal: 150000,
+	// 	},
+	// ];
 
 	return (
 		<>
 			<StyledHomeList>
 				<h1>ESCOLHA SUA CAUSA</h1>
 				<ul>
-					{user.map(({ name, id, description, img, raised, goal }) => {
+					{users.map(({ name, id, description, img, raised, goal }) => {
 						const validatePercentage = (raised, goal) => {
 							const result = (raised / goal) * 100;
 							return result >= 100 ? 100 : Math.floor(result);
