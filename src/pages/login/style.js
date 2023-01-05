@@ -11,14 +11,13 @@ export const StyledLogin = styled.div`
     position: relative;
     top: 120px;
     text-align: left;
-    font-family: var(--font-family-2);
   }
 
   form h1 {
     font-size: 36px;
     font-weight: 800;
     color: var(--secundary100);
-    font-family: var(--font-family-2);
+    font-family: var(--font-family-1);
   }
 
   .form-div {
@@ -78,6 +77,7 @@ export const StyledLogin = styled.div`
     height: 95vh;
     display: flex;
     gap: 40px;
+    animation: slideLeft 0.4s ease forwards;
 
     form {
       width: 570px;
@@ -87,13 +87,13 @@ export const StyledLogin = styled.div`
       bottom: 0;
       flex-direction: column;
       text-align: left;
-      font-family: var(--font-family-2);
     }
 
     form h1 {
       font-size: 46px;
       font-weight: 800;
       color: var(--secundary100);
+      font-family: var(--font-family-1);
     }
 
     .form-div {
@@ -171,6 +171,7 @@ export const StyledLogin = styled.div`
       color: black;
       font-size: 17px;
       font-weight: 800;
+      font-family: var(--font-family-2);
     }
   }
 `;
