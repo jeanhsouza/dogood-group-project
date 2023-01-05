@@ -1,5 +1,11 @@
 import styled from "styled-components";
 export const StyledCard = styled.li`
+    @font-face {
+        font-family: Heebo;
+        src: url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+    }
+
+
     img{
         width: 280px;
         height: 210px;
@@ -17,7 +23,7 @@ export const StyledCard = styled.li`
 
     p{
         color: var(--black100);
-
+        font-family: Heebo;
         font-size: 10px;
         font-weight: 400;
         line-height: 15px;
@@ -29,5 +35,17 @@ export const StyledCard = styled.li`
 
         background-color: var(--primary200);
         color: var(--primary100);
+    }
+
+    @media (min-width: 900px) {
+        h2{
+            font-size: 1.25rem;
+        }
+        p{
+            font-size: 0.7rem;
+        }
+        button{
+            font-size: 15px;
+        }
     }
 `
