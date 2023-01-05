@@ -22,8 +22,6 @@ const Login = () => {
       const response = await api.post("/login", data);
 
       window.localStorage.setItem("@user:ID", response.data.user.id);
-
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
