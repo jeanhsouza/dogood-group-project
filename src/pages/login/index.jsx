@@ -21,7 +21,7 @@ const Login = () => {
     try {
       const response = await api.post("/login", data);
 
-      window.localStorage.setItem("@user:ID", response.data.user.id);
+      window.localStorage.setItem("@USER:ID", response.data.user.id);
 
       console.log(response);
     } catch (error) {
@@ -35,7 +35,6 @@ const Login = () => {
 
   return (
     <>
-      <Header />
       <StyledLogin>
         <ImageDiv>
           <img src={logImage} alt="" />
@@ -58,7 +57,7 @@ const Login = () => {
               error={errors.password}
               {...register("password")}
             />
-            <LogButton className="hoverUnderLineAnimation">Entrar</LogButton>
+            <LogButton className="hoverUnderLineAnimation">ENTRAR</LogButton>
           </div>
 
           <div className="question-div">
