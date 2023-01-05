@@ -9,7 +9,6 @@ const Header = () => {
 
     function showMenu () {
         setIsActive(!isActive)
-        console.log(isActive)
     }
 
 

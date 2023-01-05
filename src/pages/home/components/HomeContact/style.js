@@ -1,18 +1,22 @@
 import styled from "styled-components";
 
 export const StyledHomeContact = styled.section`
-	margin-bottom: 32px;
 	display: flex;
 	flex-direction: column;
 	gap: 50px;
 	font-family: var(--font-family-2);
 	color: var(--black100);
 
+	.map {
+		height: max(500px,100%);
+	}
+
 	.contactText {
 		display: flex;
 		padding-left: 16px;
 		flex-direction: column;
 		gap: 16px;
+		padding: 100px 16px;
 
 		> h2 {
 			font-family: var(--font-family-1);

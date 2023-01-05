@@ -1,28 +1,30 @@
-import React from "react"
-import { StyledHomeHeader } from "./style"
-import donateImage from "./../../../../assets/donatenow.png"
-
+import React from "react";
+import { StyledHomeHeader } from "./style";
 
 const HomeHeader = () => {
-  return (
-    <StyledHomeHeader>
-        <img src={donateImage} alt="donateImage" />
-        <div>
-            <span>
-                <h2>Nossa Meta:</h2>
-                <h3>$65.000</h3>
-            </span>
-            <span>
-                <h2>Arrecadados:</h2>
-                <h3>$45.000</h3>
-            </span>
-            <span>
-                <h2>ONGs Cadastradas:</h2>
-                <h3>10</h3>
-            </span>
-        </div>
-    </StyledHomeHeader>
-  )
-}
+	return (
+		<StyledHomeHeader>
+			<div className="hero-section">
+				<p>NOS AJUDE A FAZER MAIS</p>
+				<h1>DOE AGORA</h1>
+			</div>
 
-export default HomeHeader
+			<div className="stats-section">
+				<div className="stats-item">
+					<h2>Nossa Meta:</h2>
+					<h3>$65.000</h3>
+				</div>
+				<div className="stats-item">
+					<h2>Arrecadados:</h2>
+					<h3>$45.000</h3>
+				</div>
+				<div className="stats-item">
+					<h2>ONGs Cadastradas:</h2>
+					<h3>10</h3>
+				</div>
+			</div>
+		</StyledHomeHeader>
+	);
+};
+
+export default HomeHeader;
