@@ -8,7 +8,6 @@ export const StyledPosts = styled.ul`
     *{
         font-family: Anton;
     }
-    background-color: blue;
 
     display: flex;
     margin: 80px auto;
@@ -21,6 +20,8 @@ export const StyledPosts = styled.ul`
        margin-left: 50px;
        margin-right: 30%;
 
+        color: var(--secundary100);
+
        font-size: 36px;
        font-weight: 400;
        line-height: 54px;
@@ -29,6 +30,5 @@ export const StyledPosts = styled.ul`
     li{
         margin: 24px 50px 50px;
         height: max-content;
-        background-color: red;
     }
 `

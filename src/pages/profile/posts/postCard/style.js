@@ -25,7 +25,7 @@ export const StyledCard = styled.li`
 
     button{
         margin-top: 10px;
-        padding: 8px 30px;
+        padding: 10px 30px;
 
         background-color: var(--primary200);
         color: var(--primary100);
