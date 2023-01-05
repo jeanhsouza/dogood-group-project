@@ -14,7 +14,7 @@ export const StyledHeader = styled.div`
     margin: 0 auto;
     width: 100%;
     background-color: red;
-    position: sticky;
+    position: fixed;
     z-index: 5;
 
     div {
