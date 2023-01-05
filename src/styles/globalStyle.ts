@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyled = createGlobalStyle`
-html, body, div, span, applet, object, iframe,
+html, body,button, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -67,6 +67,7 @@ button{
 	--gray200: #828282;
 	--gray300: #E0E0E0;
 	--gray400: #F6F6F6;
+	--font-size-0: 32px;
 	--font-size-1: 26px;
 	--font-size-2: 22px;
 	--font-size-3: 18px;
@@ -82,12 +83,18 @@ button{
 }
 
 body {
+	font-family: var(--font-family-2);
 	background-color: var(--color-white-1);
+}
+img {
+	display: block;
+	max-width: 100%;
 }
 
 button,
 input,
-select {
+select, textarea {
+	font-family: var(--font-family-2);
 	font-size: inherit;
 	line-height: inherit;
 }
