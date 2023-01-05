@@ -15,8 +15,8 @@ export const StyledHeader = styled.div`
     width: 100%;
     position: fixed;
     z-index: 5;
-
-
+    
+    
     div {
         background-color: var(--white100);
         width: 100%;
@@ -44,15 +44,8 @@ export const StyledHeader = styled.div`
         padding: 20px;
         animation: menuIn 1s linear;
         animation-duration: 0.5s;
-        @keyframes menuIn {
-            from {
-        transform: translateX(150px);
-        opacity: 0;
-        }
-        to {
-        opacity: 1;
-        }
     }
+    
     ul {
         display: flex;
         flex-direction: column;
@@ -69,4 +62,13 @@ export const StyledHeader = styled.div`
             text-decoration: underline;
         }
     }
-`
+    @keyframes menuIn {
+        from {
+    transform: translateX(150px);
+    opacity: 0;
+    }
+    to {
+    opacity: 1;
+    }
+    }
+    `

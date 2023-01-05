@@ -4,6 +4,10 @@ import { StyledDonationModal } from './style'
 const DonationModal = ( { openModal } ) => {
 
 
+
+
+    //----------FUNÇÃO PARA EXIBIR MODAL----------
+
     // const [ showModal, setShowModal ] = useState(false)
     // function openModal () {
     //     setShowModal(!showModal)
@@ -11,11 +15,6 @@ const DonationModal = ( { openModal } ) => {
 
     // <button onClick={openModal}>showModal</button>
     // {(showModal ? <DonationModal openModal={openModal} /> : null)}
-
-
-
-
-
 
 
 
