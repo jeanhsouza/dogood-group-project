@@ -82,7 +82,12 @@ button{
 }
 
 body {
+	font-family: var(--font-family-2);
 	background-color: var(--color-white-1);
+}
+img {
+	display: block;
+	max-width: 100%;
 }
 
 button,
