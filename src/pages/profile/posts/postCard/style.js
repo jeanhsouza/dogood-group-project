@@ -5,7 +5,6 @@ export const StyledCard = styled.li`
         src: url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
     }
 
-
     img{
         width: 280px;
         height: 210px;
