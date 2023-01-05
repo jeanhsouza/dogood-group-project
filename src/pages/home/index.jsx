@@ -1,15 +1,22 @@
-import { StyledHomePage } from "./style";
+import HomeContact from "./components/HomeContact";
+import Footer from "./components/HomeFooter";
+import Header from "../../components/Header/Header";
+import HomeHeader from "./components/HomeHeader";
 import HomeList from "./components/HomeList";
+import { StyledHomePage } from "./style";
+import AsideMenu from "../../components/AsideMenu";
 
 const HomePage = () => {
-	return (
-		<StyledHomePage>
-			<header className="HomeHeader"></header>
-			<HomeList />
-			<section className="HomeContact"></section>
-			<footer></footer>
-		</StyledHomePage>
-	);
+  return (
+    <StyledHomePage>
+      <AsideMenu />
+      <Header />
+      <HomeHeader />
+      <HomeList />
+      <HomeContact />
+      <Footer />
+    </StyledHomePage>
+  );
 };
 
 export default HomePage;

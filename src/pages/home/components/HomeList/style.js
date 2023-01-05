@@ -64,19 +64,9 @@ export const StyledHomeCard = styled.a`
 		position: relative;
 		overflow: hidden;
 
-		&:hover {
-			span {
-				transform: translateY(0);
-			}
-		}
-
 		img {
 			z-index: 5;
 			transition: 0.5s ease;
-
-			&:hover {
-				transform: scale(1.1);
-			}
 		}
 
 		span {
@@ -90,7 +80,6 @@ export const StyledHomeCard = styled.a`
 			z-index: 10;
 			width: 100%;
 			font-family: var(--font-family-1);
-			transform: translateY(100%);
 			text-align: center;
 			color: var(--primary100);
 			background-color: var(--primary200);
@@ -157,5 +146,23 @@ export const StyledHomeCard = styled.a`
 		from {
 			width: 0%;
 		}
+	}
+
+	@media (min-width: 700px) {
+		.card-header img:hover {
+			transform: scale(1.1);
+		}
+
+		.card-header {
+			&:hover {
+				span {
+					transform: translateY(0);
+				}
+			}
+		}
+	}
+
+	.card-header span {
+		transform: translateY(100%);
 	}
 `;

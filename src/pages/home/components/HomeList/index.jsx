@@ -36,7 +36,7 @@ const HomeList = ({ users }) => {
 			name: "Nome da ong",
 			description: "lorem ipsum dolor sit amet, lorem ipsum",
 			img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-			raised: 30000,
+			raised: 10000,
 			goal: 150000,
 		},
 	];
@@ -49,7 +49,7 @@ const HomeList = ({ users }) => {
 					{user.map(({ name, id, description, img, raised, goal }) => {
 						const validatePercentage = (raised, goal) => {
 							const result = (raised / goal) * 100;
-							return result >= 100 ? 100 : result;
+							return result >= 100 ? 100 : Math.floor(result);
 						};
 
 						return (
