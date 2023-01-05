@@ -2,6 +2,23 @@ import React from 'react'
 import { StyledDonationModal } from './style'
 
 const DonationModal = ( { openModal } ) => {
+
+
+    // const [ showModal, setShowModal ] = useState(false)
+    // function openModal () {
+    //     setShowModal(!showModal)
+    // }
+
+    // <button onClick={openModal}>showModal</button>
+    // {(showModal ? <DonationModal openModal={openModal} /> : null)}
+
+
+
+
+
+
+
+
   return (
     <StyledDonationModal>
         <div className='modalWrapper'>
