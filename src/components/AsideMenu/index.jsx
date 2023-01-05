@@ -6,6 +6,7 @@ import { ImInstagram } from "react-icons/im";
 import { AsideDiv, AsideFooter, ButtonDiv } from "./style";
 
 const AsideMenu = () => {
+
 	return (
 		<AsideDiv>
 			<div className="headerAside">
