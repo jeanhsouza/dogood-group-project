@@ -95,6 +95,7 @@ export const StyledDonationModal = styled.div`
         font-size: 20px;
         line-height: 30px;
         border-radius: 0 0 10px 10px ;
+        margin-top: 5px;
     }
 
 `

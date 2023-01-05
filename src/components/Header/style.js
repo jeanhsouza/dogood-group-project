@@ -13,9 +13,9 @@ export const StyledHeader = styled.div`
     justify-content: center;
     margin: 0 auto;
     width: 100%;
-    background-color: red;
     position: fixed;
     z-index: 5;
+
 
     div {
         background-color: var(--white100);
@@ -24,6 +24,7 @@ export const StyledHeader = styled.div`
         display: flex;
         justify-content: space-between;
         padding: 15px;
+        border-radius: 0 0 5px 5px;
     }
     img {
         width: 40px;

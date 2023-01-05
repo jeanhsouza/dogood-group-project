@@ -15,9 +15,9 @@ const DonationModal = ( { openModal } ) => {
             <form className='donationForm' action="submit" noValidate>
                 <input type="text" placeholder='Nome'/>
                 <input type="text" placeholder='Telefone'/>
-                <input type="text" placeholder='Número do cartão'/>
-                <input type="text" placeholder='E-mail'/>
                 <input type="text" placeholder='Quanto deseja doar?'/>
+                <input type="text" placeholder='E-mail'/>
+                <input type="text" placeholder='Número do cartão'/>
                 <input className='cardInput' type="text" placeholder='MM/YY'/>
                 <input className='cardInput' type="text" placeholder='CVC'/>
             </form>
