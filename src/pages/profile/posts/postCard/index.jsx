@@ -1,8 +1,18 @@
 import { StyledCard } from "./style";
-const PostCard = ({title, description}) =>{
+import { api } from "../../../../services/api";
+const PostCard = ({title, description, idPost }) => {
 
-    function deletePost(){
-        console.log("função de deletar!");
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjcyOTM5ODc4LCJleHAiOjE2NzI5NDM0NzgsInN1YiI6IjMifQ.IrrGHa798-JrhRQaOK0es6XjukuU5UuXKpHZmm63qZM";
+    async function deletePost(){
+        try{
+            const data = await api.delete(`/posts/${idPost}`,{
+            headers:{
+                Authorization: `Bearer: ${token}`
+            }
+            })
+        }catch(err){
+            console.log(err)
+        }
     }
 
     return(
@@ -12,6 +22,6 @@ const PostCard = ({title, description}) =>{
             <p>{description}</p>
             <button onClick={()=>{deletePost()}}>Deletar</button>
         </StyledCard>
-    )
+    );
 }
 export default PostCard;

@@ -9,15 +9,12 @@ export const StyledCard = styled.li`
 
     @media (min-width: 900px) {  
         width: 280px;
-
         h2{
             font-size: 20px;
         }
-
         p{
             font-size: 10px;
         }
-
         button{
             font-size: 15px;
         }

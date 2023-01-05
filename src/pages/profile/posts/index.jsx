@@ -13,17 +13,15 @@ const PostsList = () =>{
             const actualList = data.filter(post => post.userId == actualId);
             console.log(actualList);
             setPosts(actualList);
-           
         }
         loadPosts();  
     }, []);
-
     return( 
         <>
             <StyledPosts>
                 <h3>Minhas Postagens</h3> 
-                    {postList.map(({title, description})=>{
-                        return <PostCard title={title} description={description}/>
+                    {postList.map(({title, description, id})=>{
+                        return <PostCard title={title} description={description} idPost={id} key={id}/>
                     })}
             </StyledPosts>
         </>
