@@ -75,6 +75,7 @@ export const StyledInput = styled.input`
   }}
   width: 90%;
   height: 36px;
+  border-bottom: 2px solid black;
 
   @media (min-width: 900px) {
     font-family: inherit;
@@ -82,7 +83,7 @@ export const StyledInput = styled.input`
     height: 55px;
     border: 0;
     border-bottom: 2px solid black;
-    outline: 0;
+    outline: none;
     font-size: 1.3rem;
     padding: 7px 0;
     background: transparent;

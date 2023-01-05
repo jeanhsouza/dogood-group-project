@@ -51,30 +51,29 @@ export const StyledRegister = styled.div`
     margin: 0px 0px;
     display: flex;
     height: 95vh;
-    gap: 40px;
+    gap: 70px;
     animation: slideLeft 0.4s ease forwards;
 
     form {
       width: 600px;
-      margin: 20px 0px;
+      margin: 30px 0px;
       display: flex;
       position: relative;
       top: 0;
       flex-direction: column;
       text-align: left;
-    }
 
-    form h1 {
-      font-size: 46px;
-      font-weight: 800;
-      color: var(--secundary100);
-      font-family: var(--font-family-1);
-    }
+      textarea {
+        outline: none;
+        font-weight: var(--font-weight-2);
+        width: 100%;
+        border-bottom: 2px solid var(--black100);
+      }
 
-    .form-div {
-      display: flex;
-      gap: 27px;
-      flex-direction: column;
+      textarea {
+        height: 90px;
+        resize: none;
+      }
 
       .hover-underline-animation {
         display: inline-block;
@@ -99,6 +98,19 @@ export const StyledRegister = styled.div`
         transform: scaleX(1);
         transform-origin: bottom left;
       }
+    }
+
+    form h1 {
+      font-size: 46px;
+      font-weight: 800;
+      color: var(--secundary100);
+      font-family: var(--font-family-1);
+    }
+
+    .form-div {
+      display: flex;
+      gap: 27px;
+      flex-direction: column;
     }
   }
 `;

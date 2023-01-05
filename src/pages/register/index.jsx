@@ -74,17 +74,17 @@ const Register = () => {
             {...register("image")}
           />
 
-          <Input
+          <textarea
             placeholder="Descrição"
             id="description"
             type="text"
             error={errors.description}
             {...register("description")}
           />
-          <RegisterButton className="hover-underline-animation">
-            Cadastrar
-          </RegisterButton>
         </div>
+        <RegisterButton className="hover-underline-animation">
+          Cadastrar
+        </RegisterButton>
       </form>
     </StyledRegister>
   );
