@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
 export const StyledDashboard = styled.main`
-width: 100%;
-    
-`
+	animation: slideLeft 0.4s ease forwards;
+`;

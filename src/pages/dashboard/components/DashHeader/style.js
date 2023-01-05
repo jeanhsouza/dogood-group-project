@@ -1,26 +1,34 @@
+import styled from "styled-components";
+import image from "../../../../assets/img/img-dash-header-temp.svg";
+
 export const StyledDashboardHeader = styled.header`
 	width: 100%;
-	height: max-content;
-	position:absolute;
-	
-		div{
-			width: 100%;
-			height: 120px;
-			background: url(${image});
-			background-size: cover;
-			background-position: center;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin-top: 60px;
+	height: 180px;
+	background: url(${image});
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-			h1{
-				font-family: var(--font-family-1);
-				color: var(--white100);
-				font-size: var(--font-size-0);
-				letter-spacing: 2.5008px;
-			}
-		}
+    @media (min-width: 700px) {
+        height: 230px;
+    }
+
+	h1{
+	    font-family: var(--font-family-1);
+		color: var(--white100);
+		font-size: var(--font-size-0);
+		letter-spacing: 2.5008px;
+        margin-top: 60px;
+
+        @media (min-width: 900px) {
+            font-size: var(--font-title-0);
+            margin: 0;
+    }
+}
+
+		
 `;
 
 

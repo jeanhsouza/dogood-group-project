@@ -1,12 +1,17 @@
-import AsideMenu from "../../components/AsideMenu";
-import Header from "../../components/Header/Header";
-import DashboardHeader from "./components/DashboardHeader";
+import DashboardHeader from "./components/DashHeader";
 import { StyledDashboard } from "./style";
 
 const DashBoard = () => {
-    return (<StyledDashboard>
-        <DashboardHeader />
-    </StyledDashboard>);
+    return (
+        <StyledDashboard>
+            <DashboardHeader />
+            <h1>DFSSDF</h1>
+
+
+        </StyledDashboard>
+    )
+
+
 };
 
 export default DashBoard;

@@ -1,4 +1,3 @@
-import React from "react";
 import { StyledDashboardHeader } from "./style";
 
 const DashboardHeader = () => {
