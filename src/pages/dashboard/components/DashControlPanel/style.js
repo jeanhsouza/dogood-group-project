@@ -2,43 +2,50 @@ import styled from "styled-components";
 
 export const StyledDashControlPanel = styled.section`
 	/* animation: slideLeft 0.4s ease forwards; */
-    margin: 32px auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
     height: max-content;
     width: 92%;
     max-width: 1000px;
-
-    @media (min-width: 500px) {
-        flex-direction: row-reverse;
-        justify-content: space-between;
-    }
-
-    @media (min-width: 900px) {
-
-    }
+    margin: 32px auto 0;
 
 
-    & > div:first-child{
+    & > div:nth-child(1){
         display: flex;
-        gap: 18px;
-    }
+        flex-direction: column;
+        gap: 32px;
+        height: max-content;
+        width: 100%;
 
-    & > div:last-child{
-        h2{
-            color: var(--primary100);
-            font-size: var(--font-size-1);
-            font-family: var(--font-family-1);
-            letter-spacing: .5px;
-            line-height: var(--line-height);
-            font-weight: var(--font-weight-3);
 
-            @media (min-width: 900px) {
-                font-size: var(--font-size-0);
-            }
+        @media (min-width: 500px) {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+
+        @media (min-width: 900px) {
 
         }
+
+
+        & > div:first-child{
+            display: flex;
+            gap: 18px;
+        }
+
+        & > div:last-child{
+            h2{
+                color: var(--primary100);
+                font-size: var(--font-size-1);
+                font-family: var(--font-family-1);
+                letter-spacing: .5px;
+                line-height: var(--line-height);
+                font-weight: var(--font-weight-3);
+
+                @media (min-width: 900px) {
+                    font-size: var(--font-size-0);
+                }
+
+            }
     }
+}
 
 `;
