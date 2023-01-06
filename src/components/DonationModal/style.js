@@ -4,9 +4,10 @@ import styled from "styled-components";
 
 export const StyledDonationModal = styled.div`
     background-color: RGBA( 0, 0, 0, 0.4 );
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     position: absolute;
+    z-index: 20;
     top: 0;
     left: 0;
     display: flex;
@@ -94,7 +95,7 @@ export const StyledDonationModal = styled.div`
         font-weight: var(--font-weight-3);
         font-size: 20px;
         line-height: 30px;
-        border-radius: 0 0 10px 10px ;
+        border-radius: 10px ;
         margin-top: 5px;
     }
 

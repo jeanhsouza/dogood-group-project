@@ -15,7 +15,7 @@ export const AsideDiv = styled.aside`
 		top: 0;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.4);
 		background-color: var(--white100);
-		z-index: 11;
+		/* z-index: 11; */
 
 		.headerAside {
 			img {
