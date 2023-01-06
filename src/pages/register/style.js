@@ -11,8 +11,6 @@ export const StyledRegister = styled.div`
     top: 92px;
     flex-direction: column;
     gap: 30px;
-    /* position: relative;
-    top: 120px; */
     text-align: left;
 
     textarea {
@@ -56,7 +54,7 @@ export const StyledRegister = styled.div`
 
     form {
       width: 617px;
-      height: 760px;
+      height: 96vh;
       overflow-x: scroll;
       margin: 20px 0px;
       display: flex;
@@ -152,7 +150,8 @@ export const RegisterButton = styled.button`
     color: black;
     text-align: left;
     font-size: var(--font-size-0);
-    margin-top: 35px;
+    margin-top: 20px;
+    background-color: transparent;
     font-weight: 800;
     font-family: var(--font-family-1);
   }
