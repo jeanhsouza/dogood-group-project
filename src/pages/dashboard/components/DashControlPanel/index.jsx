@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { BiPlus, BiEditAlt, BiLogOut, BiUserCircle } from "react-icons/bi";
 import { StyledButton } from "../../../../styles/buttons";
 import { StyledDashControlPanel } from "./style";
 
 const DashControlPanel = () => {
+    const [btProfileActive, setBtProfileActive] = useState(false);
+    const [btAddPostActive, setBtAddPostActive] = useState(false);
+    const [btLogoutActive, setBtLogoutActive] = useState(false);
+    const [btEditActive, setBtEditActive] = useState(false);
+
     return (
         <StyledDashControlPanel>
             <div>
@@ -21,7 +27,6 @@ const DashControlPanel = () => {
                         <BiLogOut />
                     </span>
                 </StyledButton>
-
 
             </div>
             <div>

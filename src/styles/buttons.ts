@@ -41,7 +41,7 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           background: var(--primary200);
           border: 1.2px solid var(--primary100);
           color: var(--primary100);
-          -webkit-box-shadow: 0px 0px 20px 0px rgba(255, 147, 112, 0.84);
+          -webkit-box-shadow: 0px 0px 10px 0px rgba(255, 147, 112, 0.84);
           box-shadow: 0px 0px 10px 0px rgba(255, 147, 112, 0.84);
 
           &:hover {
@@ -56,7 +56,7 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           background: var(--primary100);
           border: 1.2px solid var(--white100);
           color: var(--white100);
-          -webkit-box-shadow: 0px 0px 20px 0px rgba(255, 147, 112, 0.84);
+          -webkit-box-shadow: 0px 0px 10px 0px rgba(255, 147, 112, 0.84);
           box-shadow: 0px 0px 10px 0px rgba(255, 147, 112, 0.84);
 
           &:hover {

@@ -10,22 +10,34 @@ export const StyledDashboardHeader = styled.header`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+    transition: .5s ease-in-out;
 
-    @media (min-width: 700px) {
+
+    @media (min-width: 520px) {
         height: 230px;
+    }
+
+    @media (min-width: 900px) {
+        height: 340px;
     }
 
 	h1{
 	    font-family: var(--font-family-1);
 		color: var(--white100);
 		font-size: var(--font-size-0);
-		letter-spacing: 2.5008px;
+		letter-spacing: 1.4px;
         margin-top: 60px;
+        transition: .5s ease-in-out;
+
+        @media (min-width: 520px) {
+            font-size: calc(var(--font-title-0) * 1.2);
+ 
+        }
 
         @media (min-width: 900px) {
-            font-size: var(--font-title-0);
+            font-size: calc(var(--font-title-0) * 2);
             margin: 0;
-    }
+        }
 }
 
 		
