@@ -22,7 +22,7 @@ const Login = () => {
       const response = await api.post("/login", data);
 
       window.localStorage.setItem("@USER:ID", response.data.user.id);
-      window.localStorage.setItem("@USER:TOKE", response.data.accessToken);
+      window.localStorage.setItem("@USER:TOKEN", response.data.accessToken);
     } catch (error) {
       console.log(error);
     }

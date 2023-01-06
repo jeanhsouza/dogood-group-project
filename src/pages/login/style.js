@@ -180,7 +180,7 @@ export const ImageDiv = styled.div`
   display: none;
   height: 100vh;
   @media (min-width: 900px) {
-    width: 30vh;
+    width: 50vh;
     display: flex;
 
     img {
