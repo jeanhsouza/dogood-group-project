@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import PostsList from "./posts";
-import ProfileHeader from "./profile/ProfileHeader";
+import ProfileHeader from "./profileHeader";
 import StyledProfile from "./style";
 
 const Profile = () => {
