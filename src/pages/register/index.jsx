@@ -84,7 +84,7 @@ const Register = () => {
           />
         </div>
         <RegisterButton className="hover-underline-animation">
-          Cadastrar
+          CADASTRAR
         </RegisterButton>
       </form>
     </StyledRegister>

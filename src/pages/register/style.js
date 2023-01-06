@@ -6,21 +6,13 @@ export const StyledRegister = styled.div`
 	> form {
 		width: 96%;
 		margin: 0px 10px;
+		padding-bottom: 30px;
 		display: flex;
 		position: relative;
 		top: 92px;
 		flex-direction: column;
 		gap: 30px;
-		text-align: left;
-
-		> textarea {
-			outline: none;
-			font-weight: var(--font-weight-2);
-			width: 90%;
-			border-bottom: 2px solid var(--black100);
-			height: 90px;
-			resize: none;
-		}
+		text-align: left;		
 
 		> h1 {
 			font-size: var(font-size-0);
@@ -34,6 +26,20 @@ export const StyledRegister = styled.div`
 		display: flex;
 		gap: 10px;
 		flex-direction: column;
+
+		> textarea {
+			outline: none;
+			font-size: 20px;
+			font-weight: var(--font-weight-2);
+			width: 90%;
+			border-bottom: 2px solid var(--black100);
+			height: 90px;
+			resize: none;
+
+			&::placeholder{
+				color: var(--black100);
+			}
+		}
 	}
 
 	@media (min-width: 900px) {
@@ -56,15 +62,6 @@ export const StyledRegister = styled.div`
 
 			::-webkit-scrollbar {
 				display: none;
-			}
-
-			> textarea {
-				outline: none;
-				font-weight: var(--font-weight-2);
-				width: 100%;
-				border-bottom: 2px solid var(--black100);
-				height: 90px;
-				resize: none;
 			}
 
 			.hover-underline-animation {
@@ -103,6 +100,15 @@ export const StyledRegister = styled.div`
 			display: flex;
 			gap: 27px;
 			flex-direction: column;
+
+			> textarea {
+				outline: none;
+				font-weight: var(--font-weight-2);
+				width: 100%;
+				border-bottom: 2px solid var(--black100);
+				height: 90px;
+				resize: none;
+			}
 		}
 	}
 `;
