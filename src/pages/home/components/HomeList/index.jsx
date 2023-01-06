@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import AnimatedBanner from "../../../../components/AnimatedBanner";
 import { AuthContext } from "../../../../context/AuthContext";
 import { StyledHomeList, StyledHomeCard } from "./style";
 
 const HomeList = () => {
 	const { users } = React.useContext(AuthContext);
-
 
 	// const user = [
 	// 	{
@@ -50,7 +49,7 @@ const HomeList = () => {
 			<StyledHomeList>
 				<h1>ESCOLHA SUA CAUSA</h1>
 				<ul>
-					{users.map(({ name, id, description, img, raised, goal }) => {
+					{users.map(({ name, id, description, image, raised, goal }) => {
 						const validatePercentage = (raised, goal) => {
 							const result = (raised / goal) * 100;
 							return result >= 100 ? 100 : Math.floor(result);
@@ -60,7 +59,7 @@ const HomeList = () => {
 							<StyledHomeCard as={Link} to={`/profile/${id}`} key={id}>
 								<li className="card">
 									<div className="card-header">
-										<img src={img} alt={name} />
+										<img src={image} alt={name} />
 										<span className="cta">MAIS SOBRE</span>
 									</div>
 									<div className="card-body">

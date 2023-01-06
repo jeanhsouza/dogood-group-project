@@ -1,12 +1,13 @@
 import React from "react";
 import StyledProfileHeader from "./style";
 
-const ProfileHeader = () => {
+const ProfileHeader = ({ user }) => {
+	console.log(user)
 	return (
 		<>
 			<StyledProfileHeader>
 				<section className="cardSection">
-					<h1>NOME DA ONG</h1>
+					<h1>{user.name}</h1>
 
 					<div className="profileCard">
 						<div className="profileImage">

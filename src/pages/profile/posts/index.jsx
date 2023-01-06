@@ -1,7 +1,8 @@
+import React from "react";
 import { StyledPosts } from "./style";
 import PostCard from "./postCard";
 
-const PostsList = () => {
+const PostsList = ({ user }) => {
 	return (
 		<StyledPosts>
 			<h3>POSTAGENS</h3>
