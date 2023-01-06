@@ -7,18 +7,7 @@ import { api } from "../../services/api"
 
 
 
-const DonationModal = ( { openModal, setShowModal, notify } ) => {
-
-    //----------FUNÇÃO PARA EXIBIR MODAL----------
-
-    // const [ showModal, setShowModal ] = useState(false)
-    // function openModal () {
-    //     setShowModal(!showModal)
-    // }
-
-    // <button onClick={openModal}>showModal</button>
-    // {(showModal ? <DonationModal openModal={openModal} /> : null)}
-    
+const DonationModal = ( { openModal, setShowModal, notify, user } ) => {
     
     const donateSchema = yup.object().shape({
         // name: yup.string().required("Preencha o nome."),
@@ -34,11 +23,10 @@ const DonationModal = ( { openModal, setShowModal, notify } ) => {
         resolver: yupResolver(donateSchema),
     })
 
-
-
     async function donate ( data ) {
         try {
             const response = await api.post("/donations", data)
+            console.log(response)
             notify()
             setShowModal(false)
         } catch (error) {
@@ -47,14 +35,12 @@ const DonationModal = ( { openModal, setShowModal, notify } ) => {
         }
     }
 
-
   return (
     <StyledDonationModal>
-
         <div className="modalWrapper">
             <div className="headerContainer">
                 <div className="titleContainer">
-                    <h1 className="title">NOME DA ONG</h1>
+                    <h1 className="title">{user.name}</h1>
                 </div>
                 <button className="closeButton" onClick={openModal} >X</button>
             </div>
