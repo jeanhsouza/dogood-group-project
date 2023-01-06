@@ -4,15 +4,13 @@ export const StyledRegister = styled.div`
   animation: slideLeft 0.4s ease forwards;
 
   form {
-    width: 100%;
+    width: 96%;
     margin: 0px 10px;
     display: flex;
     position: relative;
     top: 92px;
     flex-direction: column;
     gap: 30px;
-    /* position: relative;
-    top: 120px; */
     text-align: left;
 
     textarea {
@@ -55,13 +53,19 @@ export const StyledRegister = styled.div`
     animation: slideLeft 0.4s ease forwards;
 
     form {
-      width: 600px;
-      margin: 30px 0px;
+      width: 617px;
+      height: 96vh;
+      overflow-x: scroll;
+      margin: 20px 0px;
       display: flex;
       position: relative;
       top: 0;
       flex-direction: column;
       text-align: left;
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
 
       textarea {
         outline: none;
@@ -146,7 +150,8 @@ export const RegisterButton = styled.button`
     color: black;
     text-align: left;
     font-size: var(--font-size-0);
-    margin-top: 45px;
+    margin-top: 20px;
+    background-color: transparent;
     font-weight: 800;
     font-family: var(--font-family-1);
   }
