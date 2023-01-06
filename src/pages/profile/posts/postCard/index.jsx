@@ -1,4 +1,4 @@
-import { StyledCard } from "./style";
+import { StyledCard } from "../../../../components/Posts/postCard/style";
 const PostCard = () =>{
     return(
         <StyledCard>

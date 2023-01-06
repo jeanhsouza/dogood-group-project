@@ -6,12 +6,12 @@ export const StyledFieldset = styled.fieldset`
     border-top: solid 1px black;
     position: relative;
 
-    label{
+    >label{
         position: absolute;
     }
 
 
-    textarea{
+    >textarea{
         width: 100%;
         height: 200px;
         background-color: var(--primary200);

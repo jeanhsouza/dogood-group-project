@@ -2,7 +2,7 @@ import styled from "styled-components";
 export const StyledPosts = styled.section`
 	margin: 40px;
 
-	h3 {
+	> h3 {
 		font-family: var(--font-family-1);
 		color: var(--secundary100);
 		font-size: 36px;
@@ -11,7 +11,7 @@ export const StyledPosts = styled.section`
 		margin-bottom: 60px;
 	}
 
-	ul {
+	> ul {
 		list-style: none;
 		padding: 0;
 		display: grid;
@@ -19,7 +19,7 @@ export const StyledPosts = styled.section`
 		gap: 40px;
 	}
 
-	li {
+	> li {
 		list-style: none;
 	}
 `;

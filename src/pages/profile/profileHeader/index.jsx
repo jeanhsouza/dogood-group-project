@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import DonationModal from "../../../components/DonationModal";
 import StyledProfileHeader from "./style";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProfileHeader = ({ user }) => {
+
 	if (!user) return null;
 
+	const [ showModal, setShowModal ] = useState(false)
+    function openModal () {
+        setShowModal(!showModal)
+    }
+	function notify () {toast("Doação realizada com sucesso!")}
+	
 	return (
 		<>
 			<StyledProfileHeader>
+				{(showModal ? <DonationModal openModal={openModal} 	setShowModal={setShowModal} notify={notify} user={user}/> : null)}
+				<ToastContainer/>
 				<section className="cardSection">
 					<h1>{user.name}</h1>
 
@@ -18,7 +30,7 @@ const ProfileHeader = ({ user }) => {
 							/>
 						</div>
 
-						<button className="profileBtn">DOE AGORA</button>
+						<button onClick={openModal} className="profileBtn">DOE AGORA</button>
 
 						<div className="profileInfo">
 							<div className="stats">

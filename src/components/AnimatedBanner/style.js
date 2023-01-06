@@ -9,7 +9,7 @@ const StyledBanner = styled.div`
 	background-color: var(--primary200);
 	overflow: hidden;
 
-	span {
+	> span {
 		transition: 0.4s ease;
 		display: inline-block;
 		padding-left: 10%;
@@ -20,7 +20,7 @@ const StyledBanner = styled.div`
 	}
 
 	@media (min-width: 700px) {
-		span {
+		> span {
 			font-size: 8rem;
 		}
 	}
