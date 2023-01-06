@@ -2,18 +2,19 @@ import React from "react";
 import StyledProfileHeader from "./style";
 
 const ProfileHeader = ({ user }) => {
-	console.log(user)
+	if (!user) return null;
+
 	return (
 		<>
 			<StyledProfileHeader>
 				<section className="cardSection">
-					<h1>{user?.name}</h1>
+					<h1>{user.name}</h1>
 
 					<div className="profileCard">
 						<div className="profileImage">
 							<img
-								src={user?.image}
-								alt={user?.name}
+								src={user.image}
+								alt={user.name}
 							/>
 						</div>
 
@@ -22,11 +23,11 @@ const ProfileHeader = ({ user }) => {
 						<div className="profileInfo">
 							<div className="stats">
 								<h2>Nossa meta:</h2>
-								<span>$ {user?.goal}</span>
+								<span>$ {user.goal}</span>
 							</div>
 							<div className="stats">
 								<h2>Arrecadados:</h2>
-								<span>$ {user?.raised}</span>
+								<span>$ {user.raised}</span>
 							</div>
 						</div>
 					</div>
@@ -36,11 +37,7 @@ const ProfileHeader = ({ user }) => {
 					<h2>NOSSA CAUSA</h2>
 
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-						voluptatem suscipit expedita cupiditate mollitia voluptate odit hic
-						facilis vel repudiandae commodi quia itaque quod iste, fugiat fuga,
-						voluptates eaque magnam praesentium quos veniam provident! Sapiente
-						soluta excepturi velit quis ipsa?
+					{user.description}
 					</p>
 				</section>
 			</StyledProfileHeader>
