@@ -32,11 +32,12 @@ const DashControlPanel = () => {
 
                 </div>
                 <div>
-                    <h2>META: 40.000$</h2>
-                    <h2>ARRECADADO: 60.000$</h2>
+                    <h2>{false ? "FAZER POSTAGEM" : "META: 40.000$"}</h2>
+                    {!false && <h2>ARRECADADO: 60.000$</h2>}
                 </div>
             </div>
-            <DashProfileForm />
+            {/* <DashProfileForm /> */}
+
 
         </StyledDashControlPanel>
     );
