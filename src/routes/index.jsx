@@ -7,10 +7,12 @@ import Register from "../pages/register";
 import AsideMenu from "../components/AsideMenu";
 import Header from "../components/Header/Header";
 import { Container } from "../styles/container";
+import ScrollToTop from "./ScrollToTop";
 
 export function RoutesMain() {
 	return (
 		<>
+			<ScrollToTop />
 			<Container>
 				<AsideMenu />
 				<Header />
