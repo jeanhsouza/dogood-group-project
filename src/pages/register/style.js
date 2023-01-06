@@ -4,7 +4,7 @@ export const StyledRegister = styled.div`
   animation: slideLeft 0.4s ease forwards;
 
   form {
-    width: 100%;
+    width: 96%;
     margin: 0px 10px;
     display: flex;
     position: relative;
