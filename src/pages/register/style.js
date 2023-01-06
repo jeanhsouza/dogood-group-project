@@ -55,13 +55,19 @@ export const StyledRegister = styled.div`
     animation: slideLeft 0.4s ease forwards;
 
     form {
-      width: 600px;
-      margin: 30px 0px;
+      width: 617px;
+      height: 760px;
+      overflow-x: scroll;
+      margin: 20px 0px;
       display: flex;
       position: relative;
       top: 0;
       flex-direction: column;
       text-align: left;
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
 
       textarea {
         outline: none;
@@ -146,7 +152,7 @@ export const RegisterButton = styled.button`
     color: black;
     text-align: left;
     font-size: var(--font-size-0);
-    margin-top: 45px;
+    margin-top: 35px;
     font-weight: 800;
     font-family: var(--font-family-1);
   }
