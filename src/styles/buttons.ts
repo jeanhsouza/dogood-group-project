@@ -22,13 +22,13 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           height: 30px;
           width: 34px;
           font-size: 24px;
-          font-weight: 700;
+          font-weight: var(--font-weight-1);
         `;
       case "medium":
         return css`
           height: 40px;
           font-size: var(--body);
-          font-weight: 700;
+          font-weight: var(--font-weight-1);
           width: max-content;
         `;
     }
@@ -42,7 +42,7 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           border: 1.2px solid var(--primary100);
           color: var(--primary100);
           -webkit-box-shadow: 0px 0px 20px 0px rgba(255, 147, 112, 0.84);
-          box-shadow: 0px 0px 20px 0px rgba(255, 147, 112, 0.84);
+          box-shadow: 0px 0px 10px 0px rgba(255, 147, 112, 0.84);
 
           &:hover {
             background: var(--primary100);
@@ -57,7 +57,7 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           border: 1.2px solid var(--white100);
           color: var(--white100);
           -webkit-box-shadow: 0px 0px 20px 0px rgba(255, 147, 112, 0.84);
-          box-shadow: 0px 0px 20px 0px rgba(255, 147, 112, 0.84);
+          box-shadow: 0px 0px 10px 0px rgba(255, 147, 112, 0.84);
 
           &:hover {
             filter: brightness(0.9);
