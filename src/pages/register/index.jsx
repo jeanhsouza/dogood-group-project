@@ -5,6 +5,7 @@ import { ImageDiv, LogButton, RegisterButton, StyledLogin } from "./style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { RegisterSchema } from "./registerSchema";
+import { api } from "../../services/api";
 
 const Register = () => {
   const {
@@ -37,10 +38,10 @@ const Register = () => {
         <div className="form-div">
           <Input
             placeholder="Nome"
-            id="nome"
+            id="name"
             type="text"
-            error={errors.nome}
-            {...register("nome")}
+            error={errors.name}
+            {...register("name")}
           />
 
           <Input
