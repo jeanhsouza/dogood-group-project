@@ -32,6 +32,7 @@ export const StyledLogin = styled.div`
     display: flex;
     flex-direction: column;
     gap: 40px;
+
     .hoverUnderLineAnimation {
       display: inline-block;
       position: relative;
@@ -58,18 +59,18 @@ export const StyledLogin = styled.div`
   }
 
   .question-div p {
-    font-size: 20px;
+    font-size: var(--font-size-1);
     font-weight: 800;
     color: var(--secundary100);
-    font-family: var(--font-family-2);
+    font-family: var(--font-family-1);
   }
 
   .question-div a {
     width: 194px;
     color: black;
-    font-size: 17px;
+    font-size: var(--font-size-2);
     font-weight: 800;
-    font-family: var(--font-family-2);
+    font-family: var(--font-family-1);
   }
 
   @media (min-width: 900px) {
@@ -84,6 +85,7 @@ export const StyledLogin = styled.div`
       margin: 90px 0px;
       display: flex;
       position: relative;
+      top: 0;
       bottom: 0;
       flex-direction: column;
       text-align: left;
@@ -160,18 +162,14 @@ export const StyledLogin = styled.div`
     }
 
     .question-div p {
-      font-size: 20px;
       font-weight: 800;
       color: var(--secundary100);
-      font-family: var(--font-family-2);
     }
 
     .question-div a {
       width: 194px;
       color: black;
-      font-size: 17px;
       font-weight: 800;
-      font-family: var(--font-family-2);
     }
   }
 `;
@@ -193,7 +191,9 @@ export const ImageDiv = styled.div`
 
 export const LogButton = styled.button`
   width: 64px;
-  color: black;
+  color: var(--black100);
+  background-color: transparent;
   font-size: 20px;
   font-weight: 800;
+  font-family: var(--font-family-1);
 `;

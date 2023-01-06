@@ -34,7 +34,6 @@ const Login = () => {
 
   return (
     <>
-      <Header />
       <StyledLogin>
         <ImageDiv>
           <img src={logImage} alt="" />
@@ -57,7 +56,7 @@ const Login = () => {
               error={errors.password}
               {...register("password")}
             />
-            <LogButton className="hoverUnderLineAnimation">Entrar</LogButton>
+            <LogButton className="hoverUnderLineAnimation">ENTRAR</LogButton>
           </div>
 
           <div className="question-div">
