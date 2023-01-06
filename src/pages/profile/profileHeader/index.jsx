@@ -7,13 +7,13 @@ const ProfileHeader = ({ user }) => {
 		<>
 			<StyledProfileHeader>
 				<section className="cardSection">
-					<h1>{user.name}</h1>
+					<h1>{user?.name}</h1>
 
 					<div className="profileCard">
 						<div className="profileImage">
 							<img
-								src="https://aupa.com.br/wp-content/uploads/2021/01/ongs.png"
-								alt=""
+								src={user?.image}
+								alt={user?.name}
 							/>
 						</div>
 
@@ -22,11 +22,11 @@ const ProfileHeader = ({ user }) => {
 						<div className="profileInfo">
 							<div className="stats">
 								<h2>Nossa meta:</h2>
-								<span>$ 54.000</span>
+								<span>$ {user?.goal}</span>
 							</div>
 							<div className="stats">
 								<h2>Arrecadados:</h2>
-								<span>$ 45.000</span>
+								<span>$ {user?.raised}</span>
 							</div>
 						</div>
 					</div>

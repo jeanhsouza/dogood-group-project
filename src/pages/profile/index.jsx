@@ -6,12 +6,11 @@ import ProfileHeader from "./profileHeader";
 import StyledProfile from "./style";
 
 const Profile = () => {
-	const { users } = React.useContext(AuthContext);
+	const { users} = React.useContext(AuthContext);
 	const { id } = useParams();
 
-	const user = users.find((user) => user.id === id);
+	const user = users.find((user) => user.id === +id);
 
-	console.log(user)
 	return (
 		<StyledProfile>
 			<ProfileHeader user={user} />
