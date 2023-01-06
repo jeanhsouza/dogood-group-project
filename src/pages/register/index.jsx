@@ -1,6 +1,6 @@
 import { StyledRegister } from "./style";
 import { Input } from "../../components/input";
-import logImage from "../../assets/img/registerImage.svg";
+import logImage from "../../assets/img/registerImage.jpg";
 import { ImageDiv, LogButton, RegisterButton, StyledLogin } from "./style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";

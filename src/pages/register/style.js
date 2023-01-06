@@ -101,7 +101,7 @@ export const StyledRegister = styled.div`
     }
 
     form h1 {
-      font-size: 46px;
+      font-size: 55px;
       font-weight: 800;
       color: var(--secundary100);
       font-family: var(--font-family-1);
@@ -132,6 +132,7 @@ export const ImageDiv = styled.div`
 `;
 
 export const RegisterButton = styled.button`
+  margin-top: 5px;
   width: 30%;
   color: black;
   text-align: left;
@@ -139,4 +140,14 @@ export const RegisterButton = styled.button`
   margin-top: 5px;
   font-weight: 800;
   font-family: var(--font-family-1);
+
+  @media (min-width: 900px) {
+    width: 30%;
+    color: black;
+    text-align: left;
+    font-size: var(--font-size-0);
+    margin-top: 45px;
+    font-weight: 800;
+    font-family: var(--font-family-1);
+  }
 `;
