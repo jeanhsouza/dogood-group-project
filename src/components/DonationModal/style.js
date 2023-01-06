@@ -6,9 +6,9 @@ export const StyledDonationModal = styled.div`
     background-color: RGBA( 0, 0, 0, 0.4 );
     width: 100%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     z-index: 20;
-    top: 0;
+    top: auto;
     left: 0;
     display: flex;
     justify-content: center;
@@ -28,13 +28,11 @@ export const StyledDonationModal = styled.div`
         justify-content: space-between;
         align-items: center;
         width: 90%;
-        /* background-color: blue; */
     }
     .titleContainer {
         display: flex;
         justify-content: center;
         width: 100%;
-        /* background-color: red; */
         color: var(--gray100);
         font-family: var(--font-family-1);
         font-weight: var(--font-weight-3);
