@@ -5,7 +5,15 @@ export const StyledDashProfileForm = styled.section`
     flex-direction: column;
     width: 100%;
     margin-bottom: 88px;
-    
+
+    fieldset input{
+        width: 100%;
+    }
+
+    fieldset input:focus{
+        outline: none;
+        width: 100%;
+    }    
 
     button{
         align-self: flex-end;
@@ -54,20 +62,10 @@ export const StyledDashProfileForm = styled.section`
                     width: 100%;
                     height: max-content;
                 }
-                input{
-                    width: 100%;
-                }
             }
 
         }
 
     }
-
-
-
-
-
- 
-
 
 `;

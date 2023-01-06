@@ -5,7 +5,7 @@ export const profileUpdateSchema = yup.object().shape({
         .string()
         .required("O nome é obrigatório")
         .min(3, "O nome precisa de pelo menos 3 caracteres")
-        .max(200, "O nome pode ter no máximo 60 caracteres."),
+        .max(60, "O nome pode ter no máximo 60 caracteres."),
     goal: yup
         .number("Inserir apenas números")
         .required("Valor obrigatório"),

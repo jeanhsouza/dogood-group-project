@@ -10,10 +10,9 @@ export const StyledDashControlPanel = styled.section`
     gap: 40px;
     transition: .5s ease-in-out;
 
-    @media (min-width: 500px) {
+    @media (min-width: 600px) {
             gap: 60px;
         }
-
 
     & > div:nth-child(1){
         display: flex;
@@ -23,7 +22,7 @@ export const StyledDashControlPanel = styled.section`
         width: 100%;
 
 
-        @media (min-width: 500px) {
+        @media (min-width: 600px) {
             flex-direction: row-reverse;
             justify-content: space-between;
         }
@@ -31,7 +30,6 @@ export const StyledDashControlPanel = styled.section`
         @media (min-width: 900px) {
 
         }
-
 
         & > div:first-child{
             display: flex;
@@ -57,7 +55,6 @@ export const StyledDashControlPanel = styled.section`
                 }
 
             }
+        }
     }
-}
-
 `;

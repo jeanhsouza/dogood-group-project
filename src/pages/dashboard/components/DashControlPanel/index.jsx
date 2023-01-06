@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BiPlus, BiEditAlt, BiLogOut, BiUserCircle } from "react-icons/bi";
 import { StyledButton } from "../../../../styles/buttons";
+import DashNewPostForm from "./DashNewPostForm";
 import DashProfileForm from "./DashProfileForm";
 import { StyledDashControlPanel } from "./style";
 
@@ -32,11 +33,12 @@ const DashControlPanel = () => {
 
                 </div>
                 <div>
-                    <h2>{false ? "FAZER POSTAGEM" : "META: 40.000$"}</h2>
-                    {!false && <h2>ARRECADADO: 60.000$</h2>}
+                    <h2>{true ? "FAZER POSTAGEM" : "META: 40.000$"}</h2>
+                    {!true && <h2>ARRECADADO: 60.000$</h2>}
                 </div>
             </div>
             {/* <DashProfileForm /> */}
+            <DashNewPostForm />
 
 
         </StyledDashControlPanel>

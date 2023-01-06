@@ -13,7 +13,7 @@ export const StyledDashboardHeader = styled.header`
     transition: .5s ease-in-out;
 
 
-    @media (min-width: 520px) {
+    @media (min-width: 600px) {
         height: 230px;
     }
 
@@ -29,7 +29,7 @@ export const StyledDashboardHeader = styled.header`
         margin-top: 60px;
         transition: .5s ease-in-out;
 
-        @media (min-width: 520px) {
+        @media (min-width: 600px) {
             font-size: calc(var(--font-title-0) * 1.2);
  
         }
