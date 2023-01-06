@@ -1,158 +1,146 @@
 import styled from "styled-components";
 
 export const StyledRegister = styled.div`
-  animation: slideLeft 0.4s ease forwards;
+	animation: slideLeft 0.4s ease forwards;
 
-  form {
-    width: 96%;
-    margin: 0px 10px;
-    display: flex;
-    position: relative;
-    top: 92px;
-    flex-direction: column;
-    gap: 30px;
-    text-align: left;
+	> form {
+		width: 96%;
+		margin: 0px 10px;
+		display: flex;
+		position: relative;
+		top: 92px;
+		flex-direction: column;
+		gap: 30px;
+		text-align: left;
 
-    textarea {
-      outline: none;
-      font-weight: var(--font-weight-2);
-      width: 90%;
-      border-bottom: 2px solid var(--black100);
-    }
+		> textarea {
+			outline: none;
+			font-weight: var(--font-weight-2);
+			width: 90%;
+			border-bottom: 2px solid var(--black100);
+			height: 90px;
+			resize: none;
+		}
 
-    textarea {
-      height: 90px;
-      resize: none;
-    }
-  }
+		> h1 {
+			font-size: var(font-size-0);
+			font-weight: 800;
+			color: var(--secundary100);
+			font-family: var(--font-family-1);
+		}
+	}
 
-  form h1 {
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--secundary100);
-    font-family: var(--font-family-1);
-  }
+	.form-div {
+		display: flex;
+		gap: 10px;
+		flex-direction: column;
+	}
 
-  .form-div {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-  }
+	@media (min-width: 900px) {
+		margin: 0px 0px;
+		display: flex;
+		height: 95vh;
+		gap: 70px;
+		animation: slideLeft 0.4s ease forwards;
 
-  form h1 {
-    font-size: 46px;
-    font-weight: 800;
-    color: var(--secundary100);
-  }
+		> form {
+			width: 617px;
+			height: 96vh;
+			overflow-x: scroll;
+			margin: 20px 0px;
+			display: flex;
+			position: relative;
+			top: 0;
+			flex-direction: column;
+			text-align: left;
 
-  @media (min-width: 900px) {
-    margin: 0px 0px;
-    display: flex;
-    height: 95vh;
-    gap: 70px;
-    animation: slideLeft 0.4s ease forwards;
+			::-webkit-scrollbar {
+				display: none;
+			}
 
-    form {
-      width: 617px;
-      height: 96vh;
-      overflow-x: scroll;
-      margin: 20px 0px;
-      display: flex;
-      position: relative;
-      top: 0;
-      flex-direction: column;
-      text-align: left;
+			> textarea {
+				outline: none;
+				font-weight: var(--font-weight-2);
+				width: 100%;
+				border-bottom: 2px solid var(--black100);
+				height: 90px;
+				resize: none;
+			}
 
-      ::-webkit-scrollbar {
-        display: none;
-      }
+			.hover-underline-animation {
+				display: inline-block;
+				position: relative;
+				color: black;
+			}
 
-      textarea {
-        outline: none;
-        font-weight: var(--font-weight-2);
-        width: 100%;
-        border-bottom: 2px solid var(--black100);
-      }
+			.hover-underline-animation:after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				transform: scaleX(0);
+				height: 2px;
+				bottom: 0;
+				left: 0;
+				background-color: black;
+				transform-origin: bottom right;
+				transition: transform 0.25s ease-out;
+			}
 
-      textarea {
-        height: 90px;
-        resize: none;
-      }
+			.hover-underline-animation:hover:after {
+				transform: scaleX(1);
+				transform-origin: bottom left;
+			}
 
-      .hover-underline-animation {
-        display: inline-block;
-        position: relative;
-        color: black;
-      }
+			> h1 {
+				font-size: 55px;
+				font-weight: 800;
+				color: var(--secundary100);
+				font-family: var(--font-family-1);
+			}
+		}
 
-      .hover-underline-animation:after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: black;
-        transform-origin: bottom right;
-        transition: transform 0.25s ease-out;
-      }
-
-      .hover-underline-animation:hover:after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-      }
-    }
-
-    form h1 {
-      font-size: 55px;
-      font-weight: 800;
-      color: var(--secundary100);
-      font-family: var(--font-family-1);
-    }
-
-    .form-div {
-      display: flex;
-      gap: 27px;
-      flex-direction: column;
-    }
-  }
+		.form-div {
+			display: flex;
+			gap: 27px;
+			flex-direction: column;
+		}
+	}
 `;
 
 export const ImageDiv = styled.div`
-  display: none;
+	display: none;
 
-  @media (min-width: 900px) {
-    width: 456px;
-    height: 100vh;
-    display: flex;
+	@media (min-width: 900px) {
+		width: 456px;
+		height: 100vh;
+		display: flex;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
+		> img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
 `;
 
 export const RegisterButton = styled.button`
-  margin-top: 5px;
-  width: 30%;
-  color: black;
-  text-align: left;
-  font-size: var(--font-size-0);
-  margin-top: 5px;
-  font-weight: 800;
-  font-family: var(--font-family-1);
+	margin-top: 5px;
+	width: 30%;
+	color: black;
+	text-align: left;
+	font-size: var(--font-size-0);
+	margin-top: 5px;
+	font-weight: 800;
+	font-family: var(--font-family-1);
 
-  @media (min-width: 900px) {
-    width: 30%;
-    color: black;
-    text-align: left;
-    font-size: var(--font-size-0);
-    margin-top: 20px;
-    background-color: transparent;
-    font-weight: 800;
-    font-family: var(--font-family-1);
-  }
+	@media (min-width: 900px) {
+		width: 30%;
+		color: black;
+		text-align: left;
+		font-size: var(--font-size-0);
+		margin-top: 20px;
+		background-color: transparent;
+		font-weight: 800;
+		font-family: var(--font-family-1);
+	}
 `;

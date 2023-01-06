@@ -68,7 +68,7 @@ export const StyledDonationModal = styled.div`
         width: 90%;
         height: 300px;
     }
-    input {
+    >input {
         color: var(--gray100);
         /* width: 100px; */
         height: 50px;

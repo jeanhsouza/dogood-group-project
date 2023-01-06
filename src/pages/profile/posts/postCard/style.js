@@ -1,11 +1,11 @@
 import styled from "styled-components";
 export const StyledCard = styled.li`
-	img {
+	> img {
 		object-fit: cover;
 		object-position: center;
 	}
 
-	h2 {
+	> h2 {
 		color: var(--gray100);
         font-family: var(--font-family-1);
 		margin-top: 13px;
@@ -15,7 +15,7 @@ export const StyledCard = styled.li`
 		line-height: 30px;
 	}
 
-	p {
+	> p {
 		color: var(--black100);
 
 		font-size: 10px;
@@ -23,7 +23,7 @@ export const StyledCard = styled.li`
 		line-height: 15px;
 	}
 
-	button {
+	> button {
 		margin-top: 10px;
 		padding: 10px 30px;
 

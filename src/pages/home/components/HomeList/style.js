@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledHomeList = styled.section`
 	padding: 40px 30px;
 
-	h1 {
+	> h1 {
 		font-size: 2rem;
 		letter-spacing: 2px;
 		font-family: var(--font-family-1);
@@ -11,7 +11,7 @@ export const StyledHomeList = styled.section`
 		margin-bottom: 20px;
 	}
 
-	ul {
+	> ul {
 		padding-right: 10px;
 		padding-bottom: 10px;
 		display: flex;
@@ -31,14 +31,14 @@ export const StyledHomeList = styled.section`
 	@media (min-width: 780px) {
 		padding: 80px 60px;
 
-		ul {
+		> ul {
 			padding-right: 10px;
 			gap: 60px;
 		}
 	}
 
 	@media (min-width: 400px) {
-		h1 {
+		> h1 {
 			font-size: 2.5rem;
 		}
 	}
@@ -64,12 +64,12 @@ export const StyledHomeCard = styled.a`
 		position: relative;
 		overflow: hidden;
 
-		img {
+		> img {
 			z-index: 5;
 			transition: 0.5s ease;
 		}
 
-		span {
+		> span {
 			transition: 0.3s ease;
 			position: absolute;
 			bottom: 0;
@@ -87,14 +87,14 @@ export const StyledHomeCard = styled.a`
 	}
 
 	.card-body {
-		h2 {
+		> h2 {
 			color: var(--black100);
 			font-size: 1.3rem;
 			font-weight: bold;
 			margin-bottom: 10px;
 		}
 
-		p {
+		> p {
 			font-size: 0.875rem;
 			font-family: var(--font-family-2);
 			color: var(--black100);
@@ -162,14 +162,16 @@ export const StyledHomeCard = styled.a`
 
 		.card-header {
 			&:hover {
-				span {
+				> span {
 					transform: translateY(0);
 				}
 			}
 		}
 	}
 
-	.card-header span {
-		transform: translateY(100%);
+	.card-header {
+		> span {
+			transform: translateY(100%);
+		}
 	}
 `;

@@ -56,7 +56,7 @@ export const ButtonDiv = styled.div`
     transform-origin: bottom left;
   }
 
-  a {
+  >a {
     width: 85px;
     color: black;
     font-size: 17px;
