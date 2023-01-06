@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledLogin = styled.div`
   margin: 0 auto;
   form {
-    width: 100%;
+    width: 93%;
     margin: 0px 23px;
     display: flex;
     flex-direction: column;
@@ -178,13 +178,13 @@ export const ImageDiv = styled.div`
   display: none;
   height: 100vh;
   @media (min-width: 900px) {
-    width: 456px;
+    width: 50vh;
     display: flex;
 
     img {
       width: 100%;
       height: 100%;
-      object-fit: fill;
+      object-fit: cover;
     }
   }
 `;
