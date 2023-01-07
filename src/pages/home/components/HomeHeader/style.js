@@ -2,7 +2,8 @@ import styled from "styled-components";
 import image from "../../../../assets/img/donatenow.png";
 
 export const StyledHomeHeader = styled.section`
-	.hero-section {
+
+	.heroSection {
 		background: url(${image});
 		padding: 260px 0;
 		background-size: cover;
@@ -28,7 +29,7 @@ export const StyledHomeHeader = styled.section`
 		}
 	}
 
-    .stats-section {
+    .statsSection {
         display: flex;
         flex-direction: column;
         padding: 25px;
@@ -36,7 +37,7 @@ export const StyledHomeHeader = styled.section`
         background-color: var(--primary200);
     }
 
-	.stats-item {
+	.statsItem {
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
@@ -59,7 +60,7 @@ export const StyledHomeHeader = styled.section`
 	}
 
 	@media (min-width: 700px) {
-		.hero-section {
+		.heroSection {
 			>h1 {
 				font-family: var(--font-family-1);
 				color: var(--white100);
@@ -75,7 +76,7 @@ export const StyledHomeHeader = styled.section`
 			}
 		}
 
-		.stats-section {
+		.statsSection {
 			flex-direction: row;
 			padding: 35px;
             gap: 20px;

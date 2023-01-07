@@ -60,13 +60,17 @@ export const StyledHomeCard = styled.a`
 		transition: 0.5s ease;
 	}
 
-	.card-header {
+	.cardHeader {
 		position: relative;
 		overflow: hidden;
+		height: 250px;
 
 		> img {
 			z-index: 5;
 			transition: 0.5s ease;
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
 		}
 
 		> span {
@@ -86,7 +90,7 @@ export const StyledHomeCard = styled.a`
 		}
 	}
 
-	.card-body {
+	.cardBody {
 		> h2 {
 			color: var(--black100);
 			font-size: 1.3rem;
@@ -108,7 +112,7 @@ export const StyledHomeCard = styled.a`
 		}
 	}
 
-	.card-footer {
+	.cardFooter {
 		display: flex;
 		flex-direction: column;
 		gap: 26px;
@@ -120,7 +124,7 @@ export const StyledHomeCard = styled.a`
 			position: relative;
 		}
 
-		.bar-grey {
+		.barGrey {
 			position: absolute;
 			left: 0;
 			bottom: -10px;
@@ -129,7 +133,7 @@ export const StyledHomeCard = styled.a`
 			background-color: #d9d9d9;
 		}
 
-		.bar-color {
+		.barColor {
 			position: absolute;
 			left: 0;
 			bottom: -10px;
@@ -156,11 +160,11 @@ export const StyledHomeCard = styled.a`
 	}
 
 	@media (min-width: 700px) {
-		.card-header img:hover {
+		.cardHeader img:hover {
 			transform: scale(1.1);
 		}
 
-		.card-header {
+		.cardHeader {
 			&:hover {
 				> span {
 					transform: translateY(0);
@@ -169,7 +173,7 @@ export const StyledHomeCard = styled.a`
 		}
 	}
 
-	.card-header {
+	.cardHeader {
 		> span {
 			transform: translateY(100%);
 		}

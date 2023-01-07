@@ -57,28 +57,28 @@ const HomeList = () => {
 						return (
 							<StyledHomeCard as={Link} to={`/profile/${id}`} key={id}>
 								<li className="card">
-									<div className="card-header">
+									<div className="cardHeader">
 										<img src={image} alt={name} />
 										<span className="cta">MAIS SOBRE</span>
 									</div>
-									<div className="card-body">
+									<div className="cardBody">
 										<h2>{name}</h2>
 										<p>{description}</p>
 									</div>
-									<div className="card-footer">
+									<div className="cardFooter">
 										<span className="percentage">
 											{validatePercentage(raised, goal)}%
 											<span
-												className="bar-color"
+												className="barColor"
 												style={{
 													width: `${validatePercentage(raised, goal)}%`,
 												}}
 											/>
-											<span className="bar-grey" />
+											<span className="barGrey" />
 										</span>
 										<div className="stats">
-											<span>Arrecadados: ${raised}</span>
-											<span>Meta: ${goal}</span>
+											<span>Arrecadados: ${raised?.toLocaleString()}</span>
+											<span>Meta: ${goal?.toLocaleString()}</span>
 										</div>
 									</div>
 								</li>
