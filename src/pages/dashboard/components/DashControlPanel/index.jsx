@@ -17,8 +17,6 @@ const DashControlPanel = () => {
     const actualONG = users.find(user => user.id === +idLocal)
     const totalRaised = donation.find((user) => user.userId === +idLocal);
 
-    console.log(totalRaised)
-
     const showEditProfile = () => {
         if (!profileActive) {
             setAddPostActive(!addPostActive);
@@ -63,7 +61,7 @@ const DashControlPanel = () => {
                 </div>
                 <div>
                     <h2>{addPostActive ? "FAZER POSTAGEM" : `META: ${(+actualONG?.goal).toLocaleString()}$`}</h2>
-                    {!addPostActive && <h2>ARRECADADO: {totalRaised ? totalRaised.raised.toLocaleString() : "0.00"}$</h2>}
+                    {!addPostActive && <h2>ARRECADADO: {totalRaised ? totalRaised.raised.toLocaleString() : 0}$</h2>}
                 </div>
             </div>
 

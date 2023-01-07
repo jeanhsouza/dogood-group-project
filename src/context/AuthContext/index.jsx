@@ -29,25 +29,27 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	React.useEffect(() => {
-		const getDonations = async () => {
-			try {
-				const res = await api.get(`donations`, {
-					headers: {
-						"Content-Type": "application/json",
-					},
-				});
-				const json = await res.data;
-
-				setDonation(json);
-			} catch (error) {
-				console.log(error);
-			}
-		};
+		
 		getDonations();
 	}, []);
 
+	const getDonations = async () => {
+		try {
+			const res = await api.get(`donations`, {
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+			const json = await res.data;
+
+			setDonation(json);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return (
-		<AuthContext.Provider value={{ users, donation}}>
+		<AuthContext.Provider value={{ users, donation, getUsers, getDonations}}>
 			{children}
 		</AuthContext.Provider>
 	);

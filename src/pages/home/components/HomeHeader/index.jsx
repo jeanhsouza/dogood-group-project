@@ -7,9 +7,7 @@ const HomeHeader = () => {
 	const {users, donation} = React.useContext(AuthContext);
 
 	const totalGoal = users.reduce((acc,actualValue)=> acc + +actualValue.goal,0);
-	const toalRaised = donation.reduce((acc, actualValue) => acc + actualValue.raised,0);
-
-	console.log(donation)
+	const totalRaised = donation.reduce((acc, actualValue) => acc + actualValue.raised,0);
 
 	return (
 		<StyledHomeHeader>
@@ -25,7 +23,7 @@ const HomeHeader = () => {
 				</div>
 				<div className="statsItem">
 					<h2>Arrecadados:</h2>
-					<h3>${toalRaised.toLocaleString()}</h3>
+					<h3>${totalRaised.toLocaleString()}</h3>
 				</div>
 				<div className="statsItem">
 					<h2>ONGs Cadastradas:</h2>

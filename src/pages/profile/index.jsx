@@ -16,6 +16,8 @@ const Profile = () => {
 	const user = users.find((user) => user.id === +id);
 	const totalRaised = donation.find((user) => user.userId === +id);
 
+	console.log(user);
+	
 	const [showModal, setShowModal] = useState(false);
 
 	function openModal() {

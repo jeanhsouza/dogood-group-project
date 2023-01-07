@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 const ProfileHeader = ({ user, totalRaised, openModal }) => {
 	if (!user) return null;	
 
-	if (!totalRaised) return null;
+	// if (!totalRaised) return null;
 
 	return (
 		<>
@@ -29,7 +29,7 @@ const ProfileHeader = ({ user, totalRaised, openModal }) => {
 							</div>
 							<div className="stats">
 								<h2>Arrecadados:</h2>
-								<span>$ {totalRaised.raised.toLocaleString()}</span>
+								<span>$ {totalRaised? totalRaised.raised.toLocaleString() : 0}</span>
 							</div>
 						</div>
 					</div>

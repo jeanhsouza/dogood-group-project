@@ -14,7 +14,7 @@ const HomeList = () => {
 
 	const findRaised = (id) => {
 		const user = donation.find((user) => user.userId === id);
-		return user?.raised;
+		return user? user.raised : 0;
 	};
 
 	return (
@@ -52,7 +52,7 @@ const HomeList = () => {
 											<span>
 												Arrecadados: ${findRaised(id)?.toLocaleString()}
 											</span>
-											<span>Meta: ${goal?.toLocaleString()}</span>
+											<span>Meta: ${(+goal)?.toLocaleString()}</span>
 										</div>
 									</div>
 								</li>
