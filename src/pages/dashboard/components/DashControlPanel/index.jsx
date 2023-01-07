@@ -11,10 +11,13 @@ const DashControlPanel = () => {
     const [addPostActive, setAddPostActive] = useState(false);
     const [logoutActive, setLogoutActive] = useState(false);
     
-    const {users} = useContext(AuthContext)
+    const {users, donation} = useContext(AuthContext)
     const idLocal = localStorage.getItem("@USER:ID")
 
     const actualONG = users.find(user => user.id === +idLocal)
+    const totalRaised = donation.find((user) => user.userId === +idLocal);
+
+    console.log(totalRaised)
     
     const showEditProfile = () => {
         setAddPostActive(false);
@@ -55,8 +58,8 @@ const DashControlPanel = () => {
 
                 </div>
                 <div>
-                    <h2>{addPostActive ? "FAZER POSTAGEM" : `META: ${actualONG?.goal.toLocaleString()}$`}</h2>
-                    {!addPostActive && <h2>ARRECADADO: 60.000$</h2>}
+                    <h2>{addPostActive ? "FAZER POSTAGEM" : `META: ${(+actualONG?.goal).toLocaleString()}$`}</h2>
+                    {!addPostActive && <h2>ARRECADADO: {totalRaised? totalRaised.raised.toLocaleString() : "0.00"}$</h2>}
                 </div>
             </div>
 
