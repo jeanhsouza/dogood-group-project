@@ -9,13 +9,13 @@ import { toast } from "react-toastify";
 const DonationModal = ( { openModal, setShowModal, user } ) => {
     
     const donateSchema = yup.object().shape({
-        // name: yup.string().required("Preencha o nome."),
-        // phone: yup.string().required("Campo obrigatório"),
-        // value: yup.number("Digite um número").required("Preencha o valor.").positive("O valor deve ser positivo"),
-        // email: yup.string().required("Campo obrigatório"),
-        // card: yup.string().required("Campo obrigatório"),
-        // date: yup.string().required("Campo obrigatório"),
-        // cvc: yup.string().required("Campo obrigatório"),
+        name: yup.string().required("Preencha o nome."),
+        phone: yup.string().required("Campo obrigatório"),
+        value: yup.number("Digite um número").required("Preencha o valor.").positive("O valor deve ser positivo"),
+        email: yup.string().required("Campo obrigatório"),
+        card: yup.string().required("Campo obrigatório"),
+        date: yup.string().required("Campo obrigatório"),
+        cvc: yup.string().required("Campo obrigatório"),
     })
 
     const { register, handleSubmit, formState: { errors } } =useForm({
@@ -55,9 +55,12 @@ const DonationModal = ( { openModal, setShowModal, user } ) => {
                 {errors.email?.message && <p className="error" aria-errormessage="">{errors.email.message}</p>}
                 <input type="text" placeholder="Número do cartão" {...register("card")}/>
                 {errors.card?.message && <p className="error" aria-errormessage="">{errors.card.message}</p>}
-                <input className="cardInput" type="text" placeholder="MM/YY" {...register("date")}/>
+                <div className="cardInput" >
+                <input type="text" placeholder="MM/YY" {...register("date")}/>
                 {errors.date?.message && <p className="error" aria-errormessage="">{errors.date.message}</p>}
-                <input className="cardInput" type="text" placeholder="CVC" {...register("cvc")}/>
+                <input type="text" placeholder="CVC" {...register("cvc")}/>
+
+                </div>
                 <button type="submit" className="donationButton">DOAR AGORA</button>
             </form>
         </div>

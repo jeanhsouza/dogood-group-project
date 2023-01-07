@@ -16,7 +16,7 @@ export const StyledDonationModal = styled.div`
     .modalWrapper {
         background-color: #FFFFFF;
         width: 696px;
-        height: 445px;
+        /* height: 100%; */
         margin: 20px 18px;
         border-radius: 10px;
         display: flex;
@@ -63,15 +63,19 @@ export const StyledDonationModal = styled.div`
         border-radius: 10px;
     }
     .donationForm {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        width: 90%;
-        height: 300px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 40px;
+        padding: 40px;
+        /* flex-wrap: wrap; */
+        /* justify-content: space-between; */
+        width: 100%;
+        /* height: 300px; */
     }
     >input {
+        display: block;
         color: var(--gray100);
-        /* width: 100px; */
+        width: 100%;
         height: 50px;
         font-family: var(--font-family-2);
         font-weight: var(--font-weight-3);
@@ -80,12 +84,18 @@ export const StyledDonationModal = styled.div`
         border-bottom: 2px solid var(--gray100);
     }
     .cardInput{
-        width: 50px;
+        width: 100%;
+        gap: 10px;
+        display: flex;
+        >input {
+            width: 50%;
+        }
     }
     .donationButton {
         display: flex;
         justify-content: center;
         align-items: center;
+        grid-column: 1/-1;
         width: 100%;
         height: 74px;
         background-color: var(--primary100);
