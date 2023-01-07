@@ -49,15 +49,13 @@ const DashControlPanel = () => {
 
                 </div>
                 <div>
-                    <h2>{true ? "FAZER POSTAGEM" : "META: 40.000$"}</h2>
-                    {!true && <h2>ARRECADADO: 60.000$</h2>}
+                    <h2>{addPostActive ? "FAZER POSTAGEM" : "META: 40.000$"}</h2>
+                    {!addPostActive && <h2>ARRECADADO: 60.000$</h2>}
                 </div>
             </div>
 
-
             {profileActive && <DashProfileForm />}
             {addPostActive && <DashNewPostForm />}
-
 
         </StyledDashControlPanel>
     );
