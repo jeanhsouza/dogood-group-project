@@ -9,7 +9,6 @@ import { StyledDashControlPanel } from "./style";
 const DashControlPanel = () => {
     const [profileActive, setProfileActive] = useState(true);
     const [addPostActive, setAddPostActive] = useState(false);
-    const [logoutActive, setLogoutActive] = useState(false);
 
     const { users, donation, userLogout } = useContext(AuthContext)
     const idLocal = localStorage.getItem("@USER:ID")
@@ -17,7 +16,7 @@ const DashControlPanel = () => {
     const actualONG = users.find(user => user.id === +idLocal)
     const totalRaised = donation.find((user) => user.userId === +idLocal);
 
-    console.log(users)
+    console.log(actualONG)
 
     const showEditProfile = () => {
         if (!profileActive) {
