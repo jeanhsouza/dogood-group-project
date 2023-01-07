@@ -5,9 +5,11 @@ import { ImageDiv, LogButton, RegisterButton, StyledLogin } from "./style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { RegisterSchema } from "./registerSchema";
+import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 
 const Register = () => {
+  const Navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -19,6 +21,7 @@ const Register = () => {
   const ReqRegister = async (data) => {
     try {
       const response = await api.post("/register", data);
+      Navigate("/login");
     } catch (error) {
       console.log(error);
     }
