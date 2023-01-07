@@ -4,18 +4,20 @@ const StyledProfileHeader = styled.section`
 	padding-top: 60px;
 	display: flex;
 	flex-direction: column;
-	gap: 40px;
 	margin-bottom: 100px;
 
-	h1 {
+	.cardSection{
+		>h1 {
 		padding: 40px;
-		font-size: 4.5rem;
+		font-size: 60px;
 		letter-spacing: 1px;
 		font-weight: 400;
 		font-family: var(--font-family-1);
 		color: var(--primary100);
 		background-color: var(--primary200);
 	}
+	}
+	
 
 	.profileCard {
 		margin: 40px;
@@ -48,6 +50,8 @@ const StyledProfileHeader = styled.section`
 
 		.profileInfo {
 			display: flex;
+			flex-direction: column;
+			gap: 20px;
 			align-items: center;
 			justify-content: space-around;
 			padding: 40px 0;
@@ -70,14 +74,14 @@ const StyledProfileHeader = styled.section`
 	.ourCauseSection {
 		margin: 0 40px;
 
-		h2 {
+		>h2 {
 			font-size: 32px;
 			margin-bottom: 30px;
 			font-weight: 400;
 			font-family: var(--font-family-1);
 		}
 
-		p {
+		>p {
 			max-width: 75ch;
 			font-size: 18px;
 			color: var(--black100);
@@ -87,6 +91,13 @@ const StyledProfileHeader = styled.section`
 
 	@media (min-width: 900px) {
 		padding-top: 0px;
+
+		.profileCard{
+			
+			.profileInfo{
+				flex-direction: row;
+			}
+		}
 	}
 `;
 

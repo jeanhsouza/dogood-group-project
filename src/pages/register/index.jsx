@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { RegisterSchema } from "./registerSchema";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
 
 const Register = () => {
   const Navigate = useNavigate();
@@ -40,10 +41,10 @@ const Register = () => {
         <div className="form-div">
           <Input
             placeholder="Nome"
-            id="nome"
+            id="name"
             type="text"
-            error={errors.nome}
-            {...register("nome")}
+            error={errors.name}
+            {...register("name")}
           />
 
           <Input
@@ -86,7 +87,7 @@ const Register = () => {
           />
         </div>
         <RegisterButton className="hover-underline-animation">
-          Cadastrar
+          CADASTRAR
         </RegisterButton>
       </form>
     </StyledRegister>

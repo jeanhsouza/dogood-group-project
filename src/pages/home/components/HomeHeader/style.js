@@ -2,7 +2,8 @@ import styled from "styled-components";
 import image from "../../../../assets/img/donatenow.png";
 
 export const StyledHomeHeader = styled.section`
-	.hero-section {
+
+	.heroSection {
 		background: url(${image});
 		padding: 260px 0;
 		background-size: cover;
@@ -13,14 +14,14 @@ export const StyledHomeHeader = styled.section`
 		justify-content: center;
 		gap: 20px;
 
-		h1 {
+		>h1 {
 			font-family: var(--font-family-1);
 			color: var(--white100);
 			font-size: 60px;
 			letter-spacing: 2.5008px;
 		}
 
-		p {
+		>p {
 			font-family: var(--font-family-1);
 			color: var(--primary100);
 			font-size: 20px;
@@ -28,7 +29,7 @@ export const StyledHomeHeader = styled.section`
 		}
 	}
 
-    .stats-section {
+    .statsSection {
         display: flex;
         flex-direction: column;
         padding: 25px;
@@ -36,12 +37,12 @@ export const StyledHomeHeader = styled.section`
         background-color: var(--primary200);
     }
 
-	.stats-item {
+	.statsItem {
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
 
-		h2 {
+		>h2 {
 			font-family: var(--font-family-2);
 			font-size: 26px;
 			font-weight: var(--font-weight-1);
@@ -49,7 +50,7 @@ export const StyledHomeHeader = styled.section`
 			color: var(--primary100);
 		}
 
-		h3 {
+		>h3 {
 			font-family: var(--font-family-1);
 			font-size: 56px;
 			font-weight: var(--font-weight-3);
@@ -59,15 +60,15 @@ export const StyledHomeHeader = styled.section`
 	}
 
 	@media (min-width: 700px) {
-		.hero-section {
-			h1 {
+		.heroSection {
+			>h1 {
 				font-family: var(--font-family-1);
 				color: var(--white100);
 				font-size: 80px;
 				letter-spacing: 2.5008px;
 			}
 
-			p {
+			>p {
 				font-family: var(--font-family-1);
 				color: var(--primary100);
 				font-size: 24px;
@@ -75,7 +76,7 @@ export const StyledHomeHeader = styled.section`
 			}
 		}
 
-		.stats-section {
+		.statsSection {
 			flex-direction: row;
 			padding: 35px;
             gap: 20px;

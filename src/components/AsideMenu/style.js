@@ -56,12 +56,12 @@ export const ButtonDiv = styled.div`
     transform-origin: bottom left;
   }
 
-  a {
+  >a {
     width: 85px;
-    color: black;
-    font-size: 17px;
-    font-weight: 800;
-    font-family: var(--font-family-2);
+    color: var(--black100);
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-3);
+    font-family: var(--font-family-1);
   }
 `;
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledHomeList = styled.section`
 	padding: 40px 30px;
 
-	h1 {
+	> h1 {
 		font-size: 2rem;
 		letter-spacing: 2px;
 		font-family: var(--font-family-1);
@@ -11,7 +11,7 @@ export const StyledHomeList = styled.section`
 		margin-bottom: 20px;
 	}
 
-	ul {
+	> ul {
 		padding-right: 10px;
 		padding-bottom: 10px;
 		display: flex;
@@ -31,14 +31,14 @@ export const StyledHomeList = styled.section`
 	@media (min-width: 780px) {
 		padding: 80px 60px;
 
-		ul {
+		> ul {
 			padding-right: 10px;
 			gap: 60px;
 		}
 	}
 
 	@media (min-width: 400px) {
-		h1 {
+		> h1 {
 			font-size: 2.5rem;
 		}
 	}
@@ -60,16 +60,20 @@ export const StyledHomeCard = styled.a`
 		transition: 0.5s ease;
 	}
 
-	.card-header {
+	.cardHeader {
 		position: relative;
 		overflow: hidden;
+		height: 250px;
 
-		img {
+		> img {
 			z-index: 5;
 			transition: 0.5s ease;
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
 		}
 
-		span {
+		> span {
 			transition: 0.3s ease;
 			position: absolute;
 			bottom: 0;
@@ -86,15 +90,15 @@ export const StyledHomeCard = styled.a`
 		}
 	}
 
-	.card-body {
-		h2 {
+	.cardBody {
+		> h2 {
 			color: var(--black100);
 			font-size: 1.3rem;
 			font-weight: bold;
 			margin-bottom: 10px;
 		}
 
-		p {
+		> p {
 			font-size: 0.875rem;
 			font-family: var(--font-family-2);
 			color: var(--black100);
@@ -108,7 +112,7 @@ export const StyledHomeCard = styled.a`
 		}
 	}
 
-	.card-footer {
+	.cardFooter {
 		display: flex;
 		flex-direction: column;
 		gap: 26px;
@@ -120,7 +124,7 @@ export const StyledHomeCard = styled.a`
 			position: relative;
 		}
 
-		.bar-grey {
+		.barGrey {
 			position: absolute;
 			left: 0;
 			bottom: -10px;
@@ -129,7 +133,7 @@ export const StyledHomeCard = styled.a`
 			background-color: #d9d9d9;
 		}
 
-		.bar-color {
+		.barColor {
 			position: absolute;
 			left: 0;
 			bottom: -10px;
@@ -156,20 +160,22 @@ export const StyledHomeCard = styled.a`
 	}
 
 	@media (min-width: 700px) {
-		.card-header img:hover {
+		.cardHeader img:hover {
 			transform: scale(1.1);
 		}
 
-		.card-header {
+		.cardHeader {
 			&:hover {
-				span {
+				> span {
 					transform: translateY(0);
 				}
 			}
 		}
 	}
 
-	.card-header span {
-		transform: translateY(100%);
+	.cardHeader {
+		> span {
+			transform: translateY(100%);
+		}
 	}
 `;
