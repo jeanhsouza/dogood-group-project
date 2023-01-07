@@ -91,7 +91,7 @@ export const StyledInput = styled.input`
   }
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.fieldset`
   position: relative;
   width: 99%;
 `;

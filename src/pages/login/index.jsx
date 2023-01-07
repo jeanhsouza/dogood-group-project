@@ -4,11 +4,11 @@ import { ImageDiv, LogButton, StyledLogin } from "./style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { LoginSchema } from "./loginSchema";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
-import Header from "../../components/Header/Header";
 
 const Login = () => {
+  const Navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -23,6 +23,7 @@ const Login = () => {
 
       window.localStorage.setItem("@USER:ID", response.data.user.id);
       window.localStorage.setItem("@USER:TOKEN", response.data.accessToken);
+      Navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }

@@ -4,9 +4,12 @@ import { StyledHomeHeader } from "./style";
 
 const HomeHeader = () => {
 
-	const {users} = React.useContext(AuthContext);
+	const {users, donation} = React.useContext(AuthContext);
 
 	const totalGoal = users.reduce((acc,actualValue)=> acc + +actualValue.goal,0);
+	const toalRaised = donation.reduce((acc, actualValue) => acc + actualValue.raised,0);
+
+	console.log(donation)
 
 	return (
 		<StyledHomeHeader>
@@ -22,7 +25,7 @@ const HomeHeader = () => {
 				</div>
 				<div className="statsItem">
 					<h2>Arrecadados:</h2>
-					<h3>$45.000</h3>
+					<h3>${toalRaised.toLocaleString()}</h3>
 				</div>
 				<div className="statsItem">
 					<h2>ONGs Cadastradas:</h2>

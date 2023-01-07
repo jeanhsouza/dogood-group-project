@@ -17,6 +17,7 @@ export const StyledDonationModal = styled.div`
         background-color: #FFFFFF;
         width: 696px;
         height: 445px;
+        margin: 20px 18px;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
