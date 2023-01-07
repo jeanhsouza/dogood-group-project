@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { BiPlus, BiEditAlt, BiLogOut, BiUserCircle } from "react-icons/bi";
+import { useState, useContext } from "react";
+import { BiPlus, BiLogOut, BiUserCircle } from "react-icons/bi";
+import { AuthContext } from "../../../../context/AuthContext";
 import { StyledButton } from "../../../../styles/buttons";
 import DashNewPostForm from "./DashNewPostForm";
 import DashProfileForm from "./DashProfileForm";
@@ -9,7 +10,12 @@ const DashControlPanel = () => {
     const [profileActive, setProfileActive] = useState(false);
     const [addPostActive, setAddPostActive] = useState(false);
     const [logoutActive, setLogoutActive] = useState(false);
+    
+    const {users} = useContext(AuthContext)
+    const idLocal = localStorage.getItem("@USER:ID")
 
+    const actualONG = users.find(user => user.id === +idLocal)
+    
     const showEditProfile = () => {
         setAddPostActive(false);
         setProfileActive(!profileActive);
@@ -49,7 +55,7 @@ const DashControlPanel = () => {
 
                 </div>
                 <div>
-                    <h2>{addPostActive ? "FAZER POSTAGEM" : "META: 40.000$"}</h2>
+                    <h2>{addPostActive ? "FAZER POSTAGEM" : `META: ${actualONG?.goal.toLocaleString()}$`}</h2>
                     {!addPostActive && <h2>ARRECADADO: 60.000$</h2>}
                 </div>
             </div>
