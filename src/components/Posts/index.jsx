@@ -1,30 +1,45 @@
-import { useEffect, useState } from "react";
+import { Children, useContext, useEffect } from "react";
 import { StyledPosts } from "./style";
+import { DashContext } from "../../context/DashContext";
 import { api } from "../../services/api";
+import { Button } from "../Button";
+
 import PostCard from "./postCard";
 
-const PostsList = ({titleList}) =>{
-    const [postList, setPosts] = useState([]);
-
+const PostsList = ({ titleList, actualId, name, style, size, click }) =>{
+    const { postList, setPosts } = useContext(DashContext);
+        
     useEffect(()=> {
         async function loadPosts() {
             const {data} = await api.get("/posts/?_expand=user");
-            const actualId = 3;
             const actualList = data.filter(post => post.userId == actualId);
-            console.log(actualList);
             setPosts(actualList);
         }
         loadPosts();  
     }, []);
+
     return( 
-        <>
-            <StyledPosts>
-                <h3>{titleList}</h3> 
-                    {postList.map(({title, description, id})=>{
-                        return <PostCard title={title} description={description} idPost={id} key={id}/>
-                    })}
-            </StyledPosts>
-        </>
+        <StyledPosts>
+            <h3>{titleList.toUpperCase()}</h3> 
+            <ul>
+                {postList.map(({title, description, id, image })=>{
+                    return <PostCard 
+                        title={title} 
+                        description={description} 
+                        image={image} 
+                        key={id} 
+                        >   
+                        <Button
+                            name={name}
+                            style={style}
+                            size={size}
+                            click={click}
+                            idPost={id} 
+                        />
+                    </PostCard>
+                })}
+            </ul>
+        </StyledPosts>
     )
 }
 

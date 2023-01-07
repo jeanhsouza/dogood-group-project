@@ -9,18 +9,15 @@ export const StyledCard = styled.li`
 
     @media (min-width: 900px) {  
         width: 280px;
-        h2{
+        >h2{
             font-size: 20px;
         }
-        p{
+        >p{
             font-size: 10px;
-        }
-        button{
-            font-size: 15px;
         }
     }
 
-    h2{
+    >h2{
         margin-top: 13px;
         margin-bottom: 5px;
 
@@ -31,7 +28,7 @@ export const StyledCard = styled.li`
         line-height: 30px;
     }
 
-    p{
+    >p{
         color: var(--black100);
         font-family: Heebo;
 
@@ -40,17 +37,8 @@ export const StyledCard = styled.li`
         line-height: 15px;
     }
 
-    button{
-        font-size: 0.93rem;
-        padding: 10px 30px;
-        margin-top: 10px;
-
-        background-color: var(--primary200);
-        color: var(--primary100);
-    } 
-
-    img{
-        width: 280px;
+    >img{
+        width: 100%;
         height: 210px;
     }
 `

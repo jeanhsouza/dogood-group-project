@@ -1,9 +1,27 @@
 import { StyledDashboard} from "./style";
+import { useContext } from "react";
+import { DashContext } from "../../context/DashContext";
+import DashControlPanel from "./components/DashControlPanel";
+import DashboardHeader from "./components/DashHeader";
+import PostsList from "../../components/Posts";
 
 const DashBoard = () => {
-	return (<StyledDashboard>
-        <h1>DashBoard</h1>
-    </StyledDashboard>);
+    const actualId = window.localStorage.getItem("@USER:ID");
+    const { openModal } = useContext(DashContext);
+	return (
+    <StyledDashboard>
+        <DashboardHeader/>
+        <DashControlPanel/>
+        <PostsList
+			titleList={"MINHAS POSTAGENS"} 
+			actualId={actualId}
+            name={"DELETAR"}
+			style={"brand1"}
+           	size={"default"}
+            click={openModal}
+        />	
+    </StyledDashboard>
+    );
 };
 
 export default DashBoard;

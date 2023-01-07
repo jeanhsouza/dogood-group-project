@@ -5,11 +5,14 @@ export const StyledButton = styled.button`
     justify-content: center;
     gap: 1rem;
     transition: 0.4s;
+    font-size:0.93rem;
+    margin-top: 10px;
+
     ${({ buttonSize }) => {
         switch (buttonSize) {
             case "default":
                 return css`
-                    padding: 8px 10px;
+                    padding: 10px 15px;
                 `;
             case "medium":
                 return css`
@@ -27,14 +30,14 @@ export const StyledButton = styled.button`
                     &:hover {
                         opacity: 100%;
                     }
-                `;
-            case "solid1":
+                `; 
+            case "brand2":
                 return css`
-                    background: var(--primary200);
-                    color: var(--primary100);
+                    background-color: var(--secundary200);
+                    color: var(--secundary100);
+                    opacity: 70%;
                     &:hover {
-                        background: var(--gray200);
-                        color: var(--white100);
+                        opacity:100%;
                     }
                 `;
             case "solid2":
@@ -48,4 +51,7 @@ export const StyledButton = styled.button`
                 `;
         }
     }}
+    @media (min-width: 900px) {
+        font-size: 15px;  
+    }
 `;

@@ -1,11 +1,13 @@
 import { StyledButton } from "./style";
-export const Button = ({type, name, onclick, buttonSize, buttonStyle}) =>{
+export const Button = ({ type, name, size, style, click, idPost }) =>{
+
     return(
         <StyledButton 
             type={type} 
-            onClick={()=>{onclick}}
-            buttonSize={buttonSize}
-            buttonStyle={buttonStyle}
-        >{name}</StyledButton>
+            buttonSize={size}
+            buttonStyle={style}
+            onClick={click}
+            id={idPost}
+        >{name.toUpperCase()}</StyledButton>
     )
 }
