@@ -21,7 +21,7 @@ export const StyledDashboardHeader = styled.header`
         height: 340px;
     }
 
-	h1{
+	>h1{
 	    font-family: var(--font-family-1);
 		color: var(--white100);
 		font-size: var(--font-size-0);

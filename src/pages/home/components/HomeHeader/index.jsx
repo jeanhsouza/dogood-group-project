@@ -1,26 +1,32 @@
 import React from "react";
+import { AuthContext } from "../../../../context/AuthContext";
 import { StyledHomeHeader } from "./style";
 
 const HomeHeader = () => {
+
+	const {users} = React.useContext(AuthContext);
+
+	const totalGoal = users.reduce((acc,actualValue)=> acc + +actualValue.goal,0);
+
 	return (
 		<StyledHomeHeader>
-			<div className="hero-section">
+			<div className="heroSection">
 				<p>NOS AJUDE A FAZER MAIS</p>
 				<h1>DOE AGORA</h1>
 			</div>
 
-			<div className="stats-section">
-				<div className="stats-item">
+			<div className="statsSection">
+				<div className="statsItem">
 					<h2>Nossa Meta:</h2>
-					<h3>$65.000</h3>
+					<h3>${totalGoal.toLocaleString()}</h3>
 				</div>
-				<div className="stats-item">
+				<div className="statsItem">
 					<h2>Arrecadados:</h2>
 					<h3>$45.000</h3>
 				</div>
-				<div className="stats-item">
+				<div className="statsItem">
 					<h2>ONGs Cadastradas:</h2>
-					<h3>10</h3>
+					<h3>{users?.length}</h3>
 				</div>
 			</div>
 		</StyledHomeHeader>

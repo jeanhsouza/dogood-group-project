@@ -20,7 +20,7 @@ const ProfileHeader = ({ user }) => {
 				{(showModal ? <DonationModal openModal={openModal} 	setShowModal={setShowModal} notify={notify} user={user}/> : null)}
 				<ToastContainer/>
 				<section className="cardSection">
-					<h1>{user.name}</h1>
+					<h1>{user.name.toUpperCase()}</h1>
 
 					<div className="profileCard">
 						<div className="profileImage">

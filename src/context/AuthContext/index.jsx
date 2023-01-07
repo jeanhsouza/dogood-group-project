@@ -1,10 +1,10 @@
+import React from "react";
 import { createContext } from "react";
 import { api } from "../../services/api";
-import React from "react";
 
 export const AuthContext = createContext({});
-
 export const AuthProvider = ({ children }) => {
+
 	const [users, setUsers] = React.useState([]);
 
 	React.useEffect(() => {		
@@ -25,8 +25,6 @@ export const AuthProvider = ({ children }) => {
 			console.log(error);
 		}
 	};
-
-	console.log(users)
 
 	return (
 		<AuthContext.Provider value={{ users }}>{children}</AuthContext.Provider>

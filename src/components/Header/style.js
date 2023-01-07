@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.div`
-	@media (min-width: 600px) {
+	@media (min-width: 900px) {
 		display: none;
 	}
 

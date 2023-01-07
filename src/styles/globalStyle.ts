@@ -63,6 +63,7 @@ input[type=number]::-webkit-outer-spin-button {
 	--primary100: #FF9370;
 	--primary200: #FFE2DA;
 	--secundary100: #9B8DB7;
+	--secundary200: #f0e8f8;
 	--black100: #303030;
 	--white100: #ffffff;
 	--negative100: #E60000;

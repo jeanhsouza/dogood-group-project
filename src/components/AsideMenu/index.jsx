@@ -17,23 +17,23 @@ const AsideMenu = () => {
 
 			<ButtonDiv>
 				<Link to="/home" className="hoverUnderLineAnimation">
-					Home
+					HOME
 				</Link>
 
 				<Link to="/login" className="hoverUnderLineAnimation">
-					Login
+					LOGIN
 				</Link>
 
 				<Link to="/register" className="hoverUnderLineAnimation">
-					Register
+					REGISTER
 				</Link>
 
 				<Link to="/profile" className="hoverUnderLineAnimation">
-					Profile
+					PROFILE
 				</Link>
 
 				<Link to="/dashboard" className="hoverUnderLineAnimation">
-					Dashboard
+					DASHBOARD
 				</Link>
 			</ButtonDiv>
 
