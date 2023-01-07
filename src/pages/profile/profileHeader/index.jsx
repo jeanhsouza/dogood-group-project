@@ -1,33 +1,15 @@
-import React, { useState } from "react";
-import DonationModal from "../../../components/DonationModal";
 import StyledProfileHeader from "./style";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AuthContext } from "../../../context/AuthContext";
 
-const ProfileHeader = ({ user, totalRaised }) => {
-	if (!user) return null;
+const ProfileHeader = ({ user, totalRaised, openModal }) => {
+	if (!user) return null;	
 
-	const [showModal, setShowModal] = useState(false);
-	function openModal() {
-		setShowModal(!showModal);
-	}
-	function notify() {
-		toast("Doação realizada com sucesso!");
-	}
+	if (!totalRaised) return null;
 
 	return (
 		<>
 			<StyledProfileHeader>
-				{showModal ? (
-					<DonationModal
-						openModal={openModal}
-						setShowModal={setShowModal}
-						notify={notify}
-						user={user}
-					/>
-				) : null}
-				<ToastContainer />
+				
 				<section className="cardSection">
 					<h1>{user.name.toUpperCase()}</h1>
 

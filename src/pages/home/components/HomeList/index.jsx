@@ -14,7 +14,7 @@ const HomeList = () => {
 
 	const findRaised = (id) => {
 		const user = donation.find((user) => user.userId === id);
-		return user.raised;
+		return user?.raised;
 	};
 
 	return (

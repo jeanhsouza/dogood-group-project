@@ -4,8 +4,9 @@ import * as yup from "yup"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { api } from "../../services/api"
+import { toast } from "react-toastify";
 
-const DonationModal = ( { openModal, setShowModal, notify, user } ) => {
+const DonationModal = ( { openModal, setShowModal, user } ) => {
     
     const donateSchema = yup.object().shape({
         // name: yup.string().required("Preencha o nome."),
@@ -25,7 +26,7 @@ const DonationModal = ( { openModal, setShowModal, notify, user } ) => {
         try {
             const response = await api.post("/donations", data)
             console.log(response)
-            notify()
+            toast.success("Doação realizada com sucesso!");
             setShowModal(false)
         } catch (error) {
             console.error(error)
@@ -38,7 +39,7 @@ const DonationModal = ( { openModal, setShowModal, notify, user } ) => {
         <div className="modalWrapper">
             <div className="headerContainer">
                 <div className="titleContainer">
-                    <h1 className="title">{user.name}</h1>
+                    <h1 className="title">{user.name.toUpperCase()}</h1>
                 </div>
                 <button className="closeButton" onClick={openModal} >X</button>
             </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { api } from "../../services/api";
 
 export const AuthContext = createContext({});
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
 	}, []);
 
 	return (
-		<AuthContext.Provider value={{ users, donation }}>
+		<AuthContext.Provider value={{ users, donation}}>
 			{children}
 		</AuthContext.Provider>
 	);
