@@ -2,7 +2,9 @@ import styled from "styled-components";
 export const StyledModalDiv = styled.div`
 	background-color: #ffff;
 	width: fit-content;
-	height: 90vh;
+	max-width: 600px;
+	height: fit-content;
+	max-height: 90%;
 	margin: 20px 18px;
 	border-radius: 6px;
 	overflow: hidden;
