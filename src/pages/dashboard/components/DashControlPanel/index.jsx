@@ -11,7 +11,7 @@ const DashControlPanel = () => {
     const [addPostActive, setAddPostActive] = useState(false);
     const [logoutActive, setLogoutActive] = useState(false);
 
-    const { users, donation } = useContext(AuthContext)
+    const { users, donation, userLogout } = useContext(AuthContext)
     const idLocal = localStorage.getItem("@USER:ID")
 
     const actualONG = users.find(user => user.id === +idLocal)
@@ -54,7 +54,7 @@ const DashControlPanel = () => {
                             <BiPlus />
                         </span>
                     </StyledButton>
-                    <StyledButton buttonSize="default" buttonStyle="primaryDefault" >
+                    <StyledButton buttonSize="default" buttonStyle="primaryDefault" onClick={userLogout}>
                         <span>
                             <BiLogOut />
                         </span>

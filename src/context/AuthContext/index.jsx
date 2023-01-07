@@ -1,5 +1,6 @@
 import React from "react";
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 
 export const AuthContext = createContext({});
@@ -7,6 +8,7 @@ export const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
 	const [users, setUsers] = React.useState([]);
 	const [donation, setDonation] = React.useState([]);
+	const navigate = useNavigate();
 
 
 	React.useEffect(() => {
@@ -46,8 +48,13 @@ export const AuthProvider = ({ children }) => {
 		getDonations();
 	}, []);
 
+	const userLogout = () => {
+		localStorage.clear();
+		navigate("/login");
+	}
+
 	return (
-		<AuthContext.Provider value={{ users, donation}}>
+		<AuthContext.Provider value={{ users, donation, userLogout }}>
 			{children}
 		</AuthContext.Provider>
 	);
