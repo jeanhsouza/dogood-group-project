@@ -17,7 +17,7 @@ const DashControlPanel = () => {
     const actualONG = users.find(user => user.id === +idLocal)
     const totalRaised = donation.find((user) => user.userId === +idLocal);
 
-    console.log(totalRaised)
+    console.log(users)
 
     const showEditProfile = () => {
         if (!profileActive) {
