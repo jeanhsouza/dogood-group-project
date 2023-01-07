@@ -5,8 +5,6 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { api } from "../../services/api"
 
-
-
 const DonationModal = ( { openModal, setShowModal, notify, user } ) => {
     
     const donateSchema = yup.object().shape({

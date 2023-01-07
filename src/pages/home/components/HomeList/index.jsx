@@ -54,7 +54,6 @@ const HomeList = () => {
 							const result = (raised / goal) * 100;
 							return result >= 100 ? 100 : Math.floor(result);
 						};
-
 						return (
 							<StyledHomeCard as={Link} to={`/profile/${id}`} key={id}>
 								<li className="card">
