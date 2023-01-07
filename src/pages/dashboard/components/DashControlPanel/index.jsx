@@ -14,7 +14,9 @@ const DashControlPanel = () => {
     const idLocal = localStorage.getItem("@USER:ID")
 
     const actualONG = users.find(user => user.id === +idLocal)
-    const totalRaised = donation.find((user) => user.userId === +idLocal);
+
+    const totalDonations = donation.filter((user)=> user.userId === +idLocal)
+    const totalRaised = totalDonations.reduce((acc, actValue) => acc + actValue.raised, 0);
 
     console.log(actualONG)
 
@@ -62,7 +64,7 @@ const DashControlPanel = () => {
                 </div>
                 <div>
                     <h2>{addPostActive ? "FAZER POSTAGEM" : `META: ${(+actualONG?.goal).toLocaleString()}$`}</h2>
-                    {!addPostActive && <h2>ARRECADADO: {totalRaised ? totalRaised.raised.toLocaleString() : 0}$</h2>}
+                    {!addPostActive && <h2>ARRECADADO: {totalRaised ? totalRaised.toLocaleString() : 0}$</h2>}
                 </div>
             </div>
 
