@@ -7,9 +7,12 @@ import { useForm } from "react-hook-form";
 import { RegisterSchema } from "./registerSchema";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Register = () => {
   const Navigate = useNavigate();
+  const { getUsers } = useContext( AuthContext )
   const {
     register,
     handleSubmit,
@@ -21,9 +24,10 @@ const Register = () => {
   const ReqRegister = async (data) => {
     try {
       const response = await api.post("/register", data);
+      getUsers()
       Navigate("/login");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

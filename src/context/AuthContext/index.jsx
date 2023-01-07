@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
 
 			setUsers(json);
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 		}
 	};
 
@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
 
 			setDonation(json);
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 		}
 	};
 
