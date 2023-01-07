@@ -4,7 +4,7 @@ export const StyledDashControlPanel = styled.section`
     height: max-content;
     width: 92%;
     max-width: 1000px;
-    margin: 32px auto 0;
+    margin: 40px 40px 0px 40px;
     display: flex;
     flex-direction: column;
     gap: 40px;
