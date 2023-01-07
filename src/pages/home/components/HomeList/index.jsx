@@ -5,55 +5,24 @@ import { AuthContext } from "../../../../context/AuthContext";
 import { StyledHomeList, StyledHomeCard } from "./style";
 
 const HomeList = () => {
-	const { users } = React.useContext(AuthContext);
+	const { users, donation } = React.useContext(AuthContext);
 
-	// const user = [
-	// 	{
-	// 		id: 10,
-	// 		name: "Nome da ong",
-	// 		description: "lorem ipsum dolor sit amet, lorem ipsum",
-	// 		img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-	// 		raised: 30000,
-	// 		goal: 50000,
-	// 	},
+	const calculatePercentage = (raised, goal) => {
+		const result = (raised / goal) * 100;
+		return result >= 100 ? 100 : Math.floor(result);
+	};
 
-	// 	{
-	// 		id: 20,
-	// 		name: "Nome da ong",
-	// 		description: "lorem ipsum dolor sit amet, lorem ipsum",
-	// 		img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-	// 		raised: 60000,
-	// 		goal: 50000,
-	// 	},
-	// 	{
-	// 		id: 30,
-	// 		name: "Nome da ong",
-	// 		description: "lorem ipsum dolor sit amet, lorem ipsum",
-	// 		img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-	// 		raised: 60000,
-	// 		goal: 50000,
-	// 	},
-
-	// 	{
-	// 		id: 40,
-	// 		name: "Nome da ong",
-	// 		description: "lorem ipsum dolor sit amet, lorem ipsum",
-	// 		img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-	// 		raised: 10000,
-	// 		goal: 150000,
-	// 	},
-	// ];
+	const findRaised = (id) => {
+		const user = donation.find((user) => user.userId === id);
+		return user.raised;
+	};
 
 	return (
 		<>
 			<StyledHomeList>
 				<h1>ESCOLHA SUA CAUSA</h1>
 				<ul>
-					{users.map(({ name, id, description, image, raised, goal }) => {
-						const validatePercentage = (raised, goal) => {
-							const result = (raised / goal) * 100;
-							return result >= 100 ? 100 : Math.floor(result);
-						};
+					{users.map(({ name, id, description, image, goal }) => {
 						return (
 							<StyledHomeCard as={Link} to={`/profile/${id}`} key={id}>
 								<li className="card">
@@ -67,17 +36,22 @@ const HomeList = () => {
 									</div>
 									<div className="cardFooter">
 										<span className="percentage">
-											{validatePercentage(raised, goal)}%
+											{calculatePercentage(findRaised(id), goal)}%
 											<span
 												className="barColor"
 												style={{
-													width: `${validatePercentage(raised, goal)}%`,
+													width: `${calculatePercentage(
+														findRaised(id),
+														goal
+													)}%`,
 												}}
 											/>
 											<span className="barGrey" />
 										</span>
 										<div className="stats">
-											<span>Arrecadados: ${raised?.toLocaleString()}</span>
+											<span>
+												Arrecadados: ${findRaised(id)?.toLocaleString()}
+											</span>
 											<span>Meta: ${goal?.toLocaleString()}</span>
 										</div>
 									</div>
