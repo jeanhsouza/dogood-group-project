@@ -23,7 +23,7 @@ const Login = () => {
 
       window.localStorage.setItem("@USER:ID", response.data.user.id);
       window.localStorage.setItem("@USER:TOKEN", response.data.accessToken);
-      Navigate("/home");
+      Navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
