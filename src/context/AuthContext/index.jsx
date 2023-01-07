@@ -3,11 +3,13 @@ import { createContext } from "react";
 import { api } from "../../services/api";
 
 export const AuthContext = createContext({});
+
 export const AuthProvider = ({ children }) => {
-
 	const [users, setUsers] = React.useState([]);
+	const [donation, setDonation] = React.useState([]);
 
-	React.useEffect(() => {		
+
+	React.useEffect(() => {
 		getUsers();
 	}, []);
 
@@ -18,7 +20,7 @@ export const AuthProvider = ({ children }) => {
 					"Content-Type": "application/json",
 				},
 			});
-			const json = await res.data
+			const json = await res.data;
 
 			setUsers(json);
 		} catch (error) {
@@ -26,7 +28,27 @@ export const AuthProvider = ({ children }) => {
 		}
 	};
 
+	React.useEffect(() => {
+		const getDonations = async () => {
+			try {
+				const res = await api.get(`donations`, {
+					headers: {
+						"Content-Type": "application/json",
+					},
+				});
+				const json = await res.data;
+
+				setDonation(json);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		getDonations();
+	}, []);
+
 	return (
-		<AuthContext.Provider value={{ users }}>{children}</AuthContext.Provider>
+		<AuthContext.Provider value={{ users, donation }}>
+			{children}
+		</AuthContext.Provider>
 	);
 };
