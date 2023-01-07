@@ -28,37 +28,40 @@ export const AuthProvider = ({ children }) => {
 
 			setUsers(json);
 		} catch (error) {
-			console.log(error);
+
+			console.error(error);
 		} finally {
 			setGlobalLoading(false)
 		}
 	};
 
 	React.useEffect(() => {
-		const getDonations = async () => {
-			try {
-				const res = await api.get(`donations`, {
-					headers: {
-						"Content-Type": "application/json",
-					},
-				});
-				const json = await res.data;
-
-				setDonation(json);
-			} catch (error) {
-				console.log(error);
-			}
-		};
+		
 		getDonations();
 	}, []);
 
-	const userLogout = () => {
+	const getDonations = async () => {
+		try {
+			const res = await api.get(`donations`, {
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+			const json = await res.data;
+
+			setDonation(json);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+  
+  const userLogout = () => {
 		localStorage.clear();
 		navigate("/login");
 	}
 
 	return (
-		<AuthContext.Provider value={{ users, donation, userLogout }}>
+		<AuthContext.Provider value={{ users, donation, getUsers, getDonations, userLogout}}>
 			{children}
 		</AuthContext.Provider>
 	);

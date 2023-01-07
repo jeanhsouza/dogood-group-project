@@ -62,7 +62,7 @@ const DashControlPanel = () => {
                 </div>
                 <div>
                     <h2>{addPostActive ? "FAZER POSTAGEM" : `META: ${(+actualONG?.goal).toLocaleString()}$`}</h2>
-                    {!addPostActive && <h2>ARRECADADO: {totalRaised ? totalRaised.raised.toLocaleString() : "0.00"}$</h2>}
+                    {!addPostActive && <h2>ARRECADADO: {totalRaised ? totalRaised.raised.toLocaleString() : 0}$</h2>}
                 </div>
             </div>
 
