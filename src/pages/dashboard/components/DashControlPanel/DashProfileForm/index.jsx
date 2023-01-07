@@ -6,9 +6,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { profileUpdateSchema } from "./profileUpdateSchema";
 import Textarea from "../../../../../components/TextArea";
+import { useState } from "react";
 
 
 const DashProfileForm = () => {
+    const [editActive, setEditActive] = useState(true);
+
+    const unlockEditProfile = () => {
+        setEditActive(!editActive);
+    };
+
     const {
         register,
         handleSubmit,
@@ -25,8 +32,11 @@ const DashProfileForm = () => {
 
 
     return (
-        <StyledDashProfileForm>
-            <StyledButton buttonSize="default" buttonStyle="primaryDefault">
+        <StyledDashProfileForm block={editActive}>
+            <StyledButton
+                buttonSize="default"
+                buttonStyle={!editActive ? "primaryActive" : "primaryDefault"}
+                onClick={unlockEditProfile}>
                 <span>
                     <BiEditAlt />
                 </span>

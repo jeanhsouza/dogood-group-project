@@ -7,9 +7,6 @@ const DashBoard = () => {
         <StyledDashboard>
             <DashboardHeader />
             <DashControlPanel />
-
-
-
         </StyledDashboard>
     )
 

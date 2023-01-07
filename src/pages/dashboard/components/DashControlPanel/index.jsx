@@ -6,21 +6,37 @@ import DashProfileForm from "./DashProfileForm";
 import { StyledDashControlPanel } from "./style";
 
 const DashControlPanel = () => {
-    const [btProfileActive, setBtProfileActive] = useState(false);
-    const [btAddPostActive, setBtAddPostActive] = useState(false);
-    const [btLogoutActive, setBtLogoutActive] = useState(false);
-    const [btEditActive, setBtEditActive] = useState(false);
+    const [profileActive, setProfileActive] = useState(false);
+    const [addPostActive, setAddPostActive] = useState(false);
+    const [logoutActive, setLogoutActive] = useState(false);
+
+    const showEditProfile = () => {
+        setAddPostActive(false);
+        setProfileActive(!profileActive);
+    };
+
+    const showNewPost = () => {
+        setProfileActive(false);
+        setAddPostActive(!addPostActive);
+    };
+
 
     return (
         <StyledDashControlPanel>
             <div>
                 <div>
-                    <StyledButton buttonSize="default" buttonStyle="primaryDefault" >
+                    <StyledButton
+                        buttonSize="default"
+                        buttonStyle={profileActive ? "primaryActive" : "primaryDefault"}
+                        onClick={showEditProfile}>
                         <span>
                             <BiUserCircle />
                         </span>
                     </StyledButton>
-                    <StyledButton buttonSize="default" buttonStyle="primaryActive" >
+                    <StyledButton
+                        buttonSize="default"
+                        buttonStyle={addPostActive ? "primaryActive" : "primaryDefault"}
+                        onClick={showNewPost}>
                         <span>
                             <BiPlus />
                         </span>
@@ -37,8 +53,10 @@ const DashControlPanel = () => {
                     {!true && <h2>ARRECADADO: 60.000$</h2>}
                 </div>
             </div>
-            {/* <DashProfileForm /> */}
-            <DashNewPostForm />
+
+
+            {profileActive && <DashProfileForm />}
+            {addPostActive && <DashNewPostForm />}
 
 
         </StyledDashControlPanel>

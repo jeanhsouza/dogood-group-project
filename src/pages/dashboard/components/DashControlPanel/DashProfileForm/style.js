@@ -6,8 +6,14 @@ export const StyledDashProfileForm = styled.section`
     width: 100%;
     margin-bottom: 88px;
 
-    fieldset input{
+    fieldset input,textarea, fieldset{        
         width: 100%;
+    }
+
+    fieldset input,textarea, fieldset, button:last-child{
+        pointer-events: ${({ block }) => block ? "none" : "auto"};
+        color: ${({ block }) => block ? "#828282" : "black"};
+        border-color: ${({ block }) => block ? "#828282" : "black"};
     }
 
     fieldset input:focus{
