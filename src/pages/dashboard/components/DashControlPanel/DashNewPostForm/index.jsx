@@ -10,8 +10,7 @@ import { StyledDashNewPostForm } from "./style";
 
 const DashNewPostForm = () => {
     const [loadingPost, setLoadingPost] = useState(false);
-    const { createPost } = useContext(DashContext)
-
+    const { createPost } = useContext(DashContext);
 
 
     const {

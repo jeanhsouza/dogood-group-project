@@ -47,7 +47,6 @@ export const DashProvider = ({ children }) => {
             if (response.statusText === "Created") {
                 console.log("Post publicado com sucesso!") // É CONSOLE É SÓ O TEXTO DE SUCESSO, SERÁ SUBSTITUÍDO PELO TOAST
             }
-            setSelectedTech(null);
         } catch (error) {
             console.log(error);
             /* toast.error(error.response.data.message); */
@@ -55,6 +54,31 @@ export const DashProvider = ({ children }) => {
             setLoadingPost(false);
         }
     }
+
+    const updateUser = async (data, setLoadingUpdateUser) => {
+        const token = localStorage.getItem("@USER:TOKEN");
+        const id = localStorage.getItem("@USER:ID");
+        try {
+            setLoadingUpdateUser(true);
+            const response = await api.patch(`/users/${id}`, data,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            )
+            if (response.statusText === "Created") {
+                console.log("Informações atualizadas com sucesso") // É CONSOLE É SÓ O TEXTO DE SUCESSO, SERÁ SUBSTITUÍDO PELO TOAST
+            }
+        } catch (error) {
+            console.log(error);
+            /* toast.error(error.response.data.message); */
+        } finally {
+            setLoadingUpdateUser(false);
+        }
+    }
+
+
 
     return <DashContext.Provider
         value={{
@@ -69,7 +93,8 @@ export const DashProvider = ({ children }) => {
             setPosts,
             openModal,
             openProfilePost,
-            createPost
+            createPost,
+            updateUser
         }}
     >
         {children}

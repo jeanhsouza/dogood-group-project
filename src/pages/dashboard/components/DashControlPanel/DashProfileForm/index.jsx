@@ -6,11 +6,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { profileUpdateSchema } from "./profileUpdateSchema";
 import Textarea from "../../../../../components/TextArea";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DashContext } from "../../../../../context/DashContext";
 
 
 const DashProfileForm = () => {
     const [editActive, setEditActive] = useState(true);
+    const [loadingUpdateUser, setLoadingUpdateUser] = useState(false);
+
+    const { updateUser } = useContext(DashContext);
 
     const unlockEditProfile = () => {
         setEditActive(!editActive);
@@ -27,6 +31,7 @@ const DashProfileForm = () => {
 
 
     function submit(data) {
+        updateUser(data, setLoadingUpdateUser);
         console.log(data);
     }
 
@@ -42,7 +47,7 @@ const DashProfileForm = () => {
                 </span>
             </StyledButton>
 
-            <form noValidate>
+            <form noValidate onSubmit={handleSubmit(submit)}>
                 <div>
                     <div>
                         <Input
@@ -84,7 +89,10 @@ const DashProfileForm = () => {
                     label="SOBRE"
                     error={errors.description}
                     {...register("description")} />
-                <StyledButton buttonSize="medium" buttonStyle="dashSubmit">
+                <StyledButton
+                    type="submit"
+                    buttonSize="medium"
+                    buttonStyle="dashSubmit">
                     ATUALIZAR INFORMAÇÕES
                 </StyledButton>
             </form>
