@@ -70,7 +70,7 @@ const DashProfileForm = () => {
                         <Input
                             placeholder="Meta"
                             id="goal"
-                            type="number"
+                            type="text"
                             error={errors.goal}
                             {...register("goal")}
                         />
