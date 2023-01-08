@@ -12,7 +12,8 @@ import { AuthContext } from "../../context/AuthContext";
 import { Button } from "../../components/Button";
 
 const Register = () => {
-  const Navigate = useNavigate();
+  const { reqRegister } = useContext(AuthContext);
+
   const { getUsers } = useContext(AuthContext);
   const {
     register,
@@ -22,18 +23,8 @@ const Register = () => {
     resolver: yupResolver(RegisterSchema),
   });
 
-  const ReqRegister = async (data) => {
-    try {
-      const response = await api.post("/register", data);
-      getUsers();
-      Navigate("/login");
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   function registerForm(data) {
-    ReqRegister(data);
+    reqRegister(data);
   }
 
   return (

@@ -7,9 +7,11 @@ import { LoginSchema } from "./loginSchema";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 import { Button } from "../../components/Button";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
-  const Navigate = useNavigate();
+  const { reqLogin } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -18,20 +20,8 @@ const Login = () => {
     resolver: yupResolver(LoginSchema),
   });
 
-  const ReqLogin = async (data) => {
-    try {
-      const response = await api.post("/login", data);
-
-      window.localStorage.setItem("@USER:ID", response.data.user.id);
-      window.localStorage.setItem("@USER:TOKEN", response.data.accessToken);
-      Navigate("/dashboard");
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   function loginForm(data) {
-    ReqLogin(data);
+    reqLogin(data);
   }
 
   return (
