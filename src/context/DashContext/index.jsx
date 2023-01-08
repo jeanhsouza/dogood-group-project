@@ -3,32 +3,75 @@ import { api } from "../../services/api";
 
 export const DashContext = createContext({});
 export const DashProvider = ({ children }) => {
-	const [modal, setModal] = useState(false);
-	const [modalPost, setModalPost] = useState(false);
-	const [idPost, setId] = useState(0);
+    const [modal, setModal] = useState(false);
+    const [modalPost, setModalPost] = useState(false);
+    const [idPost, setId] = useState(0);
     const [idProfilePost, setIdProfilePost] = useState(0)
-	const [postList, setPosts] = useState([]);    
+    const [postList, setPosts] = useState([]);
 
-	const token = window.localStorage.getItem("@USER:TOKEN");
-	api.defaults.headers.common.authorization = `Bearer ${token}`;
 
-	async function deletePost(){
-        try{
+
+    const token = window.localStorage.getItem("@USER:TOKEN");
+    api.defaults.headers.common.authorization = `Bearer ${token}`;
+
+    async function deletePost() {
+        try {
             const data = await api.delete(`/posts/${idPost}`);
-        }catch(err){
+        } catch (err) {
             console.error(err)
         }
     }
 
-	function openModal(e){
+    function openModal(e) {
         setModal(true);
         setId(+e.target.id);
     }
 
-    function openProfilePost(e){
-		setModalPost(!modalPost);     
-        setIdProfilePost(+e.target.id)   
-	}
+    function openProfilePost(e) {
+        setModalPost(!modalPost);
+        setIdProfilePost(+e.target.id)
+    }
 
-	return <DashContext.Provider value={{modal, setModal, modalPost, setModalPost, idProfilePost, deletePost, setId, postList, setPosts, openModal, openProfilePost}}>{children}</DashContext.Provider>;
+
+    const createPost = async (data, setLoadingPost) => {
+        const token = localStorage.getItem("@USER:TOKEN");
+        try {
+            setLoadingPost(true);
+            const response = await api.post("/posts", data,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            )
+            if (response.statusText === "Created") {
+                console.log("Post publicado com sucesso!") // É CONSOLE É SÓ O TEXTO DE SUCESSO, SERÁ SUBSTITUÍDO PELO TOAST
+            }
+            setSelectedTech(null);
+        } catch (error) {
+            console.log(error);
+            /* toast.error(error.response.data.message); */
+        } finally {
+            setLoadingPost(false);
+        }
+    }
+
+    return <DashContext.Provider
+        value={{
+            modal,
+            setModal,
+            modalPost,
+            setModalPost,
+            idProfilePost,
+            deletePost,
+            setId,
+            postList,
+            setPosts,
+            openModal,
+            openProfilePost,
+            createPost
+        }}
+    >
+        {children}
+    </DashContext.Provider>;
 };
