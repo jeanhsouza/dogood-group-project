@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { LoginSchema } from "./loginSchema";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
-
+import { Button } from "../../components/Button";
 
 const Login = () => {
   const Navigate = useNavigate();
@@ -58,10 +58,10 @@ const Login = () => {
               error={errors.password}
               {...register("password")}
             />
-            <LogButton className="hoverUnderLineAnimation">ENTRAR</LogButton>
+            <Button name={"LOGIN"} size={"small"} style={"brand3"} />
           </div>
 
-          <div className="question-div">
+          <div className="questionDiv">
             <p>AINDA NÃO POSSUI UMA CONTA?</p>
 
             <Link to="/register" className="hoverUnderLineAnimation" href="">

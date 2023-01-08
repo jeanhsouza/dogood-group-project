@@ -9,10 +9,11 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { Button } from "../../components/Button";
 
 const Register = () => {
   const Navigate = useNavigate();
-  const { getUsers } = useContext( AuthContext )
+  const { getUsers } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -24,7 +25,7 @@ const Register = () => {
   const ReqRegister = async (data) => {
     try {
       const response = await api.post("/register", data);
-      getUsers()
+      getUsers();
       Navigate("/login");
     } catch (error) {
       console.error(error);
@@ -90,9 +91,13 @@ const Register = () => {
             {...register("description")}
           />
         </div>
-        <RegisterButton className="hover-underline-animation">
-          CADASTRAR
-        </RegisterButton>
+
+        <Button
+          name={"CADASTRAR"}
+          size={"small"}
+          style={"brand3"}
+          className="hover-underline-animation"
+        />
       </form>
     </StyledRegister>
   );
