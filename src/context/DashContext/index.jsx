@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 
 export const DashContext = createContext({});
@@ -8,6 +8,8 @@ export const DashProvider = ({ children }) => {
     const [idPost, setId] = useState(0);
     const [idProfilePost, setIdProfilePost] = useState(0)
     const [postList, setPosts] = useState([]);
+    const [loadingUser, setLoadingUser] = useState(false);
+    const [currentUser, setCurrentUser] = useState(null);
 
 
 
@@ -29,9 +31,8 @@ export const DashProvider = ({ children }) => {
 
     function openProfilePost(e) {
         setModalPost(!modalPost);
-        setIdProfilePost(+e.target.id)
+        setIdProfilePost(+e.target.id);
     }
-
 
     const createPost = async (data, setLoadingPost) => {
         const token = localStorage.getItem("@USER:TOKEN");
@@ -67,8 +68,9 @@ export const DashProvider = ({ children }) => {
                     }
                 }
             )
-            if (response.statusText === "Created") {
-                console.log("Informações atualizadas com sucesso") // É CONSOLE É SÓ O TEXTO DE SUCESSO, SERÁ SUBSTITUÍDO PELO TOAST
+            if (response.statusText === "OK") {
+                console.log("Informações atualizadas com sucesso"); // É CONSOLE É SÓ O TEXTO DE SUCESSO, SERÁ SUBSTITUÍDO PELO TOAST
+                setCurrentUser(response.data);
             }
         } catch (error) {
             console.log(error);
@@ -77,6 +79,29 @@ export const DashProvider = ({ children }) => {
             setLoadingUpdateUser(false);
         }
     }
+
+    useEffect(() => {
+        getCurrentUser();
+    }, []);
+
+    const getCurrentUser = async () => {
+        const idLocal = localStorage.getItem("@USER:ID");
+        try {
+            setLoadingUser(true)
+            const res = await api.get(`users/${idLocal}`, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            const json = await res.data;
+            setCurrentUser(json);
+        } catch (error) {
+
+            console.error(error);
+        } finally {
+            setLoadingUser(false)
+        }
+    };
 
 
 
@@ -94,7 +119,9 @@ export const DashProvider = ({ children }) => {
             openModal,
             openProfilePost,
             createPost,
-            updateUser
+            updateUser,
+            currentUser,
+            getCurrentUser
         }}
     >
         {children}

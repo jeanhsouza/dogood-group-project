@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { profileUpdateSchema } from "./profileUpdateSchema";
 import Textarea from "../../../../../components/TextArea";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DashContext } from "../../../../../context/DashContext";
 
 
@@ -14,7 +14,7 @@ const DashProfileForm = () => {
     const [editActive, setEditActive] = useState(true);
     const [loadingUpdateUser, setLoadingUpdateUser] = useState(false);
 
-    const { updateUser } = useContext(DashContext);
+    const { updateUser, currentUser, getCurrentUser } = useContext(DashContext);
 
     const unlockEditProfile = () => {
         setEditActive(!editActive);
@@ -27,13 +27,23 @@ const DashProfileForm = () => {
     } = useForm({
         mode: "onBlur",
         resolver: yupResolver(profileUpdateSchema),
+        defaultValues: {
+            name: currentUser.name,
+            goal: currentUser.goal,
+            password: currentUser.password,
+            image: currentUser.image,
+            description: currentUser.description,
+        }
     });
 
 
     function submit(data) {
         updateUser(data, setLoadingUpdateUser);
-        console.log(data);
     }
+
+    useEffect(() => {
+        getCurrentUser();
+    }, []);
 
 
     return (

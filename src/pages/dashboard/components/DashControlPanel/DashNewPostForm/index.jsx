@@ -12,7 +12,6 @@ const DashNewPostForm = () => {
     const [loadingPost, setLoadingPost] = useState(false);
     const { createPost } = useContext(DashContext);
 
-
     const {
         register,
         handleSubmit,
@@ -32,6 +31,7 @@ const DashNewPostForm = () => {
             description: ""
         });
     }
+
 
     return (
         <StyledDashNewPostForm>
