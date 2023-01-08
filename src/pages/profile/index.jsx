@@ -7,6 +7,7 @@ import { AuthContext } from "../../context/AuthContext";
 import DonationModal from "../../components/DonationModal";
 import ProfilePostModal from "./profilePostModal";
 import { DashContext } from "../../context/DashContext";
+import Footer from "../home/components/HomeFooter";
 
 const Profile = () => {
 	const { users, donation} = React.useContext(AuthContext);
@@ -14,8 +15,9 @@ const Profile = () => {
 	const { id } = useParams();
 
 	const user = users.find((user) => user.id === +id);
-	const totalRaised = donation.find((user) => user.userId === +id);
-
+	const totalDonations = donation.filter((user)=> user.userId === +id)
+	const totalRaised = totalDonations.reduce((acc, actValue) => acc + actValue.raised, 0)
+	
 	const [showModal, setShowModal] = useState(false);
 
 	function openModal() {
@@ -41,6 +43,7 @@ const Profile = () => {
                	size={"default"}
                 click={openProfilePost}
             />	
+			<Footer/>
 		</StyledProfile>
 	);
 };

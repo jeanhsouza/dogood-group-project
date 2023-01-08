@@ -16,7 +16,7 @@ export const DashProvider = ({ children }) => {
         try{
             const data = await api.delete(`/posts/${idPost}`);
         }catch(err){
-            console.log(err)
+            console.error(err)
         }
     }
 

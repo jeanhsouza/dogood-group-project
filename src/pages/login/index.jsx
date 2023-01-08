@@ -7,6 +7,7 @@ import { LoginSchema } from "./loginSchema";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 
+
 const Login = () => {
   const Navigate = useNavigate();
   const {
@@ -25,7 +26,7 @@ const Login = () => {
       window.localStorage.setItem("@USER:TOKEN", response.data.accessToken);
       Navigate("/dashboard");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

@@ -7,26 +7,31 @@ import DashProfileForm from "./DashProfileForm";
 import { StyledDashControlPanel } from "./style";
 
 const DashControlPanel = () => {
-    const [profileActive, setProfileActive] = useState(false);
+    const [profileActive, setProfileActive] = useState(true);
     const [addPostActive, setAddPostActive] = useState(false);
-    const [logoutActive, setLogoutActive] = useState(false);
-    
-    const {users, donation} = useContext(AuthContext)
+
+    const { users, donation, userLogout } = useContext(AuthContext)
     const idLocal = localStorage.getItem("@USER:ID")
 
     const actualONG = users.find(user => user.id === +idLocal)
-    const totalRaised = donation.find((user) => user.userId === +idLocal);
 
-    console.log(totalRaised)
-    
+    const totalDonations = donation.filter((user)=> user.userId === +idLocal)
+    const totalRaised = totalDonations.reduce((acc, actValue) => acc + actValue.raised, 0);
+
+    console.log(actualONG)
+
     const showEditProfile = () => {
-        setAddPostActive(false);
-        setProfileActive(!profileActive);
+        if (!profileActive) {
+            setAddPostActive(!addPostActive);
+            setProfileActive(!profileActive);
+        }
     };
 
     const showNewPost = () => {
-        setProfileActive(false);
-        setAddPostActive(!addPostActive);
+        if (!addPostActive) {
+            setProfileActive(!profileActive);
+            setAddPostActive(!addPostActive);
+        }
     };
 
 
@@ -50,7 +55,7 @@ const DashControlPanel = () => {
                             <BiPlus />
                         </span>
                     </StyledButton>
-                    <StyledButton buttonSize="default" buttonStyle="primaryDefault" >
+                    <StyledButton buttonSize="default" buttonStyle="primaryDefault" onClick={userLogout}>
                         <span>
                             <BiLogOut />
                         </span>
@@ -59,7 +64,7 @@ const DashControlPanel = () => {
                 </div>
                 <div>
                     <h2>{addPostActive ? "FAZER POSTAGEM" : `META: ${(+actualONG?.goal).toLocaleString()}$`}</h2>
-                    {!addPostActive && <h2>ARRECADADO: {totalRaised? totalRaised.raised.toLocaleString() : "0.00"}$</h2>}
+                    {!addPostActive && <h2>ARRECADADO: {totalRaised ? totalRaised.toLocaleString() : 0}$</h2>}
                 </div>
             </div>
 
