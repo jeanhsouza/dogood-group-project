@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
+import { toast } from "react-toastify";
 
 export const DashContext = createContext({});
 export const DashProvider = ({ children }) => {
@@ -46,11 +47,10 @@ export const DashProvider = ({ children }) => {
                 }
             )
             if (response.statusText === "Created") {
-                console.log("Post publicado com sucesso!") // É CONSOLE É SÓ O TEXTO DE SUCESSO, SERÁ SUBSTITUÍDO PELO TOAST
+                toast.success("Publicação feita com sucesso!");
             }
         } catch (error) {
-            console.log(error);
-            /* toast.error(error.response.data.message); */
+            toast.error(error);
         } finally {
             setLoadingPost(false);
         }
@@ -69,12 +69,11 @@ export const DashProvider = ({ children }) => {
                 }
             )
             if (response.statusText === "OK") {
-                console.log("Informações atualizadas com sucesso"); // É CONSOLE É SÓ O TEXTO DE SUCESSO, SERÁ SUBSTITUÍDO PELO TOAST
+                toast.success("Informações atualizadas com sucesso!");
                 setCurrentUser(response.data);
             }
         } catch (error) {
-            console.log(error);
-            /* toast.error(error.response.data.message); */
+            toast.error(error);
         } finally {
             setLoadingUpdateUser(false);
         }
@@ -96,7 +95,6 @@ export const DashProvider = ({ children }) => {
             const json = await res.data;
             setCurrentUser(json);
         } catch (error) {
-
             console.error(error);
         } finally {
             setLoadingUser(false)
