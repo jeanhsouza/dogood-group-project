@@ -11,9 +11,8 @@ export const DashProvider = ({ children }) => {
     const [postList, setPosts] = useState([]);
     const [loadingUser, setLoadingUser] = useState(false);
     const [currentUser, setCurrentUser] = useState(null);
-
-
-
+    
+    const idLocal = localStorage.getItem("@USER:ID");
     const token = window.localStorage.getItem("@USER:TOKEN");
     api.defaults.headers.common.authorization = `Bearer ${token}`;
 
@@ -47,6 +46,7 @@ export const DashProvider = ({ children }) => {
                 }
             )
             if (response.statusText === "Created") {
+                loadPosts(idLocal)
                 toast.success("Publicação feita com sucesso!");
             }
         } catch (error) {
@@ -84,7 +84,6 @@ export const DashProvider = ({ children }) => {
     }, []);
 
     const getCurrentUser = async () => {
-        const idLocal = localStorage.getItem("@USER:ID");
         try {
             setLoadingUser(true)
             const res = await api.get(`users/${idLocal}`, {

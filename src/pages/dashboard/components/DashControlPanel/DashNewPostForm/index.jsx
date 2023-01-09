@@ -22,7 +22,7 @@ const DashNewPostForm = () => {
 
     async function submit(data) {
         const idLocal = localStorage.getItem("@USER:ID");
-        const dataWithId = { ...data, userId: idLocal };
+        const dataWithId = { ...data, userId: +idLocal };
 
         await createPost(dataWithId, setLoadingPost);
         reset({

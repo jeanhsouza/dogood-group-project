@@ -26,24 +26,13 @@ const DashProfileForm = () => {
         formState: { errors },
     } = useForm({
         mode: "onBlur",
-        resolver: yupResolver(profileUpdateSchema),
-        defaultValues: {
-            name: currentUser.name,
-            goal: currentUser.goal,
-            password: currentUser.password,
-            image: currentUser.image,
-            description: currentUser.description,
-        }
+        resolver: yupResolver(profileUpdateSchema)
     });
 
 
     function submit(data) {
         updateUser(data, setLoadingUpdateUser);
     }
-
-    useEffect(() => {
-        getCurrentUser();
-    }, []);
 
 
     return (
@@ -65,6 +54,7 @@ const DashProfileForm = () => {
                             id="name"
                             type="text"
                             error={errors.name}
+                            defaultValue={currentUser?.name}
                             {...register("name")}
                         />
                         <Input
@@ -72,6 +62,7 @@ const DashProfileForm = () => {
                             id="goal"
                             type="text"
                             error={errors.goal}
+                            defaultValue={currentUser?.goal}
                             {...register("goal")}
                         />
                     </div>
@@ -82,6 +73,7 @@ const DashProfileForm = () => {
                             id="password"
                             type="password"
                             error={errors.password}
+                            defaultValue={currentUser?.password}
                             {...register("password")}
                         />
                         <Input
@@ -89,6 +81,7 @@ const DashProfileForm = () => {
                             id="image"
                             type="text"
                             error={errors.image}
+                            defaultValue={currentUser?.image}
                             {...register("image")}
                         />
                     </div>
@@ -98,6 +91,7 @@ const DashProfileForm = () => {
                     id="description"
                     label="SOBRE"
                     error={errors.description}
+                    defaultValue={currentUser?.description}
                     {...register("description")} />
                 <StyledButton
                     type="submit"
