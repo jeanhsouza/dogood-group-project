@@ -10,8 +10,9 @@ const PostsList = ({ titleList, actualId, name, style, size, click }) =>{
         
     useEffect(()=> {        
         loadPosts(actualId);  
-    }, [actualId]);
+    }, []);
 
+    
     if(!postList) return null;
 
     return( 

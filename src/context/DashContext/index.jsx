@@ -19,6 +19,8 @@ export const DashProvider = ({ children }) => {
     async function deletePost() {
         try {
             const data = await api.delete(`/posts/${idPost}`);
+            setModal(false);
+            loadPosts(idLocal)
         } catch (err) {
             console.error(err)
         }
