@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { BiPlus, BiLogOut, BiUserCircle } from "react-icons/bi";
 import { AuthContext } from "../../../../context/AuthContext";
+import { DashContext } from "../../../../context/DashContext";
 import { StyledButton } from "../../../../styles/buttons";
 import DashNewPostForm from "./DashNewPostForm";
 import DashProfileForm from "./DashProfileForm";
@@ -10,15 +11,15 @@ const DashControlPanel = () => {
     const [profileActive, setProfileActive] = useState(true);
     const [addPostActive, setAddPostActive] = useState(false);
 
+    const { currentUser } = useContext(DashContext);
+
     const { users, donation, userLogout } = useContext(AuthContext)
     const idLocal = localStorage.getItem("@USER:ID")
 
-    const actualONG = users.find(user => user.id === +idLocal)
+    /*     const actualONG = users.find(user => user.id === +idLocal) */
 
-    const totalDonations = donation.filter((user)=> user.userId === +idLocal)
+    const totalDonations = donation.filter((user) => user.userId === +idLocal)
     const totalRaised = totalDonations.reduce((acc, actValue) => acc + actValue.raised, 0);
-
-    console.log(actualONG)
 
     const showEditProfile = () => {
         if (!profileActive) {
@@ -63,7 +64,7 @@ const DashControlPanel = () => {
 
                 </div>
                 <div>
-                    <h2>{addPostActive ? "FAZER POSTAGEM" : `META: ${(+actualONG?.goal).toLocaleString()}$`}</h2>
+                    <h2>{addPostActive ? "FAZER POSTAGEM" : `META: ${(+currentUser?.goal).toLocaleString()}$`}</h2>
                     {!addPostActive && <h2>ARRECADADO: {totalRaised ? totalRaised.toLocaleString() : 0}$</h2>}
                 </div>
             </div>

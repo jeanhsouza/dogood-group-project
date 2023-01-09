@@ -46,7 +46,6 @@ export const AuthProvider = ({ children }) => {
         },
       });
       const json = await res.data;
-
       setDonation(json);
     } catch (error) {
       console.error(error);

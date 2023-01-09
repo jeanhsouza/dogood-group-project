@@ -6,11 +6,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { profileUpdateSchema } from "./profileUpdateSchema";
 import Textarea from "../../../../../components/TextArea";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { DashContext } from "../../../../../context/DashContext";
 
 
 const DashProfileForm = () => {
     const [editActive, setEditActive] = useState(true);
+    const [loadingUpdateUser, setLoadingUpdateUser] = useState(false);
+
+    const { updateUser, currentUser, getCurrentUser } = useContext(DashContext);
 
     const unlockEditProfile = () => {
         setEditActive(!editActive);
@@ -23,12 +27,23 @@ const DashProfileForm = () => {
     } = useForm({
         mode: "onBlur",
         resolver: yupResolver(profileUpdateSchema),
+        defaultValues: {
+            name: currentUser.name,
+            goal: currentUser.goal,
+            password: currentUser.password,
+            image: currentUser.image,
+            description: currentUser.description,
+        }
     });
 
 
     function submit(data) {
-        console.log(data);
+        updateUser(data, setLoadingUpdateUser);
     }
+
+    useEffect(() => {
+        getCurrentUser();
+    }, []);
 
 
     return (
@@ -42,7 +57,7 @@ const DashProfileForm = () => {
                 </span>
             </StyledButton>
 
-            <form noValidate>
+            <form noValidate onSubmit={handleSubmit(submit)}>
                 <div>
                     <div>
                         <Input
@@ -55,7 +70,7 @@ const DashProfileForm = () => {
                         <Input
                             placeholder="Meta"
                             id="goal"
-                            type="number"
+                            type="text"
                             error={errors.goal}
                             {...register("goal")}
                         />
@@ -84,7 +99,10 @@ const DashProfileForm = () => {
                     label="SOBRE"
                     error={errors.description}
                     {...register("description")} />
-                <StyledButton buttonSize="medium" buttonStyle="dashSubmit">
+                <StyledButton
+                    type="submit"
+                    buttonSize="medium"
+                    buttonStyle="dashSubmit">
                     ATUALIZAR INFORMAÇÕES
                 </StyledButton>
             </form>
