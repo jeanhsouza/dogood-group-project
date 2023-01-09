@@ -11,7 +11,7 @@ export const DashProvider = ({ children }) => {
     const [postList, setPosts] = useState([]);
     const [loadingUser, setLoadingUser] = useState(false);
     const [currentUser, setCurrentUser] = useState(null);
-    
+
     const idLocal = localStorage.getItem("@USER:ID");
     const token = window.localStorage.getItem("@USER:TOKEN");
     api.defaults.headers.common.authorization = `Bearer ${token}`;
@@ -103,7 +103,7 @@ export const DashProvider = ({ children }) => {
     };
 
     async function loadPosts(id) {
-        const {data} = await api.get(`/users/${id}?_embed=posts`);
+        const { data } = await api.get(`/users/${id}?_embed=posts`);
         setPosts(data.posts);
     }
 

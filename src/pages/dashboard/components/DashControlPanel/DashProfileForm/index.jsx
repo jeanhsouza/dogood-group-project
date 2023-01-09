@@ -69,11 +69,11 @@ const DashProfileForm = () => {
 
                     <div>
                         <Input
-                            placeholder="Senha"
+                            placeholder="*****************"
                             id="password"
                             type="password"
                             error={errors.password}
-                            defaultValue={currentUser?.password}
+                            defaultValue=""
                             {...register("password")}
                         />
                         <Input
