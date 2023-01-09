@@ -26,9 +26,9 @@ const DashNewPostForm = () => {
 
         await createPost(dataWithId, setLoadingPost);
         reset({
-            title: "",
-            image: "",
-            description: ""
+            titlepost: "",
+            imagePost: "",
+            descriptionPost: ""
         });
     }
 

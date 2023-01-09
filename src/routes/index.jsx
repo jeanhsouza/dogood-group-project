@@ -8,6 +8,7 @@ import AsideMenu from "../components/AsideMenu";
 import Header from "../components/Header/Header";
 import { Container } from "../styles/container";
 import ScrollToTop from "./ScrollToTop";
+import ProtectedRoute from "./ProtectedRoute";
 
 export function RoutesMain() {
 	return (
@@ -19,8 +20,8 @@ export function RoutesMain() {
 				<Routes>
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
-					<Route path="/dashboard" element={<DashBoard />} />
-					<Route path="/home" element={<HomePage />} />
+					<Route path="/dashboard" element={<ProtectedRoute />} />
+					<Route path="/" element={<HomePage />} />
 					<Route path="/profile/:id" element={<Profile />} />
 					<Route path="*" element={<Navigate to="/login" />} />
 				</Routes>
