@@ -36,7 +36,6 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	React.useEffect(() => {
-		
 		getDonations();
 	}, []);
 
@@ -54,14 +53,14 @@ export const AuthProvider = ({ children }) => {
 			console.error(error);
 		}
 	};
-  
-  const userLogout = () => {
+
+	const userLogout = () => {
 		localStorage.clear();
 		navigate("/login");
 	}
 
 	return (
-		<AuthContext.Provider value={{ users, donation, getUsers, getDonations, userLogout}}>
+		<AuthContext.Provider value={{ users, donation, getUsers, getDonations, userLogout }}>
 			{children}
 		</AuthContext.Provider>
 	);
