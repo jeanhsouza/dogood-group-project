@@ -101,6 +101,10 @@ export const DashProvider = ({ children }) => {
         }
     };
 
+    async function loadPosts(id) {
+        const {data} = await api.get(`/users/${id}?_embed=posts`);
+        setPosts(data.posts);
+    }
 
 
     return <DashContext.Provider
@@ -119,7 +123,8 @@ export const DashProvider = ({ children }) => {
             createPost,
             updateUser,
             currentUser,
-            getCurrentUser
+            getCurrentUser,
+            loadPosts
         }}
     >
         {children}
