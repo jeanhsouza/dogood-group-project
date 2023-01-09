@@ -64,7 +64,7 @@ export const StyledLogin = styled.div`
   }
 
   .questionDiv a {
-    color: black;
+    color: var(--black100);
     font-size: var(--font-size-2);
     font-family: var(--font-family-1);
   }
@@ -149,8 +149,7 @@ export const StyledLogin = styled.div`
     }
 
     .questionDiv a {
-      width: 21vh;
-      color: black;
+      width: fit-content;
       font-family: var(--font-family-1);
       font-size: 26px;
       font-weight: 400;
