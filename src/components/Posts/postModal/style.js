@@ -2,10 +2,11 @@ import styled from "styled-components";
 export const StyledModalDiv = styled.div`
     background-color: #FFFF;
     width: 470px;
-    height: 250px;
+    height: fit-content;
     border-radius: 6px;
     font-family: var(--font-family-1);
     position: relative;
+    margin: 20px;
 
     >button:first-child{
         position: relative;
@@ -31,20 +32,18 @@ export const StyledModalDiv = styled.div`
     }
 
     >section>h2{
-        margin-left: 34%;
-        margin-bottom: 30px;
-
+        text-align: center;
         line-height: 40px;
         font-size: 26px;
+        margin-bottom: 16px;
     }
     
     >section>p{
-        font-family: Heebo;
+        font-family: var(--font-family-2);
     }
 
     >section>p>span{
-        margin-left: 35%;
-        font-family: Heebo;
+        font-family: var(--font-family-2);
     }
 
     >footer{
