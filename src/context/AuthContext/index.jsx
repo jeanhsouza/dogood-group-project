@@ -55,9 +55,9 @@ export const AuthProvider = ({ children }) => {
   const reqLogin = async (data) => {
     try {
       const response = await toast.promise(api.post("/login", data), {
-        pending: "Estamos verificando seu usuario",
-        success: "Usuário logado com sucesso",
-        error: "Algo deu errado! verifique se os campos estão corretos",
+        pending: "Estamos verificando seu usuário...",
+        success: "Usuário logado com sucesso!",
+        error: "Algo deu errado! Verifique se os campos estão corretos!",
       });
 
       window.localStorage.setItem("@USER:ID", response.data.user.id);
@@ -74,9 +74,9 @@ export const AuthProvider = ({ children }) => {
   const reqRegister = async (data) => {
     try {
       const response = await toast.promise(api.post("/register", data), {
-        pending: "Estamos verificando seu usuario",
-        success: "Usuário logado com sucesso",
-        error: "Algo deu errado! verifique se os campos estão corretos",
+        pending: "Estamos verificando seu usuário...",
+        success: "Usuário criado com sucesso!",
+        error: "Algo deu errado! Verifique se os campos estão corretos!",
       });
       getUsers();
 
