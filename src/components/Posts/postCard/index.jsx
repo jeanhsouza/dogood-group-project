@@ -1,8 +1,8 @@
-import { Children, useContext } from "react";
+import { useContext } from "react";
 import { StyledCard } from "./style";
 import { DashContext } from "../../../context/DashContext";
 import  Modal  from "../postModal";
-import { Button } from "../../Button";
+
 
 const PostCard = ({ title, description, image, children }) => {
     const { modal } = useContext(DashContext);
