@@ -42,7 +42,7 @@ const Profile = () => {
 				style={"brand2"}
                	size={"default"}
                 click={openProfilePost}
-				emptyMessage={null}
+				emptyMessage={"Essa ONG ainda não possui nenhuma publicação."}
             />	
 			<Footer/>
 		</StyledProfile>

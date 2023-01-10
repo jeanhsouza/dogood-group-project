@@ -6,16 +6,18 @@ export const StyledEmptyCard = styled.div`
     height: max-content;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     max-width: 1000px;
 
-    padding: 40px 16%;
+    padding: 40px;
 
     margin: 0px 40px 40px;
     height: 100px;
 
     h3{
-        color: var(--gray200);
+        color: var(--black100);
     }
 
     @media (min-width:900px) {

@@ -8,5 +8,11 @@ export const StyledToastify = styled(ToastContainer)`
 	}
 
 	.Toastify__toast {
+		background-color: var(--primary200);
+        color: var(--primary100);
+        font-size: var(--font-size-3);
+        font-weight: var(--font-weight-3);
+        font-family: var(--font-family-1);
+		letter-spacing: 0.5px;
 	}
 `;

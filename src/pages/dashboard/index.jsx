@@ -7,6 +7,7 @@ import PostsList from "../../components/Posts";
 import Modal from "../../components/Posts/postModal";
 import Footer from "../home/components/HomeFooter";
 
+
 const DashBoard = () => {
 	const actualId = window.localStorage.getItem("@USER:ID");
 	const { openModal, modal } = useContext(DashContext);
@@ -23,7 +24,7 @@ const DashBoard = () => {
 					style={"brand1"}
 					size={"default"}
 					click={openModal}
-					emptyMessage={"Infelizmente sua ONG não possui posts ainda :("}
+					emptyMessage={`Infelizmente sua ONG não possui posts ainda`}
 				/>
 				<Footer/>
 			</StyledDashboard>

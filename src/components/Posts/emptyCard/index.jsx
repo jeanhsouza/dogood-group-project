@@ -1,4 +1,5 @@
 import { StyledEmptyCard } from "./style";
+import {TfiFaceSad} from "react-icons/tfi"
 
 const EmptyCard = ({ emptyMessage }) =>{
 
@@ -7,7 +8,7 @@ const EmptyCard = ({ emptyMessage }) =>{
     } else {
         return(
             <StyledEmptyCard>
-              <h3>{ emptyMessage }</h3>  
+              <h3>{ emptyMessage } <TfiFaceSad/></h3>               
             </StyledEmptyCard>  
         )
     }
