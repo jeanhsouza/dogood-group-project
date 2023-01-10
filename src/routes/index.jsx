@@ -28,9 +28,9 @@ export function RoutesMain() {
 							</ProtectedRoute>
 						}
 					/>
-					<Route path="/home" element={<HomePage />} />
+					<Route path="/" element={<HomePage />} />
 					<Route path="/profile/:id" element={<Profile />} />
-					<Route path="*" element={<Navigate to="/home" />} />
+					<Route path="*" element={<Navigate to="/" />} />
 				</Routes>
 			</Container>
 		</>
