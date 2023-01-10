@@ -4,8 +4,6 @@ import { StyledHomeHeader } from "./style";
 
 const HomeHeader = () => {
 	const { users, donation } = React.useContext(AuthContext);
-	
-	console.log(users)	
 
 	const totalGoal = users.reduce(
 		(acc, actualValue) => acc + +actualValue.goal,

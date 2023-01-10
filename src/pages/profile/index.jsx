@@ -10,43 +10,50 @@ import { DashContext } from "../../context/DashContext";
 import Footer from "../home/components/HomeFooter";
 
 const Profile = () => {
-	const { users, donation} = React.useContext(AuthContext);
-	const {openProfilePost, modalPost} = useContext(DashContext)
+	const { users, donation } = React.useContext(AuthContext);
+	const { openProfilePost, modalPost } = useContext(DashContext);
 	const { id } = useParams();
 
 	const user = users.find((user) => user.id === +id);
-	const totalDonations = donation.filter((user)=> user.userId === id || user.userId === +id)
-	const totalRaised = totalDonations.reduce((acc, actValue) => acc + +actValue.raised, 0)
-	console.log(totalDonations)
-	console.log(user)
-	
+	const totalDonations = donation.filter(
+		(user) => user.userId === id || user.userId === +id
+	);
+	const totalRaised = totalDonations.reduce(
+		(acc, actValue) => acc + +actValue.raised,
+		0
+	);
+
 	const [showModal, setShowModal] = useState(false);
 
 	function openModal() {
 		setShowModal(!showModal);
-	}	
+	}
 
 	return (
 		<StyledProfile>
 			{showModal ? (
-					<DonationModal
-						openModal={openModal}
-						setShowModal={setShowModal}
-						user={user}
-					/>
-				) : null}
-			{modalPost && <ProfilePostModal/>}	
-			<ProfileHeader user={user} totalRaised={totalRaised} openModal={openModal}/>
+				<DonationModal
+					openModal={openModal}
+					setShowModal={setShowModal}
+					user={user}
+				/>
+			) : null}
+			{modalPost && <ProfilePostModal />}
+			<ProfileHeader
+				user={user}
+				totalRaised={totalRaised}
+				openModal={openModal}
+			/>
 			<PostsList
-				titleList={"POSTAGENS"} 
+				titleList={"POSTAGENS"}
 				actualId={id}
-                name={"LER MAIS"}
+				name={"LER MAIS"}
 				style={"brand2"}
-               	size={"default"}
-                click={openProfilePost}
+				size={"default"}
+				click={openProfilePost}
 				emptyMessage={"Essa ONG ainda não possui nenhuma publicação."}
-            />	
-			<Footer/>
+			/>
+			<Footer />
 		</StyledProfile>
 	);
 };

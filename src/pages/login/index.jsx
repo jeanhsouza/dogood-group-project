@@ -11,7 +11,6 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
 	const { reqLogin, navigate } = useContext(AuthContext);
-	const token = window.localStorage.getItem("@USER:TOKEN");
 
 	const {
 		register,
@@ -20,12 +19,6 @@ const Login = () => {
 	} = useForm({
 		resolver: yupResolver(LoginSchema),
 	});
-
-	useEffect(() => {
-		if (token) {
-			navigate("/dashboard");
-		}
-	},[]);
 
 	function loginForm(data) {
 		reqLogin(data);

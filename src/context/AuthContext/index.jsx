@@ -1,5 +1,5 @@
 import React from "react";
-import { createContext, useState, useEffect} from "react";
+import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
@@ -13,10 +13,18 @@ export const AuthProvider = ({ children }) => {
 	const navigate = useNavigate();
 	const { getCurrentUser } = React.useContext(DashContext);
 	const [globalLoading, setGlobalLoading] = useState(false);
-	const token = window.localStorage.getItem("@USER:TOKEN");	
+	const [login, setLogin] = useState(null);
 
 	React.useEffect(() => {
 		getUsers();
+	}, []);
+
+	React.useEffect(() => {
+		const token = window.localStorage.getItem("@USER:TOKEN");
+		if (token) {
+			setLogin(true)
+			navigate("/dashboard")
+		};
 	}, []);
 
 	const getUsers = async () => {
@@ -65,11 +73,13 @@ export const AuthProvider = ({ children }) => {
 
 			window.localStorage.setItem("@USER:ID", response.data.user.id);
 			window.localStorage.setItem("@USER:TOKEN", response.data.accessToken);
-			getCurrentUser()
+			getCurrentUser();
+			setLogin(true);
 			setTimeout(() => {
 				navigate("/dashboard");
 			}, 2000);
 		} catch (error) {
+			setLogin(false);
 			console.log(error);
 		}
 	};
@@ -93,6 +103,7 @@ export const AuthProvider = ({ children }) => {
 
 	const userLogout = () => {
 		localStorage.clear();
+		setLogin(false);
 		navigate("/login");
 	};
 
@@ -104,9 +115,10 @@ export const AuthProvider = ({ children }) => {
 				getUsers,
 				getDonations,
 				userLogout,
+				login,
 				reqRegister,
 				reqLogin,
-				navigate
+				navigate,
 			}}
 		>
 			{children}

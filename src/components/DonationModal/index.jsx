@@ -26,7 +26,6 @@ const DonationModal = ({ openModal, setShowModal, user }) => {
 				success:"Doação realizada com sucesso!",
 				error:"Ops! Sua doação não pode ser efetuada",
 			});
-			console.log("oi")
 			getDonations();
 			setShowModal(false);
 		} catch (error) {

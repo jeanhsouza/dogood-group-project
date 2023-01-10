@@ -29,10 +29,6 @@ export const StyledHeader = styled.div`
 		height: 40px;
 	}
 
-	> button {
-		margin: 0;
-		padding: 0;
-	}
 	> nav {
 		position: absolute;
 		top: 60px;
@@ -45,22 +41,46 @@ export const StyledHeader = styled.div`
 		animation-duration: 0.5s;
 	}
 
-	> ul {
+	ul {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		gap: 20px;
+
+		a {
+			width: fit-content;
+			color: var(--black100);
+			font-size: var(--font-size-2);
+			font-weight: var(--font-weight-3);
+			font-family: var(--font-family-1);
+		}
 	}
 
-	li {
-		color: var(--gray100);
-		cursor: pointer;
-		font-family: var(--font-family-1);
-		font-size: var(--font-size-1);
-		font-weight: var(--font-weight-3);
-		line-height: var(--line-height);
-		:hover {
-			text-decoration: underline;
-		}
+	.hoverUnderLineAnimation {
+		display: inline-block;
+		position: relative;
+		color: black;
+	}
+
+	.hoverUnderLineAnimation::after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		transform: scaleX(0);
+		height: 3px;
+		bottom: 0;
+		top: 12px;
+		left: 0;
+		margin-top: 10px;
+		background-color: black;
+		transform-origin: bottom right;
+		transition: transform 0.25s ease-out;
+	}
+
+	.hoverUnderLineAnimation:hover::after,
+	.hoverUnderLineAnimation.active::after {
+		transform: scaleX(1);
+		margin-top: 10px;
+		transform-origin: bottom left;
 	}
 
 	@keyframes menuIn {
