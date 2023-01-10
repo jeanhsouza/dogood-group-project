@@ -14,7 +14,7 @@ const PostsList = ({ titleList, actualId, name, style, size, click, emptyMessage
 
     if(!postList) return null;
 
-    if(postList.length !=0 && null){
+    if(postList.length !==0){
      return( 
         <StyledPosts>
             <h3>{titleList.toUpperCase()}</h3> 

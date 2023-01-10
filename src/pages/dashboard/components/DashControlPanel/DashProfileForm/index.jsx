@@ -69,7 +69,7 @@ const DashProfileForm = () => {
 
                     <div>
                         <Input
-                            placeholder="*****************"
+                            placeholder="Confirme a sua senha"
                             id="password"
                             type="password"
                             error={errors.password}
