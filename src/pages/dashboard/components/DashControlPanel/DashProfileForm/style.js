@@ -16,6 +16,14 @@ export const StyledDashProfileForm = styled.section`
         border-color: ${({ block }) => block ? "#828282" : "black"};
     }
 
+    textarea::placeholder{
+        color: ${({ block }) => block ? "#828282" : "#303030"};
+    }
+
+    input::placeholder{
+        color: ${({ block }) => block ? "#828282" : "#303030"};
+    }
+
     fieldset input:focus{
         outline: none;
         width: 100%;
