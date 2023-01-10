@@ -64,6 +64,7 @@ export const AuthProvider = ({ children }) => {
 			setTimeout(() => {
 				navigate("/dashboard");
 			}, 2000);
+			console.log("oi")
 			getCurrentUser();
 		} catch (error) {
 			console.error(error);

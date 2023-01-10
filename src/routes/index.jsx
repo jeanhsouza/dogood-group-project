@@ -20,7 +20,14 @@ export function RoutesMain() {
 				<Routes>
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
-					<Route path="/dashboard" element={<ProtectedRoute />} />
+					<Route
+						path="/dashboard"
+						element={
+							<ProtectedRoute>
+								<DashBoard />
+							</ProtectedRoute>
+						}
+					/>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/profile/:id" element={<Profile />} />
 					<Route path="*" element={<Navigate to="/login" />} />

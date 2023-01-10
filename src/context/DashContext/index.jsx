@@ -77,10 +77,6 @@ export const DashProvider = ({ children }) => {
 		}
 	};
 
-	useEffect(() => {
-		getCurrentUser();
-	}, []);
-
 	const getCurrentUser = async () => {
 		try {
 			setLoadingUser(true);

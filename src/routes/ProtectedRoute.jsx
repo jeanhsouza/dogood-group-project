@@ -1,12 +1,9 @@
-// import { useNavigate } from "react-router-dom";
-// import DashBoard from "../pages/dashboard";
-// import HomePage from "../pages/home";
+import { Navigate } from "react-router-dom";
 
-// const ProtectedRoute = () => {
-// 	const token = window.localStorage.getItem("@USER:ID");
-//   const navigate = useNavigate()
+const ProtectedRoute = ({ children }) => {
+	const token = window.localStorage.getItem("@USER:ID");
 
-// 	return token ? <DashBoard /> : navigate("/");
-// };
+	return token ? children : <Navigate to="/login" />;
+};
 
-// export default ProtectedRoute;
+export default ProtectedRoute;

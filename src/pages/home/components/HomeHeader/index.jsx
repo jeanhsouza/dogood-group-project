@@ -3,13 +3,16 @@ import { AuthContext } from "../../../../context/AuthContext";
 import { StyledHomeHeader } from "./style";
 
 const HomeHeader = () => {
+	const { users, donation } = React.useContext(AuthContext);
 
-	const {users, donation} = React.useContext(AuthContext);
-
-	const totalGoal = users.reduce((acc,actualValue)=> acc + +actualValue.goal,0);
-	const totalRaised = donation?.reduce((acc, actualValue) => acc + +actualValue.raised,0);
-
-	console.log(totalRaised, donation)
+	const totalGoal = users.reduce(
+		(acc, actualValue) => acc + +actualValue.goal,
+		0
+	);
+	const totalRaised = donation?.reduce(
+		(acc, actualValue) => acc + +actualValue.raised,
+		0
+	);
 
 	return (
 		<StyledHomeHeader>

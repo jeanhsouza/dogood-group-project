@@ -13,16 +13,10 @@ const DonationModal = ({ openModal, setShowModal, user }) => {
 
 	const donateSchema = yup.object().shape({
 		name: yup.string().required("Preencha o nome."),
-		// phone: yup.string().required("Campo obrigatório"),
 		raised: yup
 			.number("Digite um número")
 			.required("Preencha o valor.")
 			.positive("O valor deve ser positivo"),
-		email: yup.string().required("Campo obrigatório"),
-		card: yup.string().required("Campo obrigatório"),
-		date: yup.string().required("Campo obrigatório"),
-		cvc: yup.string().required("Campo obrigatório"),
-		userId: yup.number(),
 	});
 
 	const {
@@ -67,7 +61,7 @@ const DonationModal = ({ openModal, setShowModal, user }) => {
 					<Input
 						type="text"
 						placeholder="Nome"
-                        name="name"
+						name="name"
 						{...register("name")}
 						error={errors}
 					/>
@@ -75,7 +69,7 @@ const DonationModal = ({ openModal, setShowModal, user }) => {
 					<Input
 						type="text"
 						placeholder="Telefone"
-                        name="phone"
+						name="phone"
 						{...register("phone")}
 						error={errors}
 					/>
@@ -83,7 +77,7 @@ const DonationModal = ({ openModal, setShowModal, user }) => {
 					<Input
 						type="number"
 						placeholder="Quanto deseja doar?"
-                        name="raised"
+						name="raised"
 						{...register("raised")}
 						error={errors}
 					/>
@@ -91,7 +85,7 @@ const DonationModal = ({ openModal, setShowModal, user }) => {
 					<Input
 						type="text"
 						placeholder="E-mail"
-                        name="email"
+						name="email"
 						{...register("email")}
 						error={errors}
 					/>
@@ -99,7 +93,7 @@ const DonationModal = ({ openModal, setShowModal, user }) => {
 					<Input
 						type="text"
 						placeholder="Número do cartão"
-                        name="card"
+						name="card"
 						{...register("card")}
 						error={errors}
 					/>
@@ -108,7 +102,7 @@ const DonationModal = ({ openModal, setShowModal, user }) => {
 						<Input
 							type="text"
 							placeholder="MM/YY"
-                            name="date"
+							name="date"
 							{...register("date")}
 							error={errors}
 						/>
