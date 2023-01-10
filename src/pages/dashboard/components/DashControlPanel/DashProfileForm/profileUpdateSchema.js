@@ -13,15 +13,8 @@ export const profileUpdateSchema = yup.object().shape({
     password: yup
         .string()
         .required("A senha é obrigatória")
-        .matches(/(?=.*?[A-Z])/, "É necessário uma letra maiúscula.")
-        .matches(/(?=.*?[a-z])/, "É necessário uma letra minúscula.")
-        .matches(/(?=.*?[0-9])/, "É necessário pelo menos um número.")
-        .matches(
-            /(?=.*?[#?!@$%^&*-])/,
-            "É necessário pelo menos um caractere especial"
-        )
         .min(6, "É necessário uma senha de pelos 6 caracteres"),
     image: yup
-        .string(),
-    description: yup.string().max(800, "Limite de 800 caracteres")
+        .string().required("Insira uma link de imagem"),
+    description: yup.string().required("Insira uma breve descrição da ONG").max(800, "Limite de 800 caracteres")
 });

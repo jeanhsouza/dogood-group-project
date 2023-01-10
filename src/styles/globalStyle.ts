@@ -99,6 +99,10 @@ img {
 	max-width: 100%;
 }
 
+p, span{
+	white-space: pre-wrap;
+}
+
 button,
 input,
 select, textarea {

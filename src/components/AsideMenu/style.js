@@ -45,7 +45,9 @@ export const ButtonDiv = styled.div`
     transform: scaleX(0);
     height: 2px;
     bottom: 0;
+    top: 12px;
     left: 0;
+    margin-top: 10px;
     background-color: black;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
@@ -53,11 +55,12 @@ export const ButtonDiv = styled.div`
 
   .hoverUnderLineAnimation:hover:after {
     transform: scaleX(1);
+    margin-top: 10px;
     transform-origin: bottom left;
   }
 
-  >a {
-    width: 85px;
+  > a {
+    width: fit-content;
     color: var(--black100);
     font-size: var(--font-size-2);
     font-weight: var(--font-weight-3);

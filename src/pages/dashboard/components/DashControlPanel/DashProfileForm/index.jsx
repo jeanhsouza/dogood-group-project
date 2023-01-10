@@ -65,43 +65,42 @@ const DashProfileForm = () => {
 						/>
 					</div>
 
-					<div>
-						<Input
-							placeholder="Senha"
-							id="password"
-							type="password"
-							error={errors.password}
-							defaultValue={currentUser?.password}
-							{...register("password")}
-						/>
-						<Input
-							placeholder="Link da imagem"
-							id="image"
-							type="text"
-							error={errors.image}
-							defaultValue={currentUser?.image}
-							{...register("image")}
-						/>
-					</div>
-				</div>
-				<Textarea
-					placeholder="Fale sobre sua instituição"
-					id="description"
-					label="SOBRE"
-					error={errors.description}
-					defaultValue={currentUser?.description}
-					{...register("description")}
-				/>
-				<StyledButton
-					type="submit"
-					buttonSize="medium"
-					buttonStyle="dashSubmit"
-				>
-					ATUALIZAR INFORMAÇÕES
-				</StyledButton>
-			</form>
-		</StyledDashProfileForm>
-	);
+                    <div>
+                        <Input
+                            placeholder="Confirme a sua senha"
+                            id="password"
+                            type="password"
+                            error={errors.password}
+                            defaultValue=""
+                            {...register("password")}
+                        />
+                        <Input
+                            placeholder="Link da imagem"
+                            id="image"
+                            type="text"
+                            error={errors.image}
+                            defaultValue={currentUser?.image}
+                            {...register("image")}
+                        />
+                    </div>
+                </div>
+                <Textarea
+                    placeholder="Fale sobre sua instituição"
+                    id="description"
+                    label="SOBRE"
+                    error={errors.description}
+                    defaultValue={currentUser?.description}
+                    {...register("description")} />
+                <StyledButton
+                    type="submit"
+                    buttonSize="medium"
+                    buttonStyle="dashSubmit">
+                    ATUALIZAR INFORMAÇÕES
+                </StyledButton>
+            </form>
+        </StyledDashProfileForm>
+    );
+
 };
 
 export default DashProfileForm;

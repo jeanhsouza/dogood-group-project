@@ -32,7 +32,7 @@ export const StyledRegister = styled.div`
     > textarea {
       outline: none;
       font-size: 20px;
-      font-weight: var(--font-weight-2);
+      font-weight: var(--font-weight-3);
       width: 90%;
       border-bottom: 2px solid var(--black100);
       height: 60px;
@@ -87,7 +87,6 @@ export const StyledRegister = styled.div`
 
       > textarea {
         outline: none;
-        font-weight: var(--font-weight-2);
         width: 100%;
         border-bottom: 2px solid var(--black100);
         height: 60px;

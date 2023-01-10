@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 
 export const DashContext = createContext({});
 export const DashProvider = ({ children }) => {
+
 	const [modal, setModal] = useState(false);
 	const [modalPost, setModalPost] = useState(false);
 	const [idPost, setId] = useState(0);
