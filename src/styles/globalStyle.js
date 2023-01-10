@@ -101,6 +101,12 @@ img {
 
 p, span{
 	white-space: pre-wrap;
+	
+}
+
+p,textarea{
+	line-height: var(--line-height) ;
+	text-align: justify;
 }
 
 button,

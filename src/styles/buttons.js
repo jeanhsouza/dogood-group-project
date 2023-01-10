@@ -10,6 +10,10 @@ export const StyledButton = styled.button`
   transition: 0.4s;
   background-color: transparent;
 
+  >span{
+    line-height: inherit;
+  }
+
   ${({ buttonSize }) => {
     switch (buttonSize) {
       case "default":

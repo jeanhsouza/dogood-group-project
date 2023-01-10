@@ -16,5 +16,5 @@ export const profileUpdateSchema = yup.object().shape({
         .min(6, "É necessário uma senha de pelos 6 caracteres"),
     image: yup
         .string().required("Insira uma link de imagem"),
-    description: yup.string().required("Insira uma breve descrição da ONG").max(800, "Limite de 800 caracteres")
+    description: yup.string().required("Insira uma breve descrição da ONG").max(1500, "Limite de 1.500 caracteres")
 });

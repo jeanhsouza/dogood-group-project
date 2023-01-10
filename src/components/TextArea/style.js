@@ -7,6 +7,7 @@ export const StyledFieldset = styled.fieldset`
     position: relative;
     display: flex;
     flex-direction: column;
+    line-height: var(--line-height) ;
     transition: .5s ease-in-out;
 
     @media (min-width: 600px) {
