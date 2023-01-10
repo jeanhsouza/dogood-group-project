@@ -26,8 +26,8 @@ const HomeContact = () => {
 				<h2>ENTRE EM CONTATO</h2>
 				<span>Alguma duvida? Fale com um de nossos atendentes</span>
 				<form onSubmit={handleFormContact}>
-					<input placeholder="E-mail" />
-					<input placeholder="Senha" />
+					<input placeholder="Nome" />
+					<input type="email" placeholder="E-mail" />
 					<textarea placeholder="Mensagem" />
 					<button type="submit">ENVIAR</button>
 				</form>

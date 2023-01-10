@@ -14,6 +14,8 @@ export const DashProvider = ({ children }) => {
 	const [currentUser, setCurrentUser] = useState(null);
 
 	const idLocal = localStorage.getItem("@USER:ID");
+	const token = window.localStorage.getItem("@USER:TOKEN");
+    api.defaults.headers.common.authorization = `Bearer ${token}`;
 
 	async function deletePost() {
 		try {

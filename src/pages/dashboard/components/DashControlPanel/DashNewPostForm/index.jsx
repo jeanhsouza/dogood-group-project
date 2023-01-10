@@ -40,24 +40,24 @@ const DashNewPostForm = () => {
                 <div>
                     <Input
                         placeholder="Título"
-                        id="title"
+                        name="title"
                         type="text"
-                        error={errors.title}
+                        error={errors}
                         {...register("title")}
                     />
                     <Input
                         placeholder="Link da imagem"
-                        id="image"
+                        name="image"
                         type="text"
-                        error={errors.image}
+                        error={errors}
                         {...register("image")}
                     />
                 </div>
                 <Input
                     placeholder="Conteúdo do post"
-                    id="description"
+                    name="description"
                     type="text"
-                    error={errors.description}
+                    error={errors}
                     {...register("description")} />
 
                 <StyledButton

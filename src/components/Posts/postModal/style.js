@@ -9,9 +9,9 @@ export const StyledModalDiv = styled.div`
     margin: 20px;
 
     >button:first-child{
-        position: relative;
-        top: 20px;
-        left: 90%;
+        position: absolute;
+        top: 15px;
+        right: 15px;
         width: 30px;
         height: 30px;
         
@@ -57,9 +57,11 @@ export const StyledModalDiv = styled.div`
     }
 
     >footer>button{
+        width: 100%;
+        height: 100%;
         background-color: transparent;
-        color: #FFFF;
-        font-family: Anton;
+        color: var(--white100);
+        font-family: var(--font-family-1);
 
         font-size: 20px;
         line-height: 30px;

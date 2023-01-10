@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/img/left-logo-dark.png";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -12,13 +12,13 @@ const AsideMenu = () => {
 	return (
 		<AsideDiv>
 			<div className="headerAside">
-				<div>
+				<Link to="/">
 					<img src={Logo} alt="" />
-				</div>
+				</Link>
 			</div>
 
 			<ButtonDiv>
-				<NavLink to="/home" className="hoverUnderLineAnimation">
+				<NavLink to="/" className="hoverUnderLineAnimation">
 					HOME
 				</NavLink>
 

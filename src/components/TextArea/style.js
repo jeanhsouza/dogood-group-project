@@ -47,6 +47,16 @@ export const StyledFieldset = styled.fieldset`
         padding: 20px;
         font-size: var(--font-size-4);
         transition: .5s ease-in-out;
+        outline: none;
+
+        &::-webkit-scrollbar {
+			height: 10px;
+            width: 15px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: var(--primary100);
+		}
 
         @media (min-width: 600px) {
             height: 200px;

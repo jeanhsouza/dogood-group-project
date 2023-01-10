@@ -51,17 +51,17 @@ const DashProfileForm = () => {
 					<div>
 						<Input
 							placeholder="Nome"
-							id="name"
+							name="name"
 							type="text"
-							error={errors.name}
+							error={errors}
 							defaultValue={currentUser?.name}
 							{...register("name")}
 						/>
 						<Input
 							placeholder="Meta"
-							id="goal"
+							name="goal"
 							type="text"
-							error={errors.goal}
+							error={errors}
 							defaultValue={currentUser?.goal}
 							{...register("goal")}
 						/>
@@ -70,17 +70,17 @@ const DashProfileForm = () => {
                     <div>
                         <Input
                             placeholder="Confirme a sua senha"
-                            id="password"
+                            name="password"
                             type="password"
-                            error={errors.password}
+                            error={errors}
                             defaultValue=""
                             {...register("password")}
                         />
                         <Input
                             placeholder="Link da imagem"
-                            id="image"
+                            name="image"
                             type="text"
-                            error={errors.image}
+                            error={errors}
                             defaultValue={currentUser?.image}
                             {...register("image")}
                         />

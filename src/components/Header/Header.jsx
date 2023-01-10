@@ -3,12 +3,12 @@ import logo from "./../../assets/logo.png";
 import dropButton from "./../../assets/dropdownmenu.png";
 import closeDropButton from "./../../assets/closedropmenu.png";
 import { StyledHeader } from "./style";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 const Header = () => {
 	const { pathname } = useLocation();
-	const { login } = useContext(AuthContext);
+	const { login, navigate } = useContext(AuthContext);
 	const [isActive, setIsActive] = useState(false);
 
 	function showMenu() {
@@ -22,7 +22,9 @@ const Header = () => {
 	return (
 		<StyledHeader>
 			<div>
-				<img src={logo} alt="logo" />
+				<Link to="/">
+					<img src={logo} alt="logo" />
+				</Link>
 				{!isActive ? (
 					<button onClick={showMenu}>
 						<img src={dropButton} alt="menu" />
@@ -37,7 +39,7 @@ const Header = () => {
 				<nav>
 					<ul>
 						<li>
-							<NavLink to="/home" className="hoverUnderLineAnimation">
+							<NavLink to="/" className="hoverUnderLineAnimation">
 								HOME
 							</NavLink>
 						</li>
