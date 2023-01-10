@@ -11,57 +11,58 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
-  const { reqLogin } = useContext(AuthContext);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(LoginSchema),
-  });
+	const { reqLogin } = useContext(AuthContext);
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
+		resolver: yupResolver(LoginSchema),
+	});
 
-  function loginForm(data) {
-    reqLogin(data);
-  }
+	function loginForm(data) {
+		console.log("oi");
+		reqLogin(data);
+	}
 
-  return (
-    <>
-      <StyledLogin>
-        <ImageDiv>
-          <img src={logImage} alt="" />
-        </ImageDiv>
-        <form action="" onSubmit={handleSubmit(loginForm)}>
-          <h1>ACESSE SUA CONTA</h1>
-          <div className="form-div">
-            <Input
-              placeholder="Email"
-              id="email"
-              type="email"
-              error={errors.email}
-              {...register("email")}
-            />
+	return (
+		<>
+			<StyledLogin>
+				<ImageDiv>
+					<img src={logImage} alt="" />
+				</ImageDiv>
+				<form onSubmit={handleSubmit(loginForm)}>
+					<h1>ACESSE SUA CONTA</h1>
+					<div className="form-div">
+						<Input
+							placeholder="Email"
+							type="email"
+							name="email"
+							error={errors}
+							{...register("email")}
+						/>
 
-            <Input
-              placeholder="Senha"
-              id="password"
-              type="password"
-              error={errors.password}
-              {...register("password")}
-            />
-            <Button name={"LOGIN"} size={"small"} style={"brand3"} />
-          </div>
+						<Input
+							placeholder="Senha"
+							type="password"
+							name="password"
+							error={errors}
+							{...register("password")}
+						/>
+						<Button name={"LOGIN"} size={"small"} style={"brand3"} />
+					</div>
 
-          <div className="questionDiv">
-            <p>AINDA NÃO POSSUI UMA CONTA?</p>
+					<div className="questionDiv">
+						<p>AINDA NÃO POSSUI UMA CONTA?</p>
 
-            <Link to="/register" className="hoverUnderLineAnimation" href="">
-              CADASTRE-SE AQUI
-            </Link>
-          </div>
-        </form>
-      </StyledLogin>
-    </>
-  );
+						<Link to="/register" className="hoverUnderLineAnimation" href="">
+							CADASTRE-SE AQUI
+						</Link>
+					</div>
+				</form>
+			</StyledLogin>
+		</>
+	);
 };
 
 export default Login;

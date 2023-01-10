@@ -1,5 +1,5 @@
 import { StyledDashboard } from "./style";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { DashContext } from "../../context/DashContext";
 import DashControlPanel from "./components/DashControlPanel";
 import DashboardHeader from "./components/DashHeader";
@@ -10,7 +10,12 @@ import Footer from "../home/components/HomeFooter";
 
 const DashBoard = () => {
 	const actualId = window.localStorage.getItem("@USER:ID");
-	const { openModal, modal } = useContext(DashContext);
+	const { openModal, modal, getCurrentUser } = useContext(DashContext);
+
+	React.useEffect(() => {
+		getCurrentUser();
+	}, []);
+
 	return (
 		<>
 			{modal && <Modal />}
@@ -26,7 +31,7 @@ const DashBoard = () => {
 					click={openModal}
 					emptyMessage={`Infelizmente sua ONG não possui posts ainda`}
 				/>
-				<Footer/>
+				<Footer />
 			</StyledDashboard>
 		</>
 	);

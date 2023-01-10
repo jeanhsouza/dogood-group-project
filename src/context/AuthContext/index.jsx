@@ -3,54 +3,56 @@ import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
+import { DashContext } from "../DashContext";
 
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-  const [users, setUsers] = React.useState([]);
-  const [donation, setDonation] = React.useState([]);
-  const navigate = useNavigate();
-  const [globalLoading, setGlobalLoading] = useState(false);
+	const [users, setUsers] = React.useState([]);
+	const [donation, setDonation] = React.useState([]);
+	const navigate = useNavigate();
+	const { getCurrentUser } = React.useContext(DashContext);
+	const [globalLoading, setGlobalLoading] = useState(false);
 
-  React.useEffect(() => {
-    getUsers();
-  }, []);
+	React.useEffect(() => {
+		getUsers();
+	}, []);
 
-  const getUsers = async () => {
-    try {
-      setGlobalLoading(true);
-      const res = await api.get("users", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const json = await res.data;
+	const getUsers = async () => {
+		try {
+			setGlobalLoading(true);
+			const res = await api.get("users", {
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+			const json = await res.data;
 
-      setUsers(json);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setGlobalLoading(false);
-    }
-  };
+			setUsers(json);
+		} catch (error) {
+			console.error(error);
+		} finally {
+			setGlobalLoading(false);
+		}
+	};
 
-  React.useEffect(() => {
-    getDonations();
-  }, []);
+	React.useEffect(() => {
+		getDonations();
+	}, []);
 
-  const getDonations = async () => {
-    try {
-      const res = await api.get(`donations`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const json = await res.data;
-      setDonation(json);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+	const getDonations = async () => {
+		try {
+			const res = await api.get(`donations`, {
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+			const json = await res.data;
+			setDonation(json);
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
   const reqLogin = async (data) => {
     try {
@@ -88,24 +90,24 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const userLogout = () => {
-    localStorage.clear();
-    navigate("/login");
-  };
+	const userLogout = () => {
+		localStorage.clear();
+		navigate("/login");
+	};
 
-  return (
-    <AuthContext.Provider
-      value={{
-        users,
-        donation,
-        getUsers,
-        getDonations,
-        userLogout,
-        reqRegister,
-        reqLogin,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
+	return (
+		<AuthContext.Provider
+			value={{
+				users,
+				donation,
+				getUsers,
+				getDonations,
+				userLogout,
+				reqRegister,
+				reqLogin,
+			}}
+		>
+			{children}
+		</AuthContext.Provider>
+	);
 };
