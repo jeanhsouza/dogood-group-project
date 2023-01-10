@@ -2,14 +2,11 @@ import StyledProfileHeader from "./style";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProfileHeader = ({ user, totalRaised, openModal }) => {
-	if (!user) return null;	
-
-	// if (!totalRaised) return null;
+	if (!user) return null;
 
 	return (
 		<>
 			<StyledProfileHeader>
-				
 				<section className="cardSection">
 					<h1>{user.name.toUpperCase()}</h1>
 
@@ -29,7 +26,7 @@ const ProfileHeader = ({ user, totalRaised, openModal }) => {
 							</div>
 							<div className="stats">
 								<h2>Arrecadados:</h2>
-								<span>$ {totalRaised? totalRaised.toLocaleString() : 0}</span>
+								<span>$ {totalRaised ? totalRaised.toLocaleString() : 0}</span>
 							</div>
 						</div>
 					</div>

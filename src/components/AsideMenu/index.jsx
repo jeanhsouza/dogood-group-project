@@ -1,55 +1,58 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Logo from "../../assets/img/left-logo-dark.png";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { ImInstagram } from "react-icons/im";
 import { AsideDiv, AsideFooter, ButtonDiv } from "./style";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const AsideMenu = () => {
-  return (
-    <AsideDiv>
-      <div className="headerAside">
-        <div>
-          <img src={Logo} alt="" />
-        </div>
-      </div>
+	const { login } = useContext(AuthContext);
+	return (
+		<AsideDiv>
+			<div className="headerAside">
+				<div>
+					<img src={Logo} alt="" />
+				</div>
+			</div>
 
-      <ButtonDiv>
-        <Link to="/home" className="hoverUnderLineAnimation">
-          HOME
-        </Link>
+			<ButtonDiv>
+				<NavLink to="/home" className="hoverUnderLineAnimation">
+					HOME
+				</NavLink>
 
-        <Link to="/login" className="hoverUnderLineAnimation">
-          LOGIN
-        </Link>
+				<NavLink to="/register" className="hoverUnderLineAnimation">
+					CADASTRE-SE
+				</NavLink>
 
-        <Link to="/register" className="hoverUnderLineAnimation">
-          REGISTER
-        </Link>
+				{!login && (
+					<NavLink to="/login" className="hoverUnderLineAnimation">
+						FAÇA SEU LOGIN
+					</NavLink>
+				)}
 
-        <Link to="/profile" className="hoverUnderLineAnimation">
-          PROFILE
-        </Link>
+				{login && (
+					<NavLink to="/dashboard" className="hoverUnderLineAnimation">
+						MINHA CONTA
+					</NavLink>
+				)}
+			</ButtonDiv>
 
-        <Link to="/dashboard" className="hoverUnderLineAnimation">
-          DASHBOARD
-        </Link>
-      </ButtonDiv>
+			<AsideFooter>
+				<div className="socialMedia">
+					<FaFacebookF />
+					<FaTwitter />
+					<ImInstagram />
+				</div>
 
-      <AsideFooter>
-        <div className="socialMedia">
-          <FaFacebookF />
-          <FaTwitter />
-          <ImInstagram />
-        </div>
-
-        <div className="divContact">
-          <p>(**)*******-**</p>
-          <p>doGood@mail.com</p>
-        </div>
-      </AsideFooter>
-    </AsideDiv>
-  );
+				<div className="divContact">
+					<p>(**)*******-**</p>
+					<p>doGood@mail.com</p>
+				</div>
+			</AsideFooter>
+		</AsideDiv>
+	);
 };
 
 export default AsideMenu;

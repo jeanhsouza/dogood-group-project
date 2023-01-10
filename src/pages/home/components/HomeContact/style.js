@@ -17,7 +17,7 @@ export const StyledHomeContact = styled.section`
 		display: flex;
 		padding-left: 16px;
 		flex-direction: column;
-		gap: 16px;	
+		gap: 16px;
 		padding-top: 32px;
 
 		> h2 {
@@ -49,15 +49,33 @@ export const StyledHomeContact = styled.section`
 				resize: none;
 			}
 
-			>button{
+			> button {
+				display: inline-block;
+				position: relative;
 				cursor: pointer;
 				font-family: var(--font-family-1);
 				font-size: var(--font-size-2);
 				background: none;
-				width: 50px;
 
-				&:hover{
-					text-decoration: underline;
+				&::after {
+					content: "";
+					position: absolute;
+					width: 100%;
+					transform: scaleX(0);
+					height: 3px;
+					bottom: 0;
+					top: 12px;
+					left: 0;
+					margin-top: 10px;
+					background-color: black;
+					transform-origin: bottom right;
+					transition: transform 0.25s ease-out;
+				}
+
+				&:hover::after {
+					transform: scaleX(1);
+					margin-top: 10px;
+					transform-origin: bottom left;
 				}
 			}
 		}
@@ -81,7 +99,6 @@ export const StyledHomeContact = styled.section`
 				textarea {
 					font-weight: var(--font-weight-2);
 					border-bottom: 2px solid var(--black100);
-					
 				}
 			}
 		}
