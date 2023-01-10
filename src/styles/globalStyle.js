@@ -99,6 +99,10 @@ img {
 	max-width: 100%;
 }
 
+input{
+	outline: none;
+}
+
 p, span{
 	white-space: pre-wrap;
 	
