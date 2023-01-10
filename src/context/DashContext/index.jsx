@@ -1,10 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
+import { AuthContext } from "../AuthContext";
 
 export const DashContext = createContext({});
 export const DashProvider = ({ children }) => {
-
 	const [modal, setModal] = useState(false);
 	const [modalPost, setModalPost] = useState(false);
 	const [idPost, setId] = useState(0);
@@ -14,8 +14,9 @@ export const DashProvider = ({ children }) => {
 	const [currentUser, setCurrentUser] = useState(null);
 
 	const token = window.localStorage.getItem("@USER:TOKEN");
-	const idLocal = localStorage.getItem("@USER:ID");	
-	api.defaults.headers.common.authorization = `Bearer ${token}`;
+	const idLocal = localStorage.getItem("@USER:ID");
+	api.defaults.headers.common.authorization = `Bearer ${token}`;	
+
 	
 
 	async function deletePost() {

@@ -13,10 +13,8 @@ const DashControlPanel = () => {
 
 	const { currentUser } = useContext(DashContext);
 
-	const { users, donation, userLogout } = useContext(AuthContext);
-	const idLocal = localStorage.getItem("@USER:ID");
-
-	/*     const actualONG = users.find(user => user.id === +idLocal) */
+	const { donation, userLogout } = useContext(AuthContext);
+	const idLocal = localStorage.getItem("@USER:ID");	
 
 	const totalDonations = donation.filter((user) => user.userId === +idLocal || user.userId === idLocal);
 	const totalRaised = totalDonations.reduce(

@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
 
 			window.localStorage.setItem("@USER:ID", response.data.user.id);
 			window.localStorage.setItem("@USER:TOKEN", response.data.accessToken);
-
+			getCurrentUser()
 			setTimeout(() => {
 				navigate("/dashboard");
 			}, 2000);

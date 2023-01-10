@@ -1,18 +1,19 @@
 import { StyledDashboard } from "./style";
-import React, { useContext } from "react";
+import React, { useContext , useEffect } from "react";
 import { DashContext } from "../../context/DashContext";
 import DashControlPanel from "./components/DashControlPanel";
 import DashboardHeader from "./components/DashHeader";
 import PostsList from "../../components/Posts";
 import Modal from "../../components/Posts/postModal";
 import Footer from "../home/components/HomeFooter";
+import { AuthContext } from "../../context/AuthContext";
 
 
 const DashBoard = () => {
 	const actualId = window.localStorage.getItem("@USER:ID");
 	const { openModal, modal, getCurrentUser } = useContext(DashContext);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		getCurrentUser();
 	}, []);
 
