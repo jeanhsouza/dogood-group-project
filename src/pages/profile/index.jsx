@@ -15,8 +15,10 @@ const Profile = () => {
 	const { id } = useParams();
 
 	const user = users.find((user) => user.id === +id);
-	const totalDonations = donation.filter((user)=> user.userId === +id)
-	const totalRaised = totalDonations.reduce((acc, actValue) => acc + actValue.raised, 0)
+	const totalDonations = donation.filter((user)=> user.userId === id || user.userId === +id)
+	const totalRaised = totalDonations.reduce((acc, actValue) => acc + +actValue.raised, 0)
+	console.log(totalDonations)
+	console.log(user)
 	
 	const [showModal, setShowModal] = useState(false);
 

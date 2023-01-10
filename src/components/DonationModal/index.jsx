@@ -1,23 +1,15 @@
 import React, { useContext } from "react";
 import { StyledDonationModal } from "./style";
-import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../context/AuthContext";
 import { Input } from "../input";
+import { donateSchema } from "./DonationSchema";
 
 const DonationModal = ({ openModal, setShowModal, user }) => {
-	const { getDonations } = useContext(AuthContext);
-
-	const donateSchema = yup.object().shape({
-		name: yup.string().required("Preencha o nome."),
-		raised: yup
-			.number("Digite um número")
-			.required("Preencha o valor.")
-			.positive("O valor deve ser positivo"),
-	});
+	const { getDonations } = useContext(AuthContext);	
 
 	const {
 		register,
@@ -29,8 +21,12 @@ const DonationModal = ({ openModal, setShowModal, user }) => {
 
 	async function donate(data) {
 		try {
-			const response = await api.post("/donations", data);
-			toast.success("Doação realizada com sucesso!");
+			const response = await toast.promise(api.post("/donations", data),{
+				pending:"Estamos realizando a doação...",
+				success:"Doação realizada com sucesso!",
+				error:"Ops! Sua doação não pode ser efetuada",
+			});
+			console.log("oi")
 			getDonations();
 			setShowModal(false);
 		} catch (error) {

@@ -1,17 +1,18 @@
 import { Input } from "../../components/input";
 import logImage from "../../assets/img/loginImage.png";
-import { ImageDiv, LogButton, StyledLogin } from "./style";
+import { ImageDiv, StyledLogin } from "./style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { LoginSchema } from "./loginSchema";
-import { Link, useNavigate } from "react-router-dom";
-import { api } from "../../services/api";
+import { Link } from "react-router-dom";
 import { Button } from "../../components/Button";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
-	const { reqLogin } = useContext(AuthContext);
+	const { reqLogin, navigate } = useContext(AuthContext);
+	const token = window.localStorage.getItem("@USER:TOKEN");
+
 	const {
 		register,
 		handleSubmit,
@@ -20,8 +21,13 @@ const Login = () => {
 		resolver: yupResolver(LoginSchema),
 	});
 
+	useEffect(() => {
+		if (token) {
+			navigate("/dashboard");
+		}
+	},[]);
+
 	function loginForm(data) {
-		console.log("oi");
 		reqLogin(data);
 	}
 

@@ -13,8 +13,8 @@ const HomeList = () => {
 	};
 
 	const findRaised = (id) => {
-		const user = donation.filter((user) => user.userId === id);
-		const totalRaised = user.reduce((acc, actValue) => acc + actValue.raised, 0)
+		const user = donation.filter((user)=> user.userId === id || user.userId === id.toLocaleString());
+		const totalRaised = user.reduce((acc, actValue) => acc + +actValue.raised, 0)
 		return totalRaised ? totalRaised  : 0;
 	};
 

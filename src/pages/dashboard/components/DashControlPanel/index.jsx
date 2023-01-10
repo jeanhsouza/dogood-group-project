@@ -18,9 +18,9 @@ const DashControlPanel = () => {
 
 	/*     const actualONG = users.find(user => user.id === +idLocal) */
 
-	const totalDonations = donation.filter((user) => user.userId === +idLocal);
+	const totalDonations = donation.filter((user) => user.userId === +idLocal || user.userId === idLocal);
 	const totalRaised = totalDonations.reduce(
-		(acc, actValue) => acc + actValue.raised,
+		(acc, actValue) => acc + +actValue.raised,
 		0
 	);
 
