@@ -10,6 +10,7 @@ import { api } from "../../services/api";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Button } from "../../components/Button";
+import { TextareaRegister } from "../../components/TextareaRegister";
 
 const Register = () => {
   const { reqRegister } = useContext(AuthContext);
@@ -62,19 +63,19 @@ const Register = () => {
             placeholder="Meta a alcançar em reais"
             id="number"
             type="text"
-            error={errors.number}
+            error={errors.goal}
             {...register("goal")}
           />
 
           <Input
             placeholder="Link da imagem"
-            id="link"
+            id="image"
             type="text"
-            error={errors.link}
+            error={errors.image}
             {...register("image")}
           />
 
-          <textarea
+          <TextareaRegister
             placeholder="Descrição"
             id="description"
             type="text"
