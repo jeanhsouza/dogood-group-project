@@ -1,12 +1,7 @@
 /* eslint-disable default-case */
 import styled, { css } from "styled-components";
 
-interface iStyledButtonProps {
-  buttonSize: string;
-  buttonStyle: string;
-}
-
-export const StyledButton = styled.button<iStyledButtonProps>`
+export const StyledButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
