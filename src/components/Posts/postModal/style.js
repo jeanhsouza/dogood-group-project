@@ -4,8 +4,8 @@ export const StyledModalDiv = styled.div`
     width: 470px;
     height: 250px;
     border-radius: 6px;
-    font-family: Anton;
-    position: sticky;
+    font-family: var(--font-family-1);
+    position: relative;
 
     >button:first-child{
         position: relative;
@@ -70,11 +70,11 @@ export const StyledModalDiv = styled.div`
 export const StyledModalBackgroud = styled.div`
     background-color: RGBA( 0, 0, 0, 0.4 );
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: fixed;
-    z-index: 20;
     top: 0;
     left: 0;
+    z-index: 20;
     display: flex;
     justify-content: center;
     align-items: center;

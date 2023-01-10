@@ -13,6 +13,7 @@ export const StyledButton = styled.button<iStyledButtonProps>`
   gap: 1rem;
   border-radius: 5px;
   transition: 0.4s;
+  background-color: transparent;
 
   ${({ buttonSize }) => {
     switch (buttonSize) {
@@ -27,8 +28,8 @@ export const StyledButton = styled.button<iStyledButtonProps>`
       case "medium":
         return css`
           height: 40px;
-          font-size: var(--body);
-          font-weight: var(--font-weight-1);
+          font-size: var(--font-size-3);
+          font-weight: var(--font-weight-3);
           width: max-content;
         `;
     }
@@ -66,12 +67,32 @@ export const StyledButton = styled.button<iStyledButtonProps>`
 
       case "dashSubmit":
         return css`
-          background-color: var(--color-grey-100);
-          color: var(--color-grey-300);
+          font-family: var(--font-family-1);
+          letter-spacing: 0.1px;
+          color: var(--black100);
+          background-color: transparent;
+          position: relative;
+          overflow: hidden;
 
-          &:hover {
-            background: var(--color-grey-200);
-            color: var(--color-white);
+          &:hover:before {
+            transform: translate(0);
+          }
+
+          &:after {
+            content: "";
+            transition: transform 0.4s cubic-bezier(0.33, 0.52, 0.05, 0.96);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 100%;
+            background-color: currentColor;
+            transform: translate(0);
+          }
+
+          &:hover:after {
+            transform: translate(100%);
+            color: currentColor;
           }
         `;
     }
