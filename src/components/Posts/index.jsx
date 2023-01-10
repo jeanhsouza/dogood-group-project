@@ -2,24 +2,25 @@ import { useContext, useEffect } from "react";
 import { StyledPosts } from "./style";
 import { DashContext } from "../../context/DashContext";
 import { Button } from "../Button";
-
 import PostCard from "./postCard";
+import EmptyCard from "./emptyCard";
 
-const PostsList = ({ titleList, actualId, name, style, size, click }) =>{
+const PostsList = ({ titleList, actualId, name, style, size, click, emptyMessage }) =>{
     const { postList, loadPosts } = useContext(DashContext);
         
     useEffect(()=> {        
         loadPosts(actualId);  
     }, []);
 
-    
     if(!postList) return null;
 
-    return( 
+    if(postList.length !=0 && null){
+     return( 
         <StyledPosts>
             <h3>{titleList.toUpperCase()}</h3> 
             <ul>
-                {postList.map(({title, description, id, image })=>{
+                {  
+                    postList.map(({title, description, id, image })=>{
                     return <PostCard 
                         title={title} 
                         description={description} 
@@ -37,7 +38,14 @@ const PostsList = ({ titleList, actualId, name, style, size, click }) =>{
                 })}
             </ul>
         </StyledPosts>
-    )
+    )   
+    } else{
+        return (
+            <EmptyCard
+                emptyMessage={emptyMessage}
+            />
+        )
+    }
 }
 
 export default PostsList

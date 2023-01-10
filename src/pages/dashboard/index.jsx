@@ -23,6 +23,7 @@ const DashBoard = () => {
 					style={"brand1"}
 					size={"default"}
 					click={openModal}
+					emptyMessage={"Infelizmente sua ONG não possui posts ainda :("}
 				/>
 				<Footer/>
 			</StyledDashboard>

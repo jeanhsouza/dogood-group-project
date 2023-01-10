@@ -42,6 +42,7 @@ const Profile = () => {
 				style={"brand2"}
                	size={"default"}
                 click={openProfilePost}
+				emptyMessage={null}
             />	
 			<Footer/>
 		</StyledProfile>
