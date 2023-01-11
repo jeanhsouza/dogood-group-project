@@ -22,11 +22,11 @@ export const StyledDashProfileForm = styled.section`
 	}
 
 	textarea::placeholder {
-		color: ${({ block }) => (block ? "#828282" : "#303030")};
+		color: ${({ block }) => (block && "#828282")};
 	}
 
 	input::placeholder {
-		color: ${({ block }) => (block ? "#828282" : "#303030")};
+		color: ${({ block }) => (block && "#828282")};
 	}
 
 	fieldset input:focus {

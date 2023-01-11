@@ -27,9 +27,9 @@ const DashNewPostForm = () => {
 
 		await createPost(dataWithId, setLoadingPost);
 		reset({
-			titlepost: "",
-			imagePost: "",
-			descriptionPost: "",
+			title: "",
+			image: "",
+			description: "",
 		});
 	};
 
@@ -41,14 +41,14 @@ const DashNewPostForm = () => {
 						placeholder="Título"
 						name="title"
 						type="text"
-						error={errors}
+						error={errors.title}
 						{...register("title")}
 					/>
 					<Input
 						placeholder="Link da imagem"
 						name="image"
 						type="text"
-						error={errors}
+						error={errors.image}
 						{...register("image")}
 					/>
 				</div>
@@ -56,7 +56,7 @@ const DashNewPostForm = () => {
 					placeholder="Conteúdo do post"
 					name="description"
 					type="text"
-					error={errors}
+					error={errors.description}
 					{...register("description")}
 				/>
 

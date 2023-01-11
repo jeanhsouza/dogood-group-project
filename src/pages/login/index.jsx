@@ -37,7 +37,7 @@ const Login = () => {
 							placeholder="Email"
 							type="email"
 							name="email"
-							error={errors}
+							error={errors.email}
 							{...register("email")}
 						/>
 
@@ -45,7 +45,7 @@ const Login = () => {
 							placeholder="Senha"
 							type="password"
 							name="password"
-							error={errors}
+							error={errors.password}
 							{...register("password")}
 						/>
 						<Button name={"LOGIN"} size={"small"} style={"brand3"} />
