@@ -15,5 +15,8 @@ export const RegisterSchema = yup.object().shape({
 		.matches(/(^[0-9]*$)/, "Inserir apenas números")
 		.required("Valor obrigatório"),
 	image: yup.string().required("Insira uma link de imagem"),
-	description: yup.string().required("Insira uma breve descrição da ONG").max(800, "Limite de 800 caracteres"),
+	description: yup
+		.string()
+		.required("Insira uma breve descrição da ONG")
+		.max(800, "Limite de 800 caracteres"),
 });

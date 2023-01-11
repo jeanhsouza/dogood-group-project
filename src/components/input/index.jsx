@@ -1,4 +1,4 @@
-import { Label, StyledInput, StyledP, Wrapper } from "./style";
+import { StyledInput, StyledP, Wrapper } from "./style";
 import { forwardRef } from "react";
 
 export const Input = forwardRef(({ name, error, ...rest }, ref) => {

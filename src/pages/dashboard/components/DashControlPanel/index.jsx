@@ -12,11 +12,13 @@ const DashControlPanel = () => {
 	const [addPostActive, setAddPostActive] = useState(false);
 
 	const { currentUser } = useContext(DashContext);
-
 	const { donation, userLogout } = useContext(AuthContext);
-	const idLocal = localStorage.getItem("@USER:ID");	
 
-	const totalDonations = donation.filter((user) => user.userId === +idLocal || user.userId === idLocal);
+	const idLocal = localStorage.getItem("@USER:ID");
+
+	const totalDonations = donation.filter(
+		(user) => user.userId === +idLocal || user.userId === idLocal
+	);
 	const totalRaised = totalDonations.reduce(
 		(acc, actValue) => acc + +actValue.raised,
 		0

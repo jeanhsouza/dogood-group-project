@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import logo from "./../../assets/logo.png";
 import dropButton from "./../../assets/dropdownmenu.png";
 import closeDropButton from "./../../assets/closedropmenu.png";
@@ -8,12 +8,12 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Header = () => {
 	const { pathname } = useLocation();
-	const { login, navigate } = useContext(AuthContext);
+	const { login } = useContext(AuthContext);
 	const [isActive, setIsActive] = useState(false);
 
-	function showMenu() {
+	const showMenu = () => {
 		setIsActive(!isActive);
-	}
+	};
 
 	useEffect(() => {
 		setIsActive(false);

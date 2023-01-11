@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const StyledModalDiv = styled.div`
-	background-color: #ffff;
+	background-color: var(--white100);
 	width: fit-content;
 	max-width: 600px;
 	height: fit-content;
@@ -8,20 +8,20 @@ export const StyledModalDiv = styled.div`
 	margin: 20px 18px;
 	border-radius: 6px;
 	overflow: hidden;
-    overflow-y: auto;
+	overflow-y: auto;
 	font-family: var(--font-family-1);
 	position: relative;
 
 	> img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
+		width: 100%;
+		height: 250px;
+		object-fit: cover;
 	}
 
 	> button:first-child {
 		position: absolute;
 		top: 10px;
-        right: 10px;		
+		right: 10px;
 		width: 30px;
 		height: 30px;
 
@@ -53,9 +53,9 @@ export const StyledModalDiv = styled.div`
 		width: 600px;
 		height: fit-content;
 
-        >button:first-child{
-            right: 10px;
-        }
+		> button:first-child {
+			right: 10px;
+		}
 	}
 `;
 export const StyledModalBackgroud = styled.div`

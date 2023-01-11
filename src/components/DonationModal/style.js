@@ -15,9 +15,9 @@ export const StyledDonationModal = styled.div`
 	.modalWrapper {
 		background-color: #ffffff;
 		width: 696px;
-        height: 90%;
-        overflow-y: auto;
-        overflow-x: hidden;
+		height: 90%;
+		overflow-y: auto;
+		overflow-x: hidden;
 		margin: 20px 18px;
 		border-radius: 10px;
 		display: flex;
@@ -109,13 +109,13 @@ export const StyledDonationModal = styled.div`
 		margin-top: 5px;
 	}
 
-	@media (min-width: 900px) {      
-        .modalWrapper{
-            height: fit-content;
-            max-height: 90vh;
-        }
-        .donationForm{
-            grid-template-columns: 1fr 1fr;
-        }
+	@media (min-width: 900px) {
+		.modalWrapper {
+			height: fit-content;
+			max-height: 90vh;
+		}
+		.donationForm {
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 `;

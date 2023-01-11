@@ -1,4 +1,4 @@
-import { Input } from "../../components/input";
+import { Input } from "../../components/Input";
 import logImage from "../../assets/img/loginImage.png";
 import { ImageDiv, StyledLogin } from "./style";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -6,11 +6,11 @@ import { useForm } from "react-hook-form";
 import { LoginSchema } from "./loginSchema";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/Button";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
-	const { reqLogin, navigate } = useContext(AuthContext);
+	const { reqLogin } = useContext(AuthContext);
 
 	const {
 		register,
@@ -20,9 +20,9 @@ const Login = () => {
 		resolver: yupResolver(LoginSchema),
 	});
 
-	function loginForm(data) {
+	const loginForm = (data) => {
 		reqLogin(data);
-	}
+	};
 
 	return (
 		<>

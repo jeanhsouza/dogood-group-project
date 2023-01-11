@@ -1,5 +1,4 @@
-import React from "react";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
@@ -8,23 +7,25 @@ import { DashContext } from "../DashContext";
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-	const [users, setUsers] = React.useState([]);
-	const [donation, setDonation] = React.useState([]);
-	const navigate = useNavigate();
-	const { getCurrentUser } = React.useContext(DashContext);
+	const [users, setUsers] = useState([]);
+	const [donation, setDonation] = useState([]);
 	const [globalLoading, setGlobalLoading] = useState(false);
 	const [login, setLogin] = useState(null);
 
-	React.useEffect(() => {
+	const { getCurrentUser } = useContext(DashContext);
+	const navigate = useNavigate();
+
+	useEffect(() => {
 		getUsers();
+		getDonations();
 	}, []);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const token = window.localStorage.getItem("@USER:TOKEN");
 		if (token) {
-			setLogin(true)
-			navigate("/dashboard")
-		};
+			setLogin(true);
+			navigate("/dashboard");
+		}
 	}, []);
 
 	const getUsers = async () => {
@@ -44,10 +45,6 @@ export const AuthProvider = ({ children }) => {
 			setGlobalLoading(false);
 		}
 	};
-
-	React.useEffect(() => {
-		getDonations();
-	}, []);
 
 	const getDonations = async () => {
 		try {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AnimatedBanner from "../../../../components/AnimatedBanner";
 import { AuthContext } from "../../../../context/AuthContext";
 import { StyledHomeList, StyledHomeCard } from "./style";
@@ -13,9 +13,14 @@ const HomeList = () => {
 	};
 
 	const findRaised = (id) => {
-		const user = donation.filter((user)=> user.userId === id || user.userId === id.toLocaleString());
-		const totalRaised = user.reduce((acc, actValue) => acc + +actValue.raised, 0)
-		return totalRaised ? totalRaised  : 0;
+		const user = donation.filter(
+			(user) => user.userId === id || user.userId === id.toLocaleString()
+		);
+		const totalRaised = user.reduce(
+			(acc, actValue) => acc + +actValue.raised,
+			0
+		);
+		return totalRaised ? totalRaised : 0;
 	};
 
 	return (

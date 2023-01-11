@@ -1,13 +1,9 @@
 import styled from "styled-components";
 export const StyledPosts = styled.section`
 	padding-bottom: 60px;
-	@font-face {
-		font-family: Anton;
-		src: url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
-	}
 
 	* {
-		font-family: Anton;
+		font-family: var(--font-family-1);
 	}
 	margin: 0 40px;
 	flex-wrap: wrap;

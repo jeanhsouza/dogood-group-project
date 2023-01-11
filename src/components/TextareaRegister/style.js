@@ -22,8 +22,8 @@ export const Label = styled.label`
 `;
 
 export const StyledTextareaRegister = styled.textarea`
-	outline: none;	
-  font-size: inherit;
+	outline: none;
+	font-size: inherit;
 	font-weight: var(--font-weight-3);
 	width: 90%;
 	border-bottom: 2px solid var(--black100);

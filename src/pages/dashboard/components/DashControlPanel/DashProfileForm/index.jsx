@@ -1,21 +1,21 @@
 import { BiEditAlt } from "react-icons/bi";
-import { Input } from "../../../../../components/input";
+import { Input } from "../../../../../components/Input";
 import { StyledButton } from "../../../../../styles/buttons";
 import { StyledDashProfileForm } from "./style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { profileUpdateSchema } from "./profileUpdateSchema";
 import Textarea from "../../../../../components/TextArea";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { DashContext } from "../../../../../context/DashContext";
 import { AuthContext } from "../../../../../context/AuthContext";
 
 const DashProfileForm = () => {
 	const [editActive, setEditActive] = useState(true);
 	const [loadingUpdateUser, setLoadingUpdateUser] = useState(false);
-	const { getUsers } = useContext(AuthContext)
-	const { updateUser, currentUser} = useContext(DashContext);
-	
+	const { getUsers } = useContext(AuthContext);
+	const { updateUser, currentUser } = useContext(DashContext);
+
 	const unlockEditProfile = () => {
 		setEditActive(!editActive);
 	};
@@ -29,10 +29,10 @@ const DashProfileForm = () => {
 		resolver: yupResolver(profileUpdateSchema),
 	});
 
-	function submit(data) {
+	const submit = (data) => {
 		updateUser(data, setLoadingUpdateUser);
 		getUsers();
-	}
+	};
 
 	return (
 		<StyledDashProfileForm block={editActive}>
@@ -67,42 +67,43 @@ const DashProfileForm = () => {
 						/>
 					</div>
 
-                    <div>
-                        <Input
-                            placeholder="Confirme a sua senha"
-                            name="password"
-                            type="password"
-                            error={errors}
-                            defaultValue=""
-                            {...register("password")}
-                        />
-                        <Input
-                            placeholder="Link da imagem"
-                            name="image"
-                            type="text"
-                            error={errors}
-                            defaultValue={currentUser?.image}
-                            {...register("image")}
-                        />
-                    </div>
-                </div>
-                <Textarea
-                    placeholder="Fale sobre sua instituição"
-                    id="description"
-                    label="SOBRE"
-                    error={errors.description}
-                    defaultValue={currentUser?.description}
-                    {...register("description")}/>
-                <StyledButton
-                    type="submit"
-                    buttonSize="medium"
-                    buttonStyle="dashSubmit">
-                    ATUALIZAR INFORMAÇÕES
-                </StyledButton>
-            </form>
-        </StyledDashProfileForm>
-    );
-
+					<div>
+						<Input
+							placeholder="Confirme a sua senha"
+							name="password"
+							type="password"
+							error={errors}
+							defaultValue=""
+							{...register("password")}
+						/>
+						<Input
+							placeholder="Link da imagem"
+							name="image"
+							type="text"
+							error={errors}
+							defaultValue={currentUser?.image}
+							{...register("image")}
+						/>
+					</div>
+				</div>
+				<Textarea
+					placeholder="Fale sobre sua instituição"
+					id="description"
+					label="SOBRE"
+					error={errors.description}
+					defaultValue={currentUser?.description}
+					{...register("description")}
+				/>
+				<StyledButton
+					type="submit"
+					buttonSize="medium"
+					buttonStyle="dashSubmit"
+				>
+					ATUALIZAR INFORMAÇÕES
+				</StyledButton>
+			</form>
+		</StyledDashProfileForm>
+	);
 };
 
 export default DashProfileForm;

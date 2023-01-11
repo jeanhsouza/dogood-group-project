@@ -1,16 +1,17 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import PostsList from "../../components/Posts";
-import ProfileHeader from "./profileHeader";
+import ProfileHeader from "./components/profileHeader";
 import StyledProfile from "./style";
 import { useParams } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
 import DonationModal from "../../components/DonationModal";
-import ProfilePostModal from "./profilePostModal";
+import ProfilePostModal from "./components/profilePostModal";
+import { AuthContext } from "../../context/AuthContext";
 import { DashContext } from "../../context/DashContext";
 import Footer from "../home/components/HomeFooter";
 
 const Profile = () => {
-	const { users, donation } = React.useContext(AuthContext);
+	const [showModal, setShowModal] = useState(false);
+	const { users, donation } = useContext(AuthContext);
 	const { openProfilePost, modalPost } = useContext(DashContext);
 	const { id } = useParams();
 
@@ -23,11 +24,9 @@ const Profile = () => {
 		0
 	);
 
-	const [showModal, setShowModal] = useState(false);
-
-	function openModal() {
+	const openModal = () => {
 		setShowModal(!showModal);
-	}
+	};
 
 	return (
 		<StyledProfile>

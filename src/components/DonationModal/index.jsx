@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { StyledDonationModal } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../context/AuthContext";
-import { Input } from "../input";
-import { donateSchema } from "./DonationSchema";
+import { Input } from "../Input";
+import { donateSchema } from "./donationSchema";
 
 const DonationModal = ({ openModal, setShowModal, user }) => {
-	const { getDonations } = useContext(AuthContext);	
+	const { getDonations } = useContext(AuthContext);
 
 	const {
 		register,
@@ -19,12 +19,12 @@ const DonationModal = ({ openModal, setShowModal, user }) => {
 		resolver: yupResolver(donateSchema),
 	});
 
-	async function donate(data) {
+	const donate = async (data) => {
 		try {
-			const response = await toast.promise(api.post("/donations", data),{
-				pending:"Estamos realizando a doação...",
-				success:"Doação realizada com sucesso!",
-				error:"Ops! Sua doação não pode ser efetuada",
+			const response = await toast.promise(api.post("/donations", data), {
+				pending: "Estamos realizando a doação...",
+				success: "Doação realizada com sucesso!",
+				error: "Ops! Sua doação não pode ser efetuada",
 			});
 			getDonations();
 			setShowModal(false);
@@ -32,7 +32,7 @@ const DonationModal = ({ openModal, setShowModal, user }) => {
 			console.error(error);
 		} finally {
 		}
-	}
+	};
 
 	return (
 		<StyledDonationModal>

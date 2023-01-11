@@ -1,13 +1,13 @@
 import { StyledHomeContact } from "./style";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 const HomeContact = () => {
-
 	const handleFormContact = (e) => {
 		e.preventDefault();
-		toast.success("Obrigado pela sua mensagem. Em breve, entraremos em contato")
-		
-	}
+		toast.success(
+			"Obrigado pela sua mensagem. Em breve, entraremos em contato"
+		);
+	};
 
 	return (
 		<StyledHomeContact>

@@ -1,7 +1,6 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
-import { AuthContext } from "../AuthContext";
 
 export const DashContext = createContext({});
 export const DashProvider = ({ children }) => {
@@ -15,9 +14,9 @@ export const DashProvider = ({ children }) => {
 
 	const idLocal = localStorage.getItem("@USER:ID");
 	const token = window.localStorage.getItem("@USER:TOKEN");
-    api.defaults.headers.common.authorization = `Bearer ${token}`;
+	api.defaults.headers.common.authorization = `Bearer ${token}`;
 
-	async function deletePost() {
+	const deletePost = async () => {
 		try {
 			const data = await api.delete(`/posts/${idPost}`);
 			setModal(false);
@@ -25,17 +24,17 @@ export const DashProvider = ({ children }) => {
 		} catch (err) {
 			console.error(err);
 		}
-	}
+	};
 
-	function openModal(e) {
+	const openModal = (e) => {
 		setModal(true);
 		setId(+e.target.id);
-	}
+	};
 
-	function openProfilePost(e) {
+	const openProfilePost = (e) => {
 		setModalPost(!modalPost);
 		setIdProfilePost(+e.target.id);
-	}
+	};
 
 	const createPost = async (data, setLoadingPost) => {
 		const token = localStorage.getItem("@USER:TOKEN");
@@ -96,10 +95,10 @@ export const DashProvider = ({ children }) => {
 		}
 	};
 
-	async function loadPosts(id) {
+	const loadPosts = async (id) => {
 		const { data } = await api.get(`/users/${id}?_embed=posts`);
 		setPosts(data.posts);
-	}
+	};
 
 	return (
 		<DashContext.Provider

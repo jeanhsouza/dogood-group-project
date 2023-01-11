@@ -5,12 +5,12 @@ import Profile from "../pages/profile";
 import Login from "../pages/login";
 import Register from "../pages/register";
 import AsideMenu from "../components/AsideMenu";
-import Header from "../components/Header/Header";
+import Header from "../components/Header";
 import { Container } from "../styles/container";
-import ScrollToTop from "./ScrollToTop";
-import ProtectedRoute from "./ProtectedRoute";
+import ScrollToTop from "./scrollToTop";
+import ProtectedRoute from "./protectedRoute";
 
-export function RoutesMain() {
+export const RoutesMain = () => {
 	return (
 		<>
 			<ScrollToTop />
@@ -35,4 +35,4 @@ export function RoutesMain() {
 			</Container>
 		</>
 	);
-}
+};
