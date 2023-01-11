@@ -35,7 +35,7 @@ const Register = () => {
 				<div className="form-div">
 					<Input
 						placeholder="Nome"
-						id="name"
+						name="name"
 						type="text"
 						error={errors.name}
 						{...register("name")}
@@ -43,14 +43,14 @@ const Register = () => {
 
 					<Input
 						placeholder="Email"
-						id="email"
+						name="email"
 						type="email"
 						error={errors.email}
 						{...register("email")}
 					/>
 					<Input
 						placeholder="Senha"
-						id="password"
+						name="password"
 						type="password"
 						error={errors.password}
 						{...register("password")}
@@ -58,7 +58,7 @@ const Register = () => {
 
 					<Input
 						placeholder="Meta a alcançar em reais"
-						id="number"
+						name="number"
 						type="text"
 						error={errors.goal}
 						{...register("goal")}
@@ -66,7 +66,7 @@ const Register = () => {
 
 					<Input
 						placeholder="Link da imagem"
-						id="image"
+						name="image"
 						type="text"
 						error={errors.image}
 						{...register("image")}
