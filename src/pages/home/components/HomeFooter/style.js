@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledFooter = styled.footer`
 	background-color: var(--primary200);
 	color: var(--primary100);
-	height: 110px;
+	height: 140px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -13,9 +13,4 @@ export const StyledFooter = styled.footer`
 	font-family: var(--font-family-2);
 	font-weight: var(--font-weight-2);
 	font-size: var(--font-size-4);
-
-	@media (min-width: 900px) {
-		position: absolute;
-		bottom: 0;
-	}
 `;

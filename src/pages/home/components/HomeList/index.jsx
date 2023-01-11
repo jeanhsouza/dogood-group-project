@@ -1,82 +1,64 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import AnimatedBanner from "../../../../components/AnimatedBanner";
+import { AuthContext } from "../../../../context/AuthContext";
 import { StyledHomeList, StyledHomeCard } from "./style";
 
-const HomeList = ({ users }) => {
-	// const { name, description, img , id} = users;
-	const user = [
-		{
-			id: 10,
-			name: "Nome da ong",
-			description: "lorem ipsum dolor sit amet, lorem ipsum",
-			img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-			raised: 30000,
-			goal: 50000,
-		},
+const HomeList = () => {
+	const { users, donation } = React.useContext(AuthContext);
 
-		{
-			id: 20,
-			name: "Nome da ong",
-			description: "lorem ipsum dolor sit amet, lorem ipsum",
-			img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-			raised: 60000,
-			goal: 50000,
-		},
-		{
-			id: 30,
-			name: "Nome da ong",
-			description: "lorem ipsum dolor sit amet, lorem ipsum",
-			img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-			raised: 60000,
-			goal: 50000,
-		},
+	const calculatePercentage = (raised, goal) => {
+		const result = (raised / goal) * 100;
+		return result >= 100 ? 100 : Math.floor(result);
+	};
 
-		{
-			id: 40,
-			name: "Nome da ong",
-			description: "lorem ipsum dolor sit amet, lorem ipsum",
-			img: "https://dogood.qodeinteractive.com/wp-content/uploads/2022/04/causes-single-img10.jpg",
-			raised: 30000,
-			goal: 150000,
-		},
-	];
+	const findRaised = (id) => {
+		const user = donation.filter(
+			(user) => user.userId === id || user.userId === id.toLocaleString()
+		);
+		const totalRaised = user.reduce(
+			(acc, actValue) => acc + +actValue.raised,
+			0
+		);
+		return totalRaised ? totalRaised : 0;
+	};
 
 	return (
 		<>
 			<StyledHomeList>
 				<h1>ESCOLHA SUA CAUSA</h1>
 				<ul>
-					{user.map(({ name, id, description, img, raised, goal }) => {
-						const validatePercentage = (raised, goal) => {
-							const result = (raised / goal) * 100;
-							return result >= 100 ? 100 : result;
-						};
-
+					{users.map(({ name, id, description, image, goal }) => {
 						return (
 							<StyledHomeCard as={Link} to={`/profile/${id}`} key={id}>
 								<li className="card">
-									<div className="card-header">
-										<img src={img} alt={name} />
+									<div className="cardHeader">
+										<img src={image} alt={name} />
 										<span className="cta">MAIS SOBRE</span>
 									</div>
-									<div className="card-body">
+									<div className="cardBody">
 										<h2>{name}</h2>
 										<p>{description}</p>
 									</div>
-									<div className="card-footer">
+									<div className="cardFooter">
 										<span className="percentage">
-											{validatePercentage(raised, goal)}%
+											{calculatePercentage(findRaised(id), goal)}%
 											<span
-												className="bar-color"
+												className="barColor"
 												style={{
-													width: `${validatePercentage(raised, goal)}%`,
+													width: `${calculatePercentage(
+														findRaised(id),
+														goal
+													)}%`,
 												}}
 											/>
-											<span className="bar-grey" />
+											<span className="barGrey" />
 										</span>
 										<div className="stats">
-											<span>Arrecadados: ${raised.toLocaleString()}</span>
-											<span>Meta: ${goal.toLocaleString()}</span>
+											<span>
+												Arrecadados: ${findRaised(id)?.toLocaleString()}
+											</span>
+											<span>Meta: ${(+goal)?.toLocaleString()}</span>
 										</div>
 									</div>
 								</li>

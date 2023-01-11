@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledHomeList = styled.section`
 	padding: 40px 30px;
 
-	h1 {
+	> h1 {
 		font-size: 2rem;
 		letter-spacing: 2px;
 		font-family: var(--font-family-1);
@@ -11,7 +11,7 @@ export const StyledHomeList = styled.section`
 		margin-bottom: 20px;
 	}
 
-	ul {
+	> ul {
 		padding-right: 10px;
 		padding-bottom: 10px;
 		display: flex;
@@ -31,14 +31,14 @@ export const StyledHomeList = styled.section`
 	@media (min-width: 780px) {
 		padding: 80px 60px;
 
-		ul {
+		> ul {
 			padding-right: 10px;
 			gap: 60px;
 		}
 	}
 
 	@media (min-width: 400px) {
-		h1 {
+		> h1 {
 			font-size: 2.5rem;
 		}
 	}
@@ -60,26 +60,20 @@ export const StyledHomeCard = styled.a`
 		transition: 0.5s ease;
 	}
 
-	.card-header {
+	.cardHeader {
 		position: relative;
 		overflow: hidden;
+		height: 250px;
 
-		&:hover {
-			span {
-				transform: translateY(0);
-			}
-		}
-
-		img {
+		> img {
 			z-index: 5;
 			transition: 0.5s ease;
-
-			&:hover {
-				transform: scale(1.1);
-			}
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
 		}
 
-		span {
+		> span {
 			transition: 0.3s ease;
 			position: absolute;
 			bottom: 0;
@@ -90,29 +84,35 @@ export const StyledHomeCard = styled.a`
 			z-index: 10;
 			width: 100%;
 			font-family: var(--font-family-1);
-			transform: translateY(100%);
 			text-align: center;
 			color: var(--primary100);
 			background-color: var(--primary200);
 		}
 	}
 
-	.card-body {
-		h2 {
+	.cardBody {
+		> h2 {
 			color: var(--black100);
 			font-size: 1.3rem;
 			font-weight: bold;
 			margin-bottom: 10px;
 		}
 
-		p {
+		> p {
 			font-size: 0.875rem;
 			font-family: var(--font-family-2);
 			color: var(--black100);
+			display: block;
+			display: -webkit-box;
+			max-width: 50ch;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 	}
 
-	.card-footer {
+	.cardFooter {
 		display: flex;
 		flex-direction: column;
 		gap: 26px;
@@ -124,7 +124,7 @@ export const StyledHomeCard = styled.a`
 			position: relative;
 		}
 
-		.bar-grey {
+		.barGrey {
 			position: absolute;
 			left: 0;
 			bottom: -10px;
@@ -133,7 +133,7 @@ export const StyledHomeCard = styled.a`
 			background-color: #d9d9d9;
 		}
 
-		.bar-color {
+		.barColor {
 			position: absolute;
 			left: 0;
 			bottom: -10px;
@@ -156,6 +156,26 @@ export const StyledHomeCard = styled.a`
 	@keyframes percentage {
 		from {
 			width: 0%;
+		}
+	}
+
+	@media (min-width: 700px) {
+		.cardHeader img:hover {
+			transform: scale(1.1);
+		}
+
+		.cardHeader {
+			&:hover {
+				> span {
+					transform: translateY(0);
+				}
+			}
+		}
+	}
+
+	.cardHeader {
+		> span {
+			transform: translateY(100%);
 		}
 	}
 `;
